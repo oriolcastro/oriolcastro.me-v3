@@ -1,15 +1,29 @@
 import React from "react";
 import Helmet from "react-helmet";
-
+import { StaticQuery, graphql } from "gatsby";
+import "semantic-ui-css/semantic.min.css";
+import { Container } from "semantic-ui-react";
 import Navbar from "../components/Navbar";
-import "../styles/all.sass";
 
 const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet title="Home | Gatsby + Netlify CMS" />
-    <Navbar />
-    <div>{children}</div>
-  </div>
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <Helmet title={data.site.siteMetadata.title} />
+        <Navbar />
+        <Container text>{children}</Container>
+      </>
+    )}
+  />
 );
 
 export default TemplateWrapper;

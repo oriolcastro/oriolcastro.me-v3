@@ -1,41 +1,19 @@
 import React from "react";
 import { Link } from "gatsby";
-
-import github from "../img/github-icon.svg";
-import logo from "../img/logo.svg";
+import { Menu, Container } from "semantic-ui-react";
 
 const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
-          </figure>
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            <img src={github} alt="Github" />
-          </span>
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Menu size="massive" borderless style={{ borderRadius: "inherit" }}>
+    <Container text>
+      <Menu.Item header as={Link} to={"/"}>
+        Oriol Castro
+      </Menu.Item>
+      <Menu.Menu position="right">
+        <Menu.Item name="Sobre mi" as={Link} to="/about" />
+        <Menu.Item name="Blog" as={Link} to="/" />
+      </Menu.Menu>
+    </Container>
+  </Menu>
 );
 
 export default Navbar;

@@ -1,10 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: "Oriol Castro Blog"
+    title: "Oriol Castro"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static/img`,
+        name: "uploads"
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -24,13 +31,25 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: []
-      }
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`
+        plugins: [
+          `gatsby-remark-prismjs`,
+          "gatsby-remark-embed-spotify",
+          {
+            resolve: `gatsby-remark-relative-images-v2`
+          },
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 650,
+              withWebp: true,
+              linkImagesToOriginal: false,
+              quality: 75
+            }
+          },
+          {
+            resolve: "gatsby-remark-external-links"
+          }
+        ]
       }
     },
     {

@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
+import { Header, Label, Card, Container } from "semantic-ui-react";
 import Layout from "../components/layout";
+import Profile from "../components/Profile";
+import { kebabCase } from "lodash";
 
 export default class IndexPage extends React.Component {
   render() {
@@ -10,7 +13,38 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <h3>Hola!</h3>
+        <Profile isBlogPost={false} />
+        <Header as="h1" dividing>
+          Últims articles
+        </Header>
+        <Container>
+          <Card.Group itemsPerRow="2" stackable>
+            {posts.map(({ node: post }) => (
+              <Card key={post.id}>
+                <Card.Content>
+                  <Card.Header>
+                    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                  </Card.Header>
+                  <Card.Meta>{post.frontmatter.date}</Card.Meta>
+                  <Card.Description>
+                    {post.excerpt}
+                    <br />
+                    <Link to={post.fields.slug}>Llegeix més</Link>
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  {post.frontmatter.tags.map(tag => (
+                    <Link to={`/tags/${kebabCase(tag)}/`}>
+                      <Label as="a" tag style={{ margin: "8px" }}>
+                        {tag}
+                      </Label>
+                    </Link>
+                  ))}
+                </Card.Content>
+              </Card>
+            ))}
+          </Card.Group>
+        </Container>
       </Layout>
     );
   }
@@ -29,10 +63,11 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      limit: 4
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
+          excerpt(pruneLength: 200)
           id
           fields {
             slug
@@ -40,7 +75,8 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD MMMM YYYY", locale: "ca")
+            tags
           }
         }
       }

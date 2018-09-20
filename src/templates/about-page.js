@@ -1,26 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import { Header } from "semantic-ui-react";
 import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
+import { Helmet } from "react-helmet";
 
 export const AboutPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
   return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <>
+      <Header as="h1">{title}</Header>
+      <PageContent className="content" content={content} />
+    </>
   );
 };
 AboutPageTemplate.propTypes = {
@@ -34,6 +26,9 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{data.site.siteMetadata.title} - Sobre mi</title>
+      </Helmet>
       <AboutPageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
@@ -54,6 +49,11 @@ export const aboutPageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
+        title
+      }
+    }
+    site {
+      siteMetadata {
         title
       }
     }

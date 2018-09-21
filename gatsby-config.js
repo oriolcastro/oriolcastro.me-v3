@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: "Oriol Castro",
     description: "Blog personal on escric sobre tecnologia i canvi social.",
-    siteURL: "https://oriolcastro.me"
+    siteUrl: "https://oriolcastro.me"
   },
   plugins: [
     "gatsby-plugin-react-helmet",

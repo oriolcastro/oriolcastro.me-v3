@@ -14,7 +14,7 @@ export default class IndexPage extends React.Component {
     return (
       <Layout>
         <Profile isBlogPost={false} />
-        <Header as="h1" dividing>
+        <Header as="h1" dividing style={{ marginBottom: "24px" }}>
           Últims articles
         </Header>
         <Container>

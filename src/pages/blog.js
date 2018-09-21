@@ -13,7 +13,9 @@ const BlogPage = ({ data }) => {
       <Helmet>
         <title>{data.site.siteMetadata.title} - Blog</title>
       </Helmet>
-      <Header as="h1">Blog</Header>
+      <Header as="h1" style={{ marginBottom: "24px" }}>
+        Blog
+      </Header>
       <Card.Group itemsPerRow="1" stackable>
         {posts.map(({ node: post }) => (
           <Card key={post.id}>
@@ -25,7 +27,7 @@ const BlogPage = ({ data }) => {
               <Card.Description style={{ textAlign: "justify" }}>
                 {post.excerpt}
                 <br />
-                <Link to={post.fields.slug}>Llegeix més</Link>
+                <Link to={post.fields.slug}>Continua llegint</Link>
               </Card.Description>
             </Card.Content>
             <Card.Content extra>

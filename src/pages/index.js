@@ -26,7 +26,7 @@ export default class IndexPage extends React.Component {
                     <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
                   </Card.Header>
                   <Card.Meta>{post.frontmatter.date}</Card.Meta>
-                  <Card.Description>
+                  <Card.Description className="cardDescription">
                     {post.excerpt}
                     <br />
                     <Link to={post.fields.slug}>Llegeix més</Link>

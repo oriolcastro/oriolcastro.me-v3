@@ -5,6 +5,8 @@ import "semantic-ui-css/semantic.min.css";
 import { Container } from "semantic-ui-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import "../styles/global.css";
+
 const TemplateWrapper = ({ children }) => (
   <StaticQuery
     query={graphql`

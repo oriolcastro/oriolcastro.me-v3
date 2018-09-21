@@ -27,7 +27,7 @@ export const BlogPostTemplate = ({
         <Header.Subheader>{description}</Header.Subheader>
       </Header>
 
-      <PostContent content={content} />
+      <PostContent content={content} className="blogContent" />
       {tags && tags.length ? (
         <div style={{ marginTop: `4rem`, marginBottom: "4rem" }}>
           <Header as="h4">Etiquetes</Header>

@@ -1,41 +1,27 @@
-import React from 'react'
-import Link from 'gatsby-link'
-
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
-
+import React from "react";
+import { Link } from "gatsby";
+import { Menu, Container, Icon } from "semantic-ui-react";
+import Emoji from "./Emoji";
 const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          <figure className="image">
-            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </figure>
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <a
-          className="navbar-item"
-          href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="icon">
-            <img src={github} alt="Github" />
-          </span>
-        </a>
-      </div>
-    </div>
-  </nav>
-)
+  <Menu
+    size="massive"
+    borderless
+    style={{ borderRadius: "inherit", marginBottom: "4rem" }}
+  >
+    <Container text>
+      <Menu.Item header as={Link} to={"/"}>
+        <Emoji symbol="👌" label="ok" /> Oriol Castro
+      </Menu.Item>
+      <Menu.Menu position="right">
+        <Menu.Item as={Link} to="/about">
+          Sobre mi
+        </Menu.Item>
+        <Menu.Item as={Link} to="/blog">
+          Blog
+        </Menu.Item>
+      </Menu.Menu>
+    </Container>
+  </Menu>
+);
 
-export default Navbar
+export default Navbar;

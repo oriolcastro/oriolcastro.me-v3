@@ -1,9 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
+import { graphql, Link } from "gatsby";
+import { Header, Label } from "semantic-ui-react";
+
+import { kebabCase } from "lodash";
+
+import Profile from "../components/Profile";
+import Content, { HTMLContent } from "../components/Content";
+import Layout from "../components/layout";
 
 export const BlogPostTemplate = ({
   content,
@@ -11,70 +16,66 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
-  helmet,
+  helmet
 }) => {
-  const PostContent = contentComponent || Content
-
+  const PostContent = contentComponent || Content;
   return (
-    <section className="section">
-      {helmet || ''}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+    <>
+      {helmet || ""}
+      <Header as="h1">
+        {title}
+        <Header.Subheader>{description}</Header.Subheader>
+      </Header>
 
+      <PostContent content={content} className="blogContent" />
+      {tags && tags.length ? (
+        <div style={{ marginTop: `4rem`, marginBottom: "4rem" }}>
+          <Header as="h4">Etiquetes</Header>
+          {tags.map(tag => (
+            <Link to={`/tags/${kebabCase(tag)}/`}>
+              <Label as="a" tag style={{ margin: "8px" }}>
+                {tag}
+              </Label>
+            </Link>
+          ))}
+        </div>
+      ) : null}
+    </>
+  );
+};
 BlogPostTemplate.propTypes = {
-  content: PropTypes.string.isRequired,
+  content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
-}
+  helmet: PropTypes.instanceOf(Helmet)
+};
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
-    <BlogPostTemplate
-      content={post.html}
-      contentComponent={HTMLContent}
-      description={post.frontmatter.description}
-      helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
-      tags={post.frontmatter.tags}
-      title={post.frontmatter.title}
-    />
-  )
-}
+    <Layout>
+      <BlogPostTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        description={post.frontmatter.description}
+        helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+      />
+      <Profile isBlogPost={true} />
+    </Layout>
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -82,11 +83,11 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM DD YYYY", locale: "ca")
         title
         description
         tags
       }
     }
   }
-`
+`;

@@ -1,16 +1,43 @@
 import React from "react";
 import { Grid, Image, Header, Icon } from "semantic-ui-react";
+import { StaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
 import ProfilePic from "../img/me.jpg";
 
 const Profile = ({ isBlogPost }) => {
   return (
     <Grid columns={2} centered verticalAlign="middle">
       <Grid.Column computer={6} tablet={6} mobile={10}>
-        {isBlogPost ? (
-          <Image src={ProfilePic} rounded size="small" centered />
-        ) : (
-          <Image src={ProfilePic} circular fluid />
-        )}
+        <StaticQuery
+          query={graphql`
+            query ProfileQuery {
+              profileImage: imageSharp(original: { src: { regex: "/me/" } }) {
+                fluid(maxWidth: 650) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
+          `}
+          render={data => (
+            <>
+              {isBlogPost ? (
+                <Img
+                  fluid={data.profileImage.fluid}
+                  title="My profile"
+                  alt="La meva foto de perfil"
+                  className="profileImageSmall"
+                />
+              ) : (
+                <Img
+                  fluid={data.profileImage.fluid}
+                  title="My profile"
+                  alt="La meva foto de perfil"
+                  className="profileImageCircular"
+                />
+              )}
+            </>
+          )}
+        />
       </Grid.Column>
       <Grid.Column computer={8} tablet={8} mobile={14}>
         {isBlogPost ? (

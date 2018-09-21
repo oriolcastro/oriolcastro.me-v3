@@ -4,3 +4,10 @@
 .cardDescription {
   text-align: justify;
 }
+.profileImageCircular {
+  border-radius: 500rem;
+}
+.profileImageSmall {
+  width: 60%;
+  margin: auto;
+}

@@ -1,10 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: "Oriol Castro"
+    title: "Oriol Castro",
+    description: "Blog personal on escric sobre tecnologia i canvi social.",
+    siteURL: "https://oriolcastro.me"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
+    "gatsby-plugin-feed",
+    "gatsby-plugin-robots-txt",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -58,6 +61,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`
       }
     },
+    "gatsby-plugin-offline",
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ]
 };

@@ -11,3 +11,6 @@
   width: 60%;
   margin: auto;
 }
+.pageContent p {
+  text-align: justify;
+}

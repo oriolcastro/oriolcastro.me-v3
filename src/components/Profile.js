@@ -1,8 +1,7 @@
 import React from "react";
-import { Grid, Image, Header, Icon } from "semantic-ui-react";
+import { Grid, Header, Icon } from "semantic-ui-react";
 import { StaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import ProfilePic from "../img/me.jpg";
 
 const Profile = ({ isBlogPost }) => {
   return (

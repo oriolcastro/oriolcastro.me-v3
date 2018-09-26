@@ -1,6 +1,14 @@
 import React from "react";
 import { Grid, Header, Icon } from "semantic-ui-react";
 import { StaticQuery, graphql } from "gatsby";
+import { IconContext } from "react-icons";
+import {
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope
+} from "react-icons/fa";
 import Img from "gatsby-image";
 
 const Profile = ({ isBlogPost }) => {
@@ -72,34 +80,45 @@ const Profile = ({ isBlogPost }) => {
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            <Icon name="twitter" circular link />
+            {/* //<Icon name="twitter" circular link /> */}
+            <IconContext.Provider value={{ className: "iconCircular" }}>
+              <FaTwitter />
+            </IconContext.Provider>
           </a>
           <a
             href="https://www.instagram.com/oriolcastro_/"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            <Icon name="instagram" circular link />
+            <IconContext.Provider value={{ className: "iconCircular" }}>
+              <FaInstagram />
+            </IconContext.Provider>
           </a>
           <a
             href="https://www.linkedin.com/in/oriolcaar/"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            <Icon name="linkedin" circular link />
+            <IconContext.Provider value={{ className: "iconCircular" }}>
+              <FaLinkedin />
+            </IconContext.Provider>
           </a>
           <a
             href="https://github.com/oriolcastro"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            <Icon name="github" circular link />
+            <IconContext.Provider value={{ className: "iconCircular" }}>
+              <FaGithub />
+            </IconContext.Provider>
           </a>
           <a
             href="mailto:uri@oriolcastro.me"
             rel="nofollow noopener noreferrer"
           >
-            <Icon name="envelope" circular link />
+            <IconContext.Provider value={{ className: "iconCircular" }}>
+              <FaEnvelope />
+            </IconContext.Provider>
           </a>
         </div>
       </Grid.Column>

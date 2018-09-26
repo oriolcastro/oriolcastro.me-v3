@@ -1,5 +1,8 @@
 import React from "react";
 import { Container, Icon } from "semantic-ui-react";
+import { FaHeart, FaCode } from "react-icons/fa";
+import { IconContext } from "react-icons";
+
 const Footer = () => (
   <Container
     text
@@ -9,9 +12,16 @@ const Footer = () => (
       borderTop: "solid 1px gray "
     }}
   >
-    Made with <Icon name="heart" color="red" /> in Vilanova.
+    Made with{" "}
+    <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+      <FaHeart color="red" />
+    </IconContext.Provider>{" "}
+    in Vilanova.
     <br />
-    <Icon name="code" color="blue" /> using{" "}
+    <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+      <FaCode color="#4183c4" />
+    </IconContext.Provider>{" "}
+    using{" "}
     <a
       href="https://www.gatsbyjs.org/"
       target="_blank"

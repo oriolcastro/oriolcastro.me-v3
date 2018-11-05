@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Icon } from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import { FaHeart, FaCode } from "react-icons/fa";
 import { IconContext } from "react-icons";
 

@@ -3,13 +3,13 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import { Header, Label } from "semantic-ui-react";
-
 import { kebabCase } from "lodash";
 
 import Profile from "../components/Profile";
 import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
 import PostLinks from "../components/PostLinks";
+import SocialShare from "../components/SocialShare";
 
 export const BlogPostTemplate = ({
   content,
@@ -57,6 +57,7 @@ const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
   const previous = pageContext.prev;
   const next = pageContext.next;
+  const url = `https://oriolcastro.me${pageContext.slug}`;
   return (
     <Layout>
       <BlogPostTemplate
@@ -66,6 +67,11 @@ const BlogPost = ({ data, pageContext }) => {
         helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+      />
+      <SocialShare
+        url={url}
+        title={post.frontmatter.title}
+        hastags={post.frontmatter.tags}
       />
       <PostLinks previous={previous} next={next} />
       <Profile isBlogPost={true} />

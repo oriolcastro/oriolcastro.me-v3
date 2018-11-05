@@ -34,6 +34,7 @@ exports.createPages = ({ actions, graphql }) => {
       const id = edge.node.id;
       const prev = i === 0 ? null : posts[i - 1].node;
       const next = i === posts.length - 1 ? null : posts[i + 1].node;
+      const slug = edge.node.fields.slug;
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -44,7 +45,8 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           id,
           prev,
-          next
+          next,
+          slug
         }
       });
     });

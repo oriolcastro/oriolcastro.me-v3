@@ -9,6 +9,7 @@ import { kebabCase } from "lodash";
 import Profile from "../components/Profile";
 import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
+import PostLinks from "../components/PostLinks";
 
 export const BlogPostTemplate = ({
   content,
@@ -19,6 +20,7 @@ export const BlogPostTemplate = ({
   helmet
 }) => {
   const PostContent = contentComponent || Content;
+
   return (
     <>
       {helmet || ""}
@@ -51,9 +53,10 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.instanceOf(Helmet)
 };
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
-
+  const previous = pageContext.prev;
+  const next = pageContext.next;
   return (
     <Layout>
       <BlogPostTemplate
@@ -64,6 +67,7 @@ const BlogPost = ({ data }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />
+      <PostLinks previous={previous} next={next} />
       <Profile isBlogPost={true} />
     </Layout>
   );

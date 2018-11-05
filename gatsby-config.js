@@ -1,8 +1,10 @@
+const config = require("./src/meta/siteConfig");
+
 module.exports = {
   siteMetadata: {
-    title: "Oriol Castro",
-    description: "Blog personal on escric sobre tecnologia i canvi social.",
-    siteUrl: "https://oriolcastro.me"
+    title: config.siteTitle,
+    description: config.siteDescription,
+    siteUrl: config.siteUrl
   },
   plugins: [
     "gatsby-plugin-react-helmet",

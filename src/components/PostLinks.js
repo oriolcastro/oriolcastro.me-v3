@@ -15,20 +15,20 @@ const PostLinks = props => {
     >
       {props.previous && (
         <Link to={props.previous.fields.slug}>
-          <Button primary>
+          <Button primary size="small">
             <IconContext.Provider
               value={{ style: { verticalAlign: "middle", marginRight: "8px" } }}
             >
               <FaArrowLeft />
             </IconContext.Provider>
-            Anterior article
+            Publicació anterior
           </Button>
         </Link>
       )}
       {props.next && (
         <Link to={props.next.fields.slug}>
-          <Button primary>
-            Següent article
+          <Button primary size="small">
+            Pròxima publicació
             <IconContext.Provider
               value={{ style: { verticalAlign: "middle", marginLeft: "8px" } }}
             >

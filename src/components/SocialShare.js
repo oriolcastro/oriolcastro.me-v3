@@ -21,7 +21,7 @@ const SocialShare = props => {
         style={{ display: "flex", flexDirection: "row", marginBottom: "36px" }}
       >
         <FacebookShareButton quote={props.title} url={props.url}>
-          <FacebookIcon round size={48} />
+          <FacebookIcon round size={36} />
         </FacebookShareButton>
         <TwitterShareButton
           title={props.title}
@@ -29,16 +29,16 @@ const SocialShare = props => {
           via="Oriolcastro_"
           url={props.url}
         >
-          <TwitterIcon round size={48} />
+          <TwitterIcon round size={36} />
         </TwitterShareButton>
         <WhatsappShareButton title={props.title} url={props.url}>
-          <WhatsappIcon round size={48} />
+          <WhatsappIcon round size={36} />
         </WhatsappShareButton>
         <EmailShareButton
           subject={`Mira aquest article interessant - ${props.title}`}
           url={props.url}
         >
-          <EmailIcon round size={48} />{" "}
+          <EmailIcon round size={36} />{" "}
         </EmailShareButton>
       </div>
     </>

@@ -23,7 +23,9 @@ const BlogPage = ({ data }) => {
               <Card.Header>
                 <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
               </Card.Header>
-              <Card.Meta>{post.frontmatter.date}</Card.Meta>
+              <Card.Meta>
+                {post.frontmatter.date} - {post.timeToRead} min
+              </Card.Meta>
               <Card.Description style={{ textAlign: "justify" }}>
                 {post.excerpt}
                 <br />
@@ -56,7 +58,8 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 500)
+          excerpt(pruneLength: 450)
+          timeToRead
           id
           fields {
             slug

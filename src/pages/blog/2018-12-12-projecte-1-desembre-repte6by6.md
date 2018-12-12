@@ -18,8 +18,13 @@ Durant el mes de novembre vaig iniciar el repte 6by6 on em proposava dissenyar, 
 
 Per al projecte del mes de desembre tenia aquestes dues idees:
 
-* **\#Idea 1 - VilaNyap:** Espai web on els ciutadans a través de geolocalització i de forma anònima poden indicar on hi ha un nyap (inicialment una rajola que balla). La web mostra un mapa de la ciutat amb els punts introduïts per la gent.
-* **\#Idea 2 - Jumbocall:** Aplicació web que permet als visitants d'un esdeveniment (fira, concert, conferència, etc) pujar imatges des del seu mòbil afegint un comentari i sense necessitat de registrar-se. Aquestes imatges es recopilen i es mostren en una pàgina que es pot projectar o mostrar en pantalles. En finalitzar l'esdeveniment totes les imatges són destruïdes.
+#### #Idea 1 - VilaNyap
+
+> Espai web on els ciutadans a través de geolocalització i de forma anònima poden indicar on hi ha un nyap (inicialment una rajola que balla). La web mostra un mapa de la ciutat amb els punts introduïts per la gent.
+
+#### #Idea 2 - Jumbocall
+
+> Aplicació web que permet als visitants d'un esdeveniment (fira, concert, conferència, etc) pujar imatges des del seu mòbil afegint un comentari i sense necessitat de registrar-se. Aquestes imatges es recopilen i es mostren en una pàgina que es pot projectar o mostrar en pantalles. En finalitzar l'esdeveniment totes les imatges són destruïdes.
 
 Totes dues van tenir molt bona acollida i vaig rebre forces propostes. Amb tots els comentaris rebuts i analitzant els requeriments i coneixements tècnics necessaris per a fer-les realitat, finalment he decidit que el projecte del mes de desembre serà...
 

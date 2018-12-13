@@ -15,7 +15,7 @@ tags:
   - GraphQL
   - Front-end
 ---
-> Avís: aquest serà un article llarg i en alguns dels seus punts bastant tècnic.
+> Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 
 Durant el mes de novembre vaig iniciar el repte 6by6 on em proposava dissenyar, desenvolupar i publicar un projecte web cada mes durant els següents 6 mesos. ([+info](https://oriolcastro.me/blog/2018-11-05-el-repte-6by6/)). Per tal de decidir quin projecte portava a la pràctica, compartiria a les xarxes socials i amb el meu entorn les diferents idees. Això em serviria per captar el seu possible impacte, rebre propostes de millora, o comentaris que m'ajudessin a donar-li forma.
 
@@ -79,14 +79,14 @@ Les funcionalitats d'aquesta primera versió són molt limitades a voluntat per 
 
 A continuació podeu veure alguns dels mockups que vaig preparar abans de començar amb el desenvolupament.
 
-Vista d'usuari
+**Vista d'usuari**
 
-![](/img/mvimg_20181213_164512.jpg)
+![null](/img/mvimg_20181213_164512.jpg)
 
-Vista de l'administrador
+**Vista de l'administrador**
 
-![](/img/mvimg_20181213_164628.jpg)
+![null](/img/mvimg_20181213_164628.jpg)
 
-Vista de projecció
+**Vista de projecció**
 
-![](/img/mvimg_20181213_164949.jpg)
+![null](/img/mvimg_20181213_164949.jpg)

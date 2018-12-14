@@ -4,9 +4,11 @@
   "version": "2.0.0",
   "author": "Oriol Castro",
   "dependencies": {
-    "gatsby": "^2.0.6",
+    "dotenv": "^6.2.0",
+    "gatsby": "^2.0",
     "gatsby-image": "^2.0.7",
     "gatsby-plugin-feed": "^2.0.5",
+    "gatsby-plugin-google-analytics": "^2.0.8",
     "gatsby-plugin-netlify": "^2.0.3",
     "gatsby-plugin-netlify-cms": "^3.0.2",
     "gatsby-plugin-offline": "^2.0.5",
@@ -16,7 +18,7 @@
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-remark-embed-spotify": "^2.0.2",
     "gatsby-remark-external-links": "^0.0.4",
-    "gatsby-remark-images": "^2.0.2",
+    "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-prismjs": "^3.0.0",
     "gatsby-remark-relative-images-v2": "^0.1.5",
     "gatsby-source-filesystem": "^2.0.7",
@@ -34,7 +36,7 @@
     "react-icons": "^3.1.0",
     "react-share": "^2.3.1",
     "semantic-ui-css": "^2.3.3",
-    "semantic-ui-react": "^0.82.5",
+    "semantic-ui-react": "^0.84.0",
     "uuid": "^3.2.1"
   },
   "keywords": [

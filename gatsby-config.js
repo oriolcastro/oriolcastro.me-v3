@@ -1,4 +1,5 @@
 const config = require("./src/meta/siteConfig");
+require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
@@ -10,6 +11,20 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-feed",
     "gatsby-plugin-robots-txt",
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["/admin/*"]
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

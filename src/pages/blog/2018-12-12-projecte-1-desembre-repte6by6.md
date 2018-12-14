@@ -41,7 +41,7 @@ A partir de la idea original i recollint algunes de les propostes rebudes, la pr
 
 * L'usuari pot fer una foto amb el seu mòbil directament des de l'aplicació web, afegir un missatge i publicar-la.
 * L'aplicació no requereix donar-se d'alta en cap servei. 
-* Tot es realitza a través d'una aplicació web progressiva (PWA), de forma que els organitzadors de l'esdeveniment només han de difondre un enllaç entre els participants. 
+* Tot es realitza a través d'una aplicació web progressiva (PWA), de forma que els organitzadors de l'esdeveniment només han de compartir un enllaç entre els participants. 
 * Les publicacions es mostren de forma pública i anònima en forma de passi de diapositives facilitant-ne la projecció en gran format. 
 * Els organitzadors de l'esdeveniment tenen accés a un panell d'administració.
 * En aquest panell poden eliminar publicacions que tinguin un contingut no adequat. 
@@ -50,11 +50,11 @@ A partir de la idea original i recollint algunes de les propostes rebudes, la pr
 
 ### Arquitectura
 
-La primera cosa a fer un cop clares les funcionalitats inicials és definir quina serà l'arquitectura i les eines a fer servir.
+La primera cosa a fer un cop clares les funcionalitats inicials és definir quina serà l'arquitectura i les eines que em cal utilitzar.
 
-Una part important dels projectes que he desenvolupat els últims mesos han estat creats amb [Gatsbyjs](https://www.gatsbyjs.com/). Gatsby ens proveeix d'un _framework_ que permet crear de forma ràpida experiències web i aplicacions fent ús de les tecnologies més modernes. La part visual, el _front-end_, d'aquestes experiències està escrita amb [React](https://reactjs.org/) i fa servir [GraphQL](https://graphql.org/) per a recopilar el contingut des de diferents serveis ([+info](https://www.gatsbyjs.com/why-gatsby/)). Gatsby compila els projectes en una sèrie d'arxius estàtics (HTML, CSS i JS) després d'aplicar multiples optimitzacions sobre el codi. El resultat és una web estàtica que es pot publicar a qualsevol proveïdor d'allotjament a un baix cost, sovint de forma gratuita.
+Una part important dels projectes que he desenvolupat els últims mesos han estat creats amb [Gatsbyjs](https://www.gatsbyjs.com/). Gatsby ens proveeix d'un _framework_ que permet crear de forma ràpida experiències web i aplicacions fent ús de les tecnologies més modernes. La part amb la que els usuaris interactuen, el _front-end_, d'aquestes experiències està escrita amb [React](https://reactjs.org/) i fa servir [GraphQL](https://graphql.org/) per a recopilar el contingut des de diferents serveis ([+info](https://www.gatsbyjs.com/why-gatsby/)). Gatsby compila els projectes en una sèrie d'arxius estàtics (HTML, CSS i JS) després d'aplicar multiples optimitzacions sobre el codi. El resultat és una web estàtica que es pot publicar a qualsevol proveïdor d'allotjament a un baix cost, fins i tot de forma gratuita.
 
-Aquest projecte estarà basat doncs en el _stack_ que es coneix com a [JAMStack](https://jamstack.org/).
+Aquest projecte estarà basat doncs en el _stack_ i arquitectura web conegut com a [JAMStack](https://jamstack.org/).
 
 Les tecnologies i eines utilitzades en el _front-end_:
 
@@ -63,7 +63,7 @@ Les tecnologies i eines utilitzades en el _front-end_:
 * El client d'[Apollo](https://github.com/apollographql/apollo-client) i els seus components faran totes les crides al servidor GraphQL.
 * Amb la llibreria de components [Material-ui](https://github.com/mui-org/material-ui) aconseguirem un aspecte modern.
 
-El _back-end_ de l'aplicació continuarà amb el paradigma JAMStack i farà servir la filosofia [_serverless_](https://en.wikipedia.org/wiki/Serverless_computing) per tal d'eliminar qualsevol tasca de manteniment o provisió de servidors. D'aquesta forma elimino la necessitat d'aprendre tecnologies _back-end _complexes, i tot i focalitzar la meva carrera en esdevenir un desenvolupador _front-end_ puc crear aplicacions que van més enllà del client.
+El _back-end_ de l'aplicació continuarà amb el paradigma JAMStack i farà servir la filosofia [_serverless_](https://en.wikipedia.org/wiki/Serverless_computing) per tal d'eliminar qualsevol tasca de manteniment o provisió de servidors. D'aquesta forma elimino la necessitat d'aprendre tecnologies _back-end_ complexes. Tot i focalitzar la meva carrera en esdevenir desenvolupador _front-end_ dominar el paradigma _serverless_ em permet crear aplicacions que van més enllà del client amb certa facilitat.
 
 Les tecnologies i eines utilitzades en el _back-end_:
 

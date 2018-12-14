@@ -10,6 +10,7 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 import Img from "gatsby-image";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Profile = ({ isBlogPost }) => {
   return (
@@ -53,7 +54,11 @@ const Profile = ({ isBlogPost }) => {
             <Header.Subheader style={{ textAlign: "justify" }}>
               Sóc programador web front-end, emprenedor digital i entusiasta
               tecnològic. En aquest blog escric sobre tecnologia i canvi social.
-              Treballo a <a href="https://okstudio.tech">OK! Studio</a>.
+              Treballo a{" "}
+              <OutboundLink href="https://okstudio.tech">
+                OK! Studio
+              </OutboundLink>
+              .
             </Header.Subheader>
           </Header>
         ) : (
@@ -63,19 +68,19 @@ const Profile = ({ isBlogPost }) => {
               Sóc programador web front-end, emprenedor digital i entusiasta
               tecnològic. En aquest blog escric sobre tecnologia i canvi social.
               Treballo a{" "}
-              <a
+              <OutboundLink
                 href="https://okstudio.tech"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
               >
                 OK! Studio
-              </a>
+              </OutboundLink>
               .
             </Header>
           </>
         )}
         <div>
-          <a
+          <OutboundLink
             href="https://twitter.com/oriolcastro_"
             target="_blank"
             rel="nofollow noopener noreferrer"
@@ -84,8 +89,8 @@ const Profile = ({ isBlogPost }) => {
             <IconContext.Provider value={{ className: "iconCircular" }}>
               <FaTwitter />
             </IconContext.Provider>
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             href="https://www.instagram.com/oriolcastro_/"
             target="_blank"
             rel="nofollow noopener noreferrer"
@@ -93,8 +98,8 @@ const Profile = ({ isBlogPost }) => {
             <IconContext.Provider value={{ className: "iconCircular" }}>
               <FaInstagram />
             </IconContext.Provider>
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             href="https://www.linkedin.com/in/oriolcaar/"
             target="_blank"
             rel="nofollow noopener noreferrer"
@@ -102,8 +107,8 @@ const Profile = ({ isBlogPost }) => {
             <IconContext.Provider value={{ className: "iconCircular" }}>
               <FaLinkedin />
             </IconContext.Provider>
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             href="https://github.com/oriolcastro"
             target="_blank"
             rel="nofollow noopener noreferrer"
@@ -111,15 +116,15 @@ const Profile = ({ isBlogPost }) => {
             <IconContext.Provider value={{ className: "iconCircular" }}>
               <FaGithub />
             </IconContext.Provider>
-          </a>
-          <a
+          </OutboundLink>
+          <OutboundLink
             href="mailto:uri@oriolcastro.me"
             rel="nofollow noopener noreferrer"
           >
             <IconContext.Provider value={{ className: "iconCircular" }}>
               <FaEnvelope />
             </IconContext.Provider>
-          </a>
+          </OutboundLink>
         </div>
       </Grid.Column>
     </Grid>

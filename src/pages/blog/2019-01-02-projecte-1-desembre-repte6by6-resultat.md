@@ -62,6 +62,8 @@ Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat a
 
 ### Vista d'Administrador
 
+\[WIP]
+
 ##### Dificultats
 
 #### Solucions
@@ -69,6 +71,8 @@ Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat a
 #### Resultats
 
 ### Vista de Projecció
+
+\[WIP]
 
 #### Dificultats
 

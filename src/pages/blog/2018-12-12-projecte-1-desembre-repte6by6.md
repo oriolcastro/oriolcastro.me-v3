@@ -81,12 +81,12 @@ A continuació podeu veure alguns dels mockups que vaig preparar abans de comen�
 
 **Vista d'usuari**
 
-![null](/img/mvimg_20181213_164512.jpg)
+![Vista d'usuari](/img/mvimg_20181213_164512.jpg)
 
 **Vista de l'administrador**
 
-![null](/img/mvimg_20181213_164628.jpg)
+![Vista de l'administrador](/img/mvimg_20181213_164628.jpg)
 
 **Vista de projecció**
 
-![null](/img/mvimg_20181213_164949.jpg)
+![Vista de projecció](/img/mvimg_20181213_164949.jpg)

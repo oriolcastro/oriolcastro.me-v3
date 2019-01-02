@@ -19,7 +19,9 @@ const Profile = ({ isBlogPost }) => {
         <StaticQuery
           query={graphql`
             query ProfileQuery {
-              profileImage: imageSharp(original: { src: { regex: "/me/" } }) {
+              profileImage: imageSharp(
+                fluid: { originalName: { eq: "me.jpg" } }
+              ) {
                 fluid(maxWidth: 650) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }

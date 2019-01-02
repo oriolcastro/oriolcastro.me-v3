@@ -56,13 +56,13 @@ Per acabar, els problemes apareguts durant la fase de testeig van obligar a intr
 
 Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat al primer esdeveniment on s'utilitzarà, [la Nit de Reines](https://www.facebook.com/events/739878189741702/) de La Unió Vilanovina.
 
-
-
 ![El que el client veu només accedir a l'aplicació.](/img/6by6december_client_empty.png)
 
 ![El que el client veu un cop capturada una imatge i escrit el missatge.](/img/6by6december_client_full.png)
 
 ### Vista d'Administrador
+
+\[WIP]
 
 ##### Dificultats
 
@@ -71,6 +71,8 @@ Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat a
 #### Resultats
 
 ### Vista de Projecció
+
+\[WIP]
 
 #### Dificultats
 

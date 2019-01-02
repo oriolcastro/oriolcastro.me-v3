@@ -13,7 +13,7 @@ tags:
   - Reactjs
   - JAMstack
   - GraphQL
-  - Front-end
+  - Front end
 ---
 > Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 

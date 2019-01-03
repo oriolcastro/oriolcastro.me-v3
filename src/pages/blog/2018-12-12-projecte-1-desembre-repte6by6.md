@@ -17,7 +17,7 @@ tags:
 ---
 > Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 
-Durant el mes de novembre vaig iniciar el repte 6by6 on em proposava dissenyar, desenvolupar i publicar un projecte web cada mes durant els següents 6 mesos. ([+info](https://oriolcastro.me/blog/2018-11-05-el-repte-6by6/)). Per tal de decidir quin projecte portava a la pràctica, compartiria a les xarxes socials i amb el meu entorn les diferents idees. Això em serviria per captar el seu possible impacte, rebre propostes de millora, o comentaris que m'ajudessin a donar-li forma.
+Durant el mes de novembre vaig iniciar el repte 6by6 on em proposava dissenyar, desenvolupar i publicar un projecte web cada mes durant els següents 6 mesos. ([+info](/blog/2018-11-05-el-repte-6by6/)). Per tal de decidir quin projecte portava a la pràctica, compartiria a les xarxes socials i amb el meu entorn les diferents idees. Això em serviria per captar el seu possible impacte, rebre propostes de millora, o comentaris que m'ajudessin a donar-li forma.
 
 Per al projecte del mes de desembre tenia aquestes dues idees:
 

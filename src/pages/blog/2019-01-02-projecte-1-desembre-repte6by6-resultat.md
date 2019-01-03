@@ -16,7 +16,7 @@ tags:
 ---
 > Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 
-Com vaig detallar en l'[anterior article](/2018-12-12-projecte-1-desembre-repte6by6/) aquest projecte compta amb 3 seccions per la part del client, més el _back-end_ que s'ocupa de gestionar l'emmagatzematge de les imatges i la base de dades.
+Com vaig detallar en l'[anterior article](/blog/2018-12-12-projecte-1-desembre-repte6by6/) aquest projecte compta amb 3 seccions per la part del client, més el _back-end_ que s'ocupa de gestionar l'emmagatzematge de les imatges i la base de dades.
 
 Per cadascuna de les 3 seccions exposaré quines són les dificultats que m'he trobat en el seu desenvolupament, quines solucions he aplicat i us mostraré el resultat final.
 

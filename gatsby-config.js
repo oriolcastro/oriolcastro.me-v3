@@ -11,6 +11,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-feed",
     "gatsby-plugin-robots-txt",
+    "gatsby-plugin-catch-links",
     {
       resolve: "gatsby-plugin-google-analytics",
       options: {

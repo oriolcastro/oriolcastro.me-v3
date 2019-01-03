@@ -27,9 +27,9 @@ const BlogPage = ({ data }) => {
                 {post.frontmatter.date} - {post.timeToRead} min
               </Card.Meta>
               <Card.Description style={{ textAlign: "justify" }}>
-                {post.excerpt}
+                {post.frontmatter.description}
                 <br />
-                <Link to={post.fields.slug}>Continua llegint</Link>
+                <Link to={post.fields.slug}>Llegeix més</Link>
               </Card.Description>
             </Card.Content>
             <Card.Content extra>
@@ -68,6 +68,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "DD MMMM YYYY", locale: "ca")
+            description
             tags
           }
         }

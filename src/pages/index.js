@@ -29,7 +29,7 @@ export default class IndexPage extends React.Component {
                     {post.frontmatter.date} - {post.timeToRead} min
                   </Card.Meta>
                   <Card.Description className="cardDescription">
-                    {post.excerpt}
+                    {post.frontmatter.description}
                     <br />
                     <Link to={post.fields.slug}>Llegeix més</Link>
                   </Card.Description>
@@ -79,6 +79,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "DD MMMM YYYY", locale: "ca")
+            description
             tags
           }
         }

@@ -2032,7 +2032,7 @@ babel-preset-gatsby@^0.1.6:
     "@babel/preset-react" "^7.0.0"
     babel-plugin-macros "^2.4.2"
 
-babel-runtime@^6.11.6, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.6.1:
+babel-runtime@6.26.0, babel-runtime@^6.11.6, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.6.1:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -5678,6 +5678,14 @@ gatsby-link@^2.0.7:
     "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
 
+gatsby-plugin-catch-links@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-2.0.9.tgz#1fd5bf02a7f997f7b36c4e0c28b689f0c3d92726"
+  integrity sha512-0I78VTwy9GJkh8nEt33VASo/cvBmDtdChoISQ+U0Pio5pXEXT2RQIesuHwcm4pXG/VRDVnEYxa95PLUccW5vFg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    escape-string-regexp "^1.0.5"
+
 gatsby-plugin-feed@^2.0.5:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.0.11.tgz#1baa33565c131415a2c971aa49adea02a08bf935"
@@ -5852,6 +5860,14 @@ gatsby-remark-relative-images-v2@^0.1.5:
     lodash "4.17.5"
     slash "2.0.0"
     unist-util-select "1.5.0"
+
+gatsby-remark-relative-links@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-relative-links/-/gatsby-remark-relative-links-0.0.2.tgz#344b57785d06b3ce9e2e4ec686f23058891ab34c"
+  integrity sha512-ncdolmJ//MjEga8WqCpDwIg3BtcjqSpyFpZk1ucp7vAC3+B2i7TapnvBgVNIIkGpcBHRNs9eQyXbY6rSMEdcIg==
+  dependencies:
+    babel-runtime "6.26.0"
+    remark-relative-links "0.0.5"
 
 gatsby-source-filesystem@^2.0.7:
   version "2.0.12"
@@ -12162,6 +12178,14 @@ remark-rehype@^2.0.0:
   dependencies:
     mdast-util-to-hast "^2.2.0"
 
+remark-relative-links@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/remark-relative-links/-/remark-relative-links-0.0.5.tgz#0707d5a428739389233994bc4bf6171815075024"
+  integrity sha512-MkyuA35uJZl6zhLTKLUYurHVBBPhoTEaASmQ+Cb3m8OlmcxEgAOI9BRsG4nMql5zTrS4scHD8/NI+WWQKi8+6g==
+  dependencies:
+    babel-runtime "6.26.0"
+    unist-util-visit "1.1.3"
+
 remark-retext@^3.1.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/remark-retext/-/remark-retext-3.1.2.tgz#983003d7495cf9198aa450c5ae5a7737011eec5f"
@@ -14305,6 +14329,11 @@ unist-util-visit-parents@^2.0.0, unist-util-visit-parents@^2.0.1:
   integrity sha512-6B0UTiMfdWql4cQ03gDTCSns+64Zkfo2OCbK31Ov0uMizEz+CJeAp0cgZVb5Fhmcd7Bct2iRNywejT0orpbqUA==
   dependencies:
     unist-util-is "^2.1.2"
+
+unist-util-visit@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/unist-util-visit/-/unist-util-visit-1.1.3.tgz#ec268e731b9d277a79a5b5aa0643990e405d600b"
+  integrity sha1-7CaOcxudJ3p5pbWqBkOZDkBdYAs=
 
 unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.1.1, unist-util-visit@^1.1.3, unist-util-visit@^1.3.0:
   version "1.4.0"

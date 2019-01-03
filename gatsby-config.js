@@ -12,7 +12,7 @@ module.exports = {
     "gatsby-plugin-feed",
     "gatsby-plugin-robots-txt",
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
         // Puts tracking script in the head instead of the body
@@ -52,10 +52,10 @@ module.exports = {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          `gatsby-remark-prismjs`,
+          "gatsby-remark-prismjs",
           "gatsby-remark-embed-spotify",
           {
-            resolve: `gatsby-remark-relative-images-v2`
+            resolve: "gatsby-remark-relative-images-v2"
           },
           {
             resolve: "gatsby-remark-images",
@@ -68,8 +68,12 @@ module.exports = {
             }
           },
           {
-            resolve: "gatsby-remark-external-links"
-          }
+            resolve: "gatsby-remark-relative-links",
+            options: {
+              domainRegex: /http[s]*:\/\/[www.]*oriolcastro\.me[/]?/
+            }
+          },
+          "gatsby-remark-external-links"
         ]
       }
     },
@@ -80,6 +84,7 @@ module.exports = {
       }
     },
     "gatsby-plugin-offline",
+    "gatsby-plugin-catch-links",
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ]
 };

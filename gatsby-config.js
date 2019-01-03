@@ -84,7 +84,6 @@ module.exports = {
       }
     },
     "gatsby-plugin-offline",
-    "gatsby-plugin-catch-links",
     "gatsby-plugin-netlify" // make sure to keep it last in the array
   ]
 };

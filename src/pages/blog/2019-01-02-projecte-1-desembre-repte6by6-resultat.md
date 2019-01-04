@@ -22,7 +22,7 @@ Per cadascuna de les 3 seccions exposaré quines són les dificultats que m'he t
 
 ## Vista d'Usuari
 
-#### Dificultats
+### Dificultats
 
 Una de les primeres dificultats del projecte va aparèixer ben al principi a causa de l'aposta per fer servir la llibreria de components [Material-UI](https://material-ui.com/). Tot i l'experiència prèvia amb altres _frameworks_ la complexitat de conjugar la generació a _buildtime_ que utilitza Gatsby i l'ús de _CSS-in-JS_ de la llibreria van suposar un petit entrebanc. Per sort la comunitat a Internet és gran i amb l'ajuda d'un [exemple](https://github.com/mui-org/material-ui/tree/master/examples/gatsby) vaig poder mantenir l'ús d'aquesta llibreria. Primer aprenentatge que podré utilitza en futurs projectes que requereixin un disseny _material_.
 
@@ -40,7 +40,7 @@ Com explicava en l'anterior article volia apostar per un _back end _ basat en Gr
 
 En el moment de testejar amb usuaris la primera versió de l'aplicació van aparèixer problemes d'usabilitat i experiència en com es gestionaven les imatges. Per exemple s'oferia l'opció de triar entre la càmera frontal o posterior del mòbil però en alguns dispositius això fallava, ja que no es comprovava que aquest suportes l'API _getUserMedia_ o quines càmeres estaven accessibles des del navegador. Un altre problema apareixia en el moment en què l'usuari feia una foto en format horitzontal, ja que l'orientació no era autocorregida com estem acostumats que facin les apps natives i per tant la foto es mostrava girada en tota l'experiència.
 
-#### Solucions
+### Solucions
 
 Per la implementació de les funcionalitats de càmera em vaig decantar per fer servir el component [React-html5-camera-photo](https://www.npmjs.com/package/react-html5-camera-photo), ja que em permetia indicar la resolució màxima de les imatges capturades, alternar entre les dues càmeres dels mòbils i em retornava una imatge en format Base64 que després podia manipular abans de pujar al servidor.
 
@@ -48,11 +48,57 @@ Les operacions entre el client i el servidor són gestionades per [Apollo Client
 
 Per acabar, els problemes apareguts durant la fase de testeig van obligar a introduir dues millores que inicialment no havia plantejat. Per una banda la detecció de les càmeres disponibles a través del navegador i l'altre oferir l'opció de rotar les imatges. Després de consultar diferents problemes similars a [stackoverflow](https://stackoverflow.com/) i blogs vaig implementar-ho com es mostra a continuació.
 
-![Funció per comprovar la implementació de getUserMedia i les càmeres disponibles.](/img/getusermedia.png)
+```
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        console.log('The device can use the app')
+        navigator.mediaDevices
+          .enumerateDevices()
+          .then(devices => {
+            let numOfCameras = 0
+            devices.forEach(device => {
+              if (device.kind === 'videoinput') {
+                ++numOfCameras
+              }
+            })
+            console.log('Number of cameras:' + numOfCameras)
+            this.setState({ numOfCameras: numOfCameras })
+          })
+          .catch(err => {
+            console.log(err.name + ': ' + err.message)
+          })
+      } else {
+        alert(
+          'Ens sap greu però el teu dispositiu no està suportat i la càmera no funcionarà.'
+        )
+      }
+```
 
-![Funció per implementar la rotació de les imatges capturades amb el mòbil en horitzontal.](/img/rotateimage.png)
+```
+rotateImage(isClockwise) {
+    //Create offscreen canvas
+    const canvas = document.createElement('canvas')
+    const ctx = canvas.getContext('2d')
+    //Create Image
+    const image = new Image()
+    image.src = this.state.capturedImage
+    //Set dimensions to rotated size
+    canvas.width = image.height
+    canvas.height = image.width
+    //Rotate and draw source image into off-screen canvas
+    if (isClockwise) {
+      ctx.rotate((90 * Math.PI) / 180)
+      ctx.translate(0, -canvas.width)
+    } else {
+      ctx.rotate((-90 * Math.PI) / 180)
+      ctx.translate(-canvas.height, 0)
+    }
+    ctx.drawImage(image, 0, 0)
 
-#### Resultat
+    return canvas.toDataURL('image/jpeg', 100)
+  }
+```
+
+### Resultat
 
 Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat al primer esdeveniment on s'utilitzarà, [la Nit de Reines](https://www.facebook.com/events/739878189741702/) de La Unió Vilanovina.
 
@@ -62,13 +108,13 @@ Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat a
 
 ## Vista d'Administrador
 
-##### Dificultats
+### Dificultats
 
 La principal dificultat en aquesta secció de l'aplicació ha estat com limitar l'accés només a usuaris autoritzats. Existeixen multitud d'eines per a gestionar la identitat però fins ara no havia hagut d'implementar-ho en cap projecte i per tant era un món desconegut. 
 
 Una segona dificultat molt vinculada a la primera és el fet que en tots els projectes en què havia utilitzat Gatsby les pàgines eren sempre generades al servidor i oferides a l'usuari final com a fitxers estàtics. En aquesta ocasió però l'apartat d'administració s'havia de generar directament en el navegador client per a permetre la gestió de l'accés.
 
-#### Solucions
+### Solucions
 
 L'ecosistema que s'està desenvolupant sota el paraigua de _JAMStack_ i específicament entorn d'eines com Gatsby van facilitar molt la resolució de les dificultats. Per a la creació de les pàgines directament a client només calia seguir la [documentació](https://www.gatsbyjs.org/docs/authentication-tutorial/#creating-client-only-routes) del projecte en què s'explica com fer-ho. 
 
@@ -76,7 +122,7 @@ Pel que fa a la gestió de la identitat em vaig decantar per fer ús de [Netlify
 
 El codi d'aquest [exemple](https://github.com/sw-yx/jamstack-hackathon-starter) és la base utilitzada així com [aquest article](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/) al blog oficial.
 
-#### Resultats
+### Resultats
 
 Així és com ha quedat l'apartat d'administració.
 
@@ -84,7 +130,7 @@ Així és com ha quedat l'apartat d'administració.
 
 ## Vista de Projecció
 
-#### Dificultats
+### Dificultats
 
 La vista que serveix per a projectar les imatges que els usuaris publiquen va ser l'última que vaig desenvolupar, ja que a priori semblava la més senzilla. Tot i la seva aparent simplicitat vaig trobar dos entrebancs que van incrementar les hores dedicades. 
 
@@ -92,7 +138,7 @@ El primer va lligat al fet que per disseny les publicacions hi haurien d'aparèi
 
 La segona dificultat tenia a veure en el mecanisme per mostrar de forma individual les publicacions i fer que les transicions d'una a l'altre fossin atractives. La idea segons el disseny era que funcionés com un passi de diapositives on el text del missatge queda sobreposat a la foto descarregada de Cloudinary. Buscant entre els diferents paquets de _slideshows_, _sliders_ i _carrousels_ creats amb React cap complia les especificacions ni oferia un resultat satisfactori.
 
-#### Solucions
+### Solucions
 
 La implementació de les subscriptions tot i que senzilla aparentment era bastant complexa. Per sort el mateix component de [Query de react-apollo](https://www.apollographql.com/docs/react/essentials/queries.html#refetching) ofereix una opció per tal de forçar que Apollo Client, l'encarregat de gestionar les crides al servidor, repetís la _query_ cada X milisegons. D'aquesta forma el temps màxim que trigaria en aparèixer una publicació a la pantalla seria el temps de refresc que especifiqués.
 
@@ -108,7 +154,7 @@ Si no trobava cap _slideshow_ existent que pogués fer servir hauria de programa
 
 L'últim entrebanc va ser com accedir a les imatges emmagatzemades a Cloudinary i optimitzar-ne l'entrega tenint en compte que es projecten en grans dimensions. Per sort Cloudinary ha creat una sèrie de [components](https://github.com/cloudinary/cloudinary-react) en React que simplifiquen [aquest procés.](https://cloudinary.com/documentation/react_image_manipulation)
 
-#### Resultats
+### Resultats
 
 ![El que es projecta en les pantalles](/img/6by6december_presenter.png)
 

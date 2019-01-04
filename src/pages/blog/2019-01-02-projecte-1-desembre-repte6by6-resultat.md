@@ -62,20 +62,40 @@ Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat a
 
 ### Vista d'Administrador
 
-\[WIP]
-
 ##### Dificultats
+
+La principal dificultat en aquesta secció de l'aplicació ha estat com limitar l'accés només a usuaris autoritzats. Existeixen multitud d'eines per a gestionar la identitat però fins ara no havia hagut d'implementar-ho en cap projecte i per tant era un món desconegut. 
+
+Una segona dificultat molt vinculada a la primera és el fet que en tots els projectes en què havia utilitzat Gatsby les pàgines eren sempre generades al servidor i oferides a l'usuari final com a fitxers estàtics. En aquesta ocasió però l'apartat d'administració s'havia de generar directament en el navegador client per a permetre la gestió de l'accés.
 
 #### Solucions
 
+L'ecosistema que s'està desenvolupant sota el paraigua de _JAMStack_ i específicament entorn d'eines com Gatsby van facilitar molt la resolució de les dificultats. Per a la creació de les pàgines directament a client només calia seguir la [documentació](https://www.gatsbyjs.org/docs/authentication-tutorial/#creating-client-only-routes) del projecte en què s'explica com fer-ho. 
+
+Pel que fa a la gestió de la identitat em vaig decantar per fer ús de [Netlify Identity.](https://www.netlify.com/docs/identity/) Aquest servei està molt ben integrat amb el _core_ de CI/CD i la CDN que proporciona Netlify i ofereix un pla gratuït per als primers 1000 usuaris, molt per sobre de les necessitats del projecte. 
+
+El codi d'aquest [exemple](https://github.com/sw-yx/jamstack-hackathon-starter) és la base utilitzada així com [aquest article](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/) al blog oficial.
+
 #### Resultats
+
+Així és com ha quedat l'apartat d'administració.
+
+![El que veu l'administrador per cada publicació](/img/6by6december_admin.png)
 
 ### Vista de Projecció
 
-\[WIP]
-
 #### Dificultats
+
+Actualització contingut
+
+Slideshow
 
 #### Solucions
 
+Query component amb force update
+
+Construir un simple a mida + pose
+
 #### Resultats
+
+![El que es projecta en les pantalles](/img/6by6december_presenter.png)

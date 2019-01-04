@@ -98,9 +98,9 @@ La implementació de les subscriptions tot i que senzilla aparentment era bastan
 
 Si no trobava cap _slideshow_ existent que pogués fer servir hauria de programar-ne un a mida. La lògica per gestionar el bucle sobre les diferents publicacions era bastant simple fent servir _setInterval_ i la gestió del _state_ de React. Un altre assumpte era com animar les transicions. Per sort existeixen llibreries que simplifiquen les animacions per a React i una de les més fàcils d'utilitzar és [Pose](https://popmotion.io/pose/).
 
-![Codi del slideshow](/img/slideshow.png "Codi de la _query_ i l'interval del _slideshow_.")
+![Codi del slideshow](/img/slideshow.png "Codi de la query i l'interval del slideshow.")
 
-![Animació de la slide amb Pose](/img/animatedslide.png "Animació de la _slide_ amb Pose.")
+![Animació de la slide amb Pose](/img/animatedslide.png "Animació de la slide amb Pose.")
 
 L'últim entrebanc va ser com accedir a les imatges emmagatzemades a Cloudinary i optimitzar-ne l'entrega tenint en compte que es projecten en grans dimensions. Per sort Cloudinary ha creat una sèrie de [components](https://github.com/cloudinary/cloudinary-react) en React que simplifiquen [aquest procés.](https://cloudinary.com/documentation/react_image_manipulation)
 

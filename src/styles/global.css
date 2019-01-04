@@ -39,3 +39,7 @@ blockquote {
   padding: 0em 2em;
   margin: 1em 0em 2em;
 }
+
+.gatsby-resp-image-figcaption {
+  text-align: center;
+}

@@ -48,17 +48,17 @@ Les operacions entre el client i el servidor són gestionades per [Apollo Client
 
 Per acabar, els problemes apareguts durant la fase de testeig van obligar a introduir dues millores que inicialment no havia plantejat. Per una banda la detecció de les càmeres disponibles a través del navegador i l'altre oferir l'opció de rotar les imatges. Després de consultar diferents problemes similars a [stackoverflow](https://stackoverflow.com/) i blogs vaig implementar-ho com es mostra a continuació.
 
-![Codi per comprovar el funcionament de la càmera](/img/getusermedia.png "Testing")
+![Codi per comprovar el funcionament de la càmera](/img/getusermedia.png "Codi per comprovar el funcionament de la càmera")
 
-![Codi per a rotar les imatges](/img/rotateimage.png)
+![Codi per a rotar les imatges](/img/rotateimage.png "Codi per a rotar les imatges")
 
 ### Resultat
 
 Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat al primer esdeveniment on s'utilitzarà, [la Nit de Reines](https://www.facebook.com/events/739878189741702/) de La Unió Vilanovina.
 
-![El que el client veu només accedir a l'aplicació.](/img/6by6december_client_empty.png)
+![El que el client veu només accedir a l'aplicació.](/img/6by6december_client_empty.png "El que el client veu només accedir a l'aplicació.")
 
-![El que el client veu un cop capturada una imatge i escrit el missatge.](/img/6by6december_client_full.png)
+![El que el client veu un cop capturada una imatge i escrit el missatge.](/img/6by6december_client_full.png "El que el client veu un cop capturada una imatge i escrit el missatge.")
 
 ## Vista d'Administrador
 
@@ -80,7 +80,7 @@ El codi d'aquest [exemple](https://github.com/sw-yx/jamstack-hackathon-starter) 
 
 Així és com ha quedat l'apartat d'administració.
 
-![El que veu l'administrador per cada publicació](/img/6by6december_admin.png)
+![El que veu l'administrador per cada publicació](/img/6by6december_admin.png "El que veu l'administrador per cada publicació.")
 
 ## Vista de Projecció
 
@@ -98,19 +98,15 @@ La implementació de les subscriptions tot i que senzilla aparentment era bastan
 
 Si no trobava cap _slideshow_ existent que pogués fer servir hauria de programar-ne un a mida. La lògica per gestionar el bucle sobre les diferents publicacions era bastant simple fent servir _setInterval_ i la gestió del _state_ de React. Un altre assumpte era com animar les transicions. Per sort existeixen llibreries que simplifiquen les animacions per a React i una de les més fàcils d'utilitzar és [Pose](https://popmotion.io/pose/).
 
-**Codi de la _query_ i interval del _slideshow_**
+![Codi del slideshow](/img/slideshow.png "Codi de la _query_ i l'interval del _slideshow_.")
 
-![Codi del slideshow](/img/slideshow.png)
-
-**Codi de per animar la _slide_**
-
-![Animació de la slide amb Pose](/img/animatedslide.png)
+![Animació de la slide amb Pose](/img/animatedslide.png "Animació de la _slide_ amb Pose.")
 
 L'últim entrebanc va ser com accedir a les imatges emmagatzemades a Cloudinary i optimitzar-ne l'entrega tenint en compte que es projecten en grans dimensions. Per sort Cloudinary ha creat una sèrie de [components](https://github.com/cloudinary/cloudinary-react) en React que simplifiquen [aquest procés.](https://cloudinary.com/documentation/react_image_manipulation)
 
 ### Resultats
 
-![El que es projecta en les pantalles](/img/6by6december_presenter.png)
+![El que es projecta en les pantalles](/img/6by6december_presenter.png "El que es projecta en les pantalles.")
 
 ## Millores de futur
 

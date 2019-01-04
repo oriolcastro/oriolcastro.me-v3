@@ -48,55 +48,9 @@ Les operacions entre el client i el servidor són gestionades per [Apollo Client
 
 Per acabar, els problemes apareguts durant la fase de testeig van obligar a introduir dues millores que inicialment no havia plantejat. Per una banda la detecció de les càmeres disponibles a través del navegador i l'altre oferir l'opció de rotar les imatges. Després de consultar diferents problemes similars a [stackoverflow](https://stackoverflow.com/) i blogs vaig implementar-ho com es mostra a continuació.
 
-```
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        console.log('The device can use the app')
-        navigator.mediaDevices
-          .enumerateDevices()
-          .then(devices => {
-            let numOfCameras = 0
-            devices.forEach(device => {
-              if (device.kind === 'videoinput') {
-                ++numOfCameras
-              }
-            })
-            console.log('Number of cameras:' + numOfCameras)
-            this.setState({ numOfCameras: numOfCameras })
-          })
-          .catch(err => {
-            console.log(err.name + ': ' + err.message)
-          })
-      } else {
-        alert(
-          'Ens sap greu però el teu dispositiu no està suportat i la càmera no funcionarà.'
-        )
-      }
-```
+![Codi per comprovar el funcionament de la càmera](/img/getusermedia.png "Testing")
 
-```
-rotateImage(isClockwise) {
-    //Create offscreen canvas
-    const canvas = document.createElement('canvas')
-    const ctx = canvas.getContext('2d')
-    //Create Image
-    const image = new Image()
-    image.src = this.state.capturedImage
-    //Set dimensions to rotated size
-    canvas.width = image.height
-    canvas.height = image.width
-    //Rotate and draw source image into off-screen canvas
-    if (isClockwise) {
-      ctx.rotate((90 * Math.PI) / 180)
-      ctx.translate(0, -canvas.width)
-    } else {
-      ctx.rotate((-90 * Math.PI) / 180)
-      ctx.translate(-canvas.height, 0)
-    }
-    ctx.drawImage(image, 0, 0)
-
-    return canvas.toDataURL('image/jpeg', 100)
-  }
-```
+![Codi per a rotar les imatges](/img/rotateimage.png)
 
 ### Resultat
 

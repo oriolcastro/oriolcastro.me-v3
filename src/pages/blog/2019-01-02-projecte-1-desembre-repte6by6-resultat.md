@@ -20,11 +20,11 @@ Com vaig detallar en l'[anterior article](/blog/2018-12-12-projecte-1-desembre-r
 
 Per cadascuna de les 3 seccions exposaré quines són les dificultats que m'he trobat en el seu desenvolupament, quines solucions he aplicat i us mostraré el resultat final.
 
-### Vista d'Usuari
+## Vista d'Usuari
 
 #### Dificultats
 
-Una de les primeres dificultats del projecte va aparèixer ben al principi a causa de l'aposta per fer servir la llibreria de components [Material-UI](https://material-ui.com/). Tot i l'experiència prèvia amb altres _frameworks_ la complexitat de conjugar la generació a _buildtime_ que utilitza Gatsby i l'ús de _CSS-in-JS _de la llibreria van suposar un petit entrebanc. Per sort la comunitat a Internet és gran i amb l'ajuda d'un [exemple](https://github.com/mui-org/material-ui/tree/master/examples/gatsby) vaig poder mantenir l'ús d'aquesta llibreria. Primer aprenentatge que podré utilitza en futurs projectes que requereixin un disseny _material_.
+Una de les primeres dificultats del projecte va aparèixer ben al principi a causa de l'aposta per fer servir la llibreria de components [Material-UI](https://material-ui.com/). Tot i l'experiència prèvia amb altres _frameworks_ la complexitat de conjugar la generació a _buildtime_ que utilitza Gatsby i l'ús de _CSS-in-JS_ de la llibreria van suposar un petit entrebanc. Per sort la comunitat a Internet és gran i amb l'ajuda d'un [exemple](https://github.com/mui-org/material-ui/tree/master/examples/gatsby) vaig poder mantenir l'ús d'aquesta llibreria. Primer aprenentatge que podré utilitza en futurs projectes que requereixin un disseny _material_.
 
 Les principals dificultats es van centrar al voltant de l'ús de la càmera del mòbil, la manipulació de les imatges capturades i com les dades eren publicades al servidor.
 
@@ -34,7 +34,7 @@ En els últims anys les capacitats dels navegadors web per accedir a funcionalit
 
 **GrapQL Mutations**
 
-Com explicava en l'anterior article volia apostar per un_ back end _basat en GraphQL que gestionés en quasi temps-real les publicacions dels usuaris. Necessitava entendre com funcionen les mutations (equivalen a les operacions POST d'una REST API), ja que fins ara només havia utilitzat el llenguatge GraphQL per a fer _queries_ en _buildtime _amb Gatsby. També em calia trobar un client per parlar amb el servidor compatible amb React i Gatsby.
+Com explicava en l'anterior article volia apostar per un _back end _ basat en GraphQL que gestionés en quasi temps-real les publicacions dels usuaris. Necessitava entendre com funcionen les mutations (equivalen a les operacions POST d'una REST API), ja que fins ara només havia utilitzat el llenguatge GraphQL per a fer _queries_ en _buildtime_ amb Gatsby. També em calia trobar un client per parlar amb el servidor compatible amb React i Gatsby.
 
 **Manipulació imatges**
 
@@ -60,7 +60,7 @@ Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat a
 
 ![El que el client veu un cop capturada una imatge i escrit el missatge.](/img/6by6december_client_full.png)
 
-### Vista d'Administrador
+## Vista d'Administrador
 
 ##### Dificultats
 
@@ -82,20 +82,38 @@ Així és com ha quedat l'apartat d'administració.
 
 ![El que veu l'administrador per cada publicació](/img/6by6december_admin.png)
 
-### Vista de Projecció
+## Vista de Projecció
 
 #### Dificultats
 
-Actualització contingut
+La vista que serveix per a projectar les imatges que els usuaris publiquen va ser l'última que vaig desenvolupar, ja que a priori semblava la més senzilla. Tot i la seva aparent simplicitat vaig trobar dos entrebancs que van incrementar les hores dedicades. 
 
-Slideshow
+El primer va lligat al fet que per disseny les publicacions hi haurien d'aparèixer en quasitemps real a la pantalla per oferir una experiència satisfactòria als usuaris. GraphQL i la implementació que en fa Hasura permeten crear el que s'anomena _subscriptions_ però la seva implementació no era senzilla.
+
+La segona dificultat tenia a veure en el mecanisme per mostrar de forma individual les publicacions i fer que les transicions d'una a l'altre fossin atractives. La idea segons el disseny era que funcionés com un passi de diapositives on el text del missatge queda sobreposat a la foto descarregada de Cloudinary. Buscant entre els diferents paquets de _slideshows_, _sliders_ i _carrousels_ creats amb React cap complia les especificacions ni oferia un resultat satisfactori.
 
 #### Solucions
 
-Query component amb force update
+La implementació de les subscriptions tot i que senzilla aparentment era bastant complexa. Per sort el mateix component de [Query de react-apollo](https://www.apollographql.com/docs/react/essentials/queries.html#refetching) ofereix una opció per tal de forçar que Apollo Client, l'encarregat de gestionar les crides al servidor, repetís la _query_ cada X milisegons. D'aquesta forma el temps màxim que trigaria en aparèixer una publicació a la pantalla seria el temps de refresc que especifiqués.
 
-Construir un simple a mida + pose
+Si no trobava cap _slideshow_ existent que pogués fer servir hauria de programar-ne un a mida. La lògica per gestionar el bucle sobre les diferents publicacions era bastant simple fent servir _setInterval_ i la gestió del _state_ de React. Un altre assumpte era com animar les transicions. Per sort existeixen llibreries que simplifiquen les animacions per a React i una de les més fàcils d'utilitzar és [Pose](https://popmotion.io/pose/).
+
+**Codi de la _query_ i interval del _slideshow_**
+
+![Codi del slideshow](/img/slideshow.png)
+
+**Codi de per animar la _slide_**
+
+![Animació de la slide amb Pose](/img/animatedslide.png)
+
+L'últim entrebanc va ser com accedir a les imatges emmagatzemades a Cloudinary i optimitzar-ne l'entrega tenint en compte que es projecten en grans dimensions. Per sort Cloudinary ha creat una sèrie de [components](https://github.com/cloudinary/cloudinary-react) en React que simplifiquen [aquest procés.](https://cloudinary.com/documentation/react_image_manipulation)
 
 #### Resultats
 
 ![El que es projecta en les pantalles](/img/6by6december_presenter.png)
+
+## Millores de futur
+
+* Fer que tant la vista d'administrador com de projecció funcionin sense connexió minimitzant l'impacte en la descàrrega de les imatges.
+* Oferir la possibilitat de manipulació de les imatges abans de publicar-les afegint per exemple emoticones o dibuixant com es pot fer en xarxes socials.
+* Afegir funcionalitats lligades al registre com a usuari.

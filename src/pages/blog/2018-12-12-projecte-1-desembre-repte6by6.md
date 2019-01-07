@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: 'Projecte #1 Desembre - Repte6by6'
+title: 'Disseny del projecte #1 Desembre - Repte6by6'
 date: 2018-12-13T08:30:13.172Z
 description: >-
   Resum de les dues primeres setmanes de feina en el projecte d'aquest mes del

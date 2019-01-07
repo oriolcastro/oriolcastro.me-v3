@@ -34,7 +34,7 @@ En els últims anys les capacitats dels navegadors web per accedir a funcionalit
 
 **GrapQL Mutations**
 
-Com explicava en l'anterior article volia apostar per un _back end _ basat en GraphQL que gestionés en quasi temps-real les publicacions dels usuaris. Necessitava entendre com funcionen les mutations (equivalen a les operacions POST d'una REST API), ja que fins ara només havia utilitzat el llenguatge GraphQL per a fer _queries_ en _buildtime_ amb Gatsby. També em calia trobar un client per parlar amb el servidor compatible amb React i Gatsby.
+Com explicava en l'anterior article volia apostar per un _back end_ basat en GraphQL que gestionés en quasi temps-real les publicacions dels usuaris. Necessitava entendre com funcionen les mutations (equivalen a les operacions POST d'una REST API), ja que fins ara només havia utilitzat el llenguatge GraphQL per a fer _queries_ en _buildtime_ amb Gatsby. També em calia trobar un client per parlar amb el servidor compatible amb React i Gatsby.
 
 **Manipulació imatges**
 
@@ -111,8 +111,5 @@ L'últim entrebanc va ser com accedir a les imatges emmagatzemades a Cloudinary 
 
 ![El que es projecta en les pantalles](/img/6by6december_presenter.png "El que es projecta en les pantalles.")
 
-## Millores de futur
-
-* Fer que tant la vista d'administrador com de projecció funcionin sense connexió minimitzant l'impacte en la descàrrega de les imatges.
-* Oferir la possibilitat de manipulació de les imatges abans de publicar-les afegint per exemple emoticones o dibuixant com es pot fer en xarxes socials.
-* Afegir funcionalitats lligades al registre com a usuari.
+## Feedback d'ús real
+En el proper article explicaré com va anar l'ús a la festa de la Nit de Reines i quins resultats va tenir. També compartiré quines possibles millores en funcionalitat i experiència d'usuari es desprenen dels comentaris rebuts i l'anàlisi de les dades.

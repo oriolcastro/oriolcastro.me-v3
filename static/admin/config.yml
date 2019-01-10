@@ -7,6 +7,10 @@ publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img
 
+display_url: https://oriolcastro.me
+
+logo_url: https://oriolcastro.me/static/a21f9c9b7c7ca3cb1062a93c5a36fe4f/cdec6/me.webp
+
 collections:
   - name: "blog"
     label: "Blog"

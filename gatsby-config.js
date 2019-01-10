@@ -55,6 +55,7 @@ module.exports = {
         plugins: [
           "gatsby-remark-prismjs",
           "gatsby-remark-embed-spotify",
+          "@weknow/gatsby-remark-twitter",
           {
             resolve: "gatsby-remark-relative-images-v2"
           },

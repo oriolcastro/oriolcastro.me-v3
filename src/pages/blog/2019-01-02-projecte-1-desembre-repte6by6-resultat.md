@@ -48,19 +48,17 @@ Les operacions entre el client i el servidor són gestionades per [Apollo Client
 
 Per acabar, els problemes apareguts durant la fase de testeig van obligar a introduir dues millores que inicialment no havia plantejat. Per una banda la detecció de les càmeres disponibles a través del navegador i l'altre oferir l'opció de rotar les imatges. Després de consultar diferents problemes similars a [stackoverflow](https://stackoverflow.com/) i blogs vaig implementar-ho com es mostra a continuació.
 
-![Codi per comprovar el funcionament de la càmera](/img/getusermedia.png "Codi per comprovar el funcionament de la càmera")
+![Codi per comprovar el funcionament de la càmera](/img/getusermedia.png title)
 
-![Codi per a rotar les imatges](/img/rotateimage.png "Codi per a rotar les imatges")
-
+![Codi per a rotar les imatges](/img/rotateimage.png title)
 
 ### Resultat
 
 Així és com ha quedat l'apartat destinat als usuaris de l'aplicació adaptat al primer esdeveniment on s'utilitzarà, [la Nit de Reines](https://www.facebook.com/events/739878189741702/) de La Unió Vilanovina.
 
-![El que el client veu només accedir a l'aplicació.](/img/6by6december_client_empty.png "El que el client veu només accedir a l'aplicació.")
+![El que el client veu només accedir a l'aplicació.](/img/6by6december_client_empty.png title)
 
-![El que el client veu un cop capturada una imatge i escrit el missatge.](/img/6by6december_client_full.png "El que el client veu un cop capturada una imatge i escrit el missatge.")
-
+![El que el client veu un cop capturada una imatge i escrit el missatge.](/img/6by6december_client_full.png title)
 
 ## Vista d'Administrador
 
@@ -84,7 +82,6 @@ Així és com ha quedat l'apartat d'administració.
 
 ![El que veu l'administrador per cada publicació](/img/6by6december_admin.png)
 
-
 ## Vista de Projecció
 
 ### Dificultats
@@ -101,15 +98,18 @@ La implementació de les subscriptions tot i que senzilla aparentment era bastan
 
 Si no trobava cap _slideshow_ existent que pogués fer servir hauria de programar-ne un a mida. La lògica per gestionar el bucle sobre les diferents publicacions era bastant simple fent servir _setInterval_ i la gestió del _state_ de React. Un altre assumpte era com animar les transicions. Per sort existeixen llibreries que simplifiquen les animacions per a React i una de les més fàcils d'utilitzar és [Pose](https://popmotion.io/pose/).
 
-![Codi del slideshow](/img/slideshow.png "Codi del slideshow.")
+![Codi del slideshow](/img/slideshow.png title)
 
-![Animació de la slide amb Pose](/img/animatedslide.png "Animació de la slide amb Pose.")
+![Animació de la slide amb Pose](/img/animatedslide.png title)
 
 L'últim entrebanc va ser com accedir a les imatges emmagatzemades a Cloudinary i optimitzar-ne l'entrega tenint en compte que es projecten en grans dimensions. Per sort Cloudinary ha creat una sèrie de [components](https://github.com/cloudinary/cloudinary-react) en React que simplifiquen [aquest procés.](https://cloudinary.com/documentation/react_image_manipulation)
 
 ### Resultats
 
-![El que es projecta en les pantalles](/img/6by6december_presenter.png "El que es projecta en les pantalles.")
+![El que es projecta en les pantalles](/img/6by6december_presenter.png title)
 
 ## Feedback d'ús real
-En el proper article explicaré com va anar l'ús a la festa de la Nit de Reines i quins resultats va tenir. També compartiré quines possibles millores en funcionalitat i experiència d'usuari es desprenen dels comentaris rebuts i l'anàlisi de les dades.
+
+En aquest fil de Twitter podeu llegir algunes dades i conclusions extretes d'analitzar l'ús que va tenir aquest projecte durant la festa de La Nit de Reines el 5 de gener de 2018.
+
+https://twitter.com/Oriolcastro_/status/1083387197863194632

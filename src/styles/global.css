@@ -43,3 +43,7 @@ blockquote {
 .gatsby-resp-image-figcaption {
   text-align: center;
 }
+
+twitter-widget {
+  margin: auto;
+}

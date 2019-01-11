@@ -14,8 +14,6 @@ tags:
   - Projectes
   - Carnaval
 ---
->
->
 > Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 
 Segon més del repte i per tant segon projecte a iniciar. En aquest cas durant el desembre només vaig compartir una de les idees que tenia. El motiu és que de seguida vaig veure clar quin havia de ser el projecte que tirés endavant, així que tenia poc sentit "gastar" idees que sabia tenien poques possibilitats.
@@ -84,6 +82,10 @@ Tot i que limitades les funcionalitats d'aquesta primera versió són força amb
 
 A continuació podeu veure alguns dels mockups que he preparat de les diferents parts de l'aplicació.
 
-![](/img/6by6january_mockup1.png "Visualització general dels resultats i Pàgina de jugador amb la seva mort pendent de validar.")
+![](/img/6by6january-generalview.png "Vista general amb estadístiques del joc.")
 
-![](/img/6by6january_mockup2.png "Pantalla principal del jugador i dialeg per confirmar una mort.")
+![](/img/6by6january-playerview.png "Pàgina un cop logejat amb informació del teu joc.")
+
+![](/img/6by6january-validatekill.png "Diàleg per a confirmar l'eliminació de la teva víctima.")
+
+![](/img/6by6january-killtoconfirm.png "Missatge rep la víctima per confirmar la seva eliminació del joc.")

@@ -14,6 +14,8 @@ tags:
   - Projectes
   - Carnaval
 ---
+>
+>
 > Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 
 Segon més del repte i per tant segon projecte a iniciar. En aquest cas durant el desembre només vaig compartir una de les idees que tenia. El motiu és que de seguida vaig veure clar quin havia de ser el projecte que tirés endavant, així que tenia poc sentit "gastar" idees que sabia tenien poques possibilitats.
@@ -76,16 +78,12 @@ Les tecnologies i eines utilitzades en el _back end_:
 * **NOU:** El servei d'identitat el proveirà [Auth0](https://auth0.com/).
 * **NOU:** Les notificacions faran servir el servei de [Firebase Cloud Messaging](https://firebase.google.com/products/cloud-messaging/).
 
-
-
 ### 🖍️ Disseny
 
 Tot i que limitades les funcionalitats d'aquesta primera versió són força ambicioses de manera que el disseny de l'app haurà de conjugar forces elements. Igual que el mes passat continuaré fent ús de [Material Design](https://material.io/) implementat a través de Material-UI per a facilitar la feina sobretot tenint en compte que el meu fort no és el disseny visual.
 
 A continuació podeu veure alguns dels mockups que he preparat de les diferents parts de l'aplicació.
 
-fotos
+![](/img/6by6january_mockup1.png "Visualització general dels resultats i Pàgina de jugador amb la seva mort pendent de validar.")
 
-foto
-
-foto
+![](/img/6by6january_mockup2.png "Pantalla principal del jugador i dialeg per confirmar una mort.")

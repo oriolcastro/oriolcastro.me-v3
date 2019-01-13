@@ -30,8 +30,10 @@ Com deia tot i que aquest em sembla un concepte interessant el que duré a terme
 
 He decidit apostar per aquest projecte principalment per l'impacte que pot tenir, l'any passat varen participar unes 400 persones del joc de la Pastanaga del Rei. I també perquè les funcionalitats que requereix em fan sortir de la meva zona de confort i testejar noves eines i tecnologies que fins ara no he utilitzat.
 
-NOTA: per aquells que no sabeu de què parlo.
 
+
+> NOTA (per aquells que no sabeu de què parlo.)
+>
 > La Pastanaga del Rei és una versió del clàssic joc de l'assassí (de la pastanaga) que es juga a Vilanova durant la setmana de Carnaval. Podeu consultar més informació [aquí](https://www.facebook.com/La-Pastanaga-del-Rei-215137488677765/) i [aquí](http://lapastanagadelrei.blogspot.com/).
 
 ### 📝 Funcionalitats
@@ -46,6 +48,7 @@ L'objectiu per aquesta primera versió és que pugui tenir totes aquestes funcio
 
 **BONUS TRACK**
 
+* Si els terminis ho permeten, ha de permetre gestionar les inscripcions al joc i l'assignació inicial de les víctimes.
 * L'aplicació permetrà rebre notificacions al mòbil de diferents esdeveniments importants per al joc: inici de la partida, el teu assassí vol validar l'eliminació, queden X hores per a finalitzar el joc, etc.
 
 ### 🧰 Arquitectura & TechStack

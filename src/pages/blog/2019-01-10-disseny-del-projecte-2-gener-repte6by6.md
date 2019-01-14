@@ -28,9 +28,7 @@ Com deia tot i que aquest em sembla un concepte interessant el que duré a terme
 
 ## PASTANAGAPP - La Pastanaga del Rei
 
-He decidit apostar per aquest projecte principalment per l'impacte que pot tenir, l'any passat varen participar unes 400 persones del joc de la Pastanaga del Rei. I també perquè les funcionalitats que requereix em fan sortir de la meva zona de confort i testejar noves eines i tecnologies que fins ara no he utilitzat.
-
-
+He decidit apostar per aquest projecte principalment per l'impacte que pot tenir, l'any passat varen participar unes 400 persones del joc de la Pastanaga del Rei. L'altre motiu és perquè les funcionalitats que requereix em fan sortir de la meva zona de confort, que sempre és una bona forma d'aprenentatge, i també perquè hauré de testejar noves eines i tecnologies que fins ara no he utilitzat.
 
 > NOTA (per aquells que no sabeu de què parlo.)
 >
@@ -38,7 +36,7 @@ He decidit apostar per aquest projecte principalment per l'impacte que pot tenir
 
 ### 📝 Funcionalitats
 
-L'objectiu per aquesta primera versió és que pugui tenir totes aquestes funcionalitats, amb un bonus track inclòs:
+L'objectiu per aquesta primera versió és que pugui tenir totes aquestes funcionalitats, amb dos bonus track inclosos:
 
 * Tots els jugadors tindran un usuari amb el qual podran accedir a l'aplicació.
 * Els usuaris podran consultar la informació relativa a la seva partida com per exemple les dades de la següent víctima (les mateixes que tindran al clauer que es reparteix) o la llista completa de víctimes aconseguides fins aquell moment.
@@ -72,8 +70,8 @@ Les tecnologies i eines utilitzades en el _back end_:
 
 * El servidor GraphQL amb qui parlarà el client estarà implementat amb [Hasura GraphQL Engine](https://github.com/hasura/graphql-engine)
 * La lleugeresa d'Hasura ens permetrà allotjar-lo en els containers [Heroku Dynos](https://www.heroku.com/) de forma gratuïta.
-* Les publicacions es guardaran a la base de dades [Heroku Postgres](https://www.heroku.com/)
-* Tota l'app estarà allotjada al CDN de [Netlify](https://www.netlify.com/) que també gestionarà el CD (_Continous Deploy_) des del repositori de Github.
+* Tota la informació es guardarà a la base de dades [Heroku Postgres](https://www.heroku.com/)
+* L'aplicació web estarà allotjada al CDN de [Netlify](https://www.netlify.com/) que també gestionarà el CD (_Continous Deploy_) des del repositori de Github.
 * **NOU:** Tota la lògica de servidor estarà distribuïda en diferents _lambda functions_ implementades a través del servei de [Netlify functions](https://www.netlify.com/features/functions/).
 * **NOU:** Faré ús dels [_event triggers_](https://hasura.io/event-triggers) de Hasura per executar les funcions a partir de canvis a la base de dades.
 * **NOU:** El servei d'identitat el proveirà [Auth0](https://auth0.com/).
@@ -81,9 +79,9 @@ Les tecnologies i eines utilitzades en el _back end_:
 
 ### 🖍️ Disseny
 
-Tot i que limitades les funcionalitats d'aquesta primera versió són força ambicioses de manera que el disseny de l'app haurà de conjugar forces elements. Igual que el mes passat continuaré fent ús de [Material Design](https://material.io/) implementat a través de Material-UI per a facilitar la feina sobretot tenint en compte que el meu fort no és el disseny visual.
+Tot i que limitades, les funcionalitats d'aquesta primera versió són força ambicioses de manera que el disseny de l'app haurà de conjugar bastants elements. Igual que amb el projecte del mes passat faré ús de [Material Design](https://material.io/) implementat a través de Material-UI per a facilitar-me la feina sobretot tenint en compte que el meu fort no és el disseny visual.
 
-A continuació podeu veure alguns dels mockups que he preparat de les diferents parts de l'aplicació.
+A continuació podeu veure alguns dels mockups que he preparat de les diferents parts de l'aplicació per a fer-vos una idea de quin aspecte tindrà (en la versió final segurament canviaran coses).
 
 ![](/img/6by6january-generalview.png "Vista general amb estadístiques del joc.")
 

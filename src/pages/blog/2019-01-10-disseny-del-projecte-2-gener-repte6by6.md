@@ -89,4 +89,4 @@ A continuació podeu veure alguns dels mockups que he preparat de les diferents 
 
 ![](/img/6by6january-validatekill.png "Diàleg per a confirmar l'eliminació de la teva víctima.")
 
-![](/img/6by6january-killtoconfirm.png "Missatge rep la víctima per confirmar la seva eliminació del joc.")
+![](/img/6by6january-killtoconfirm.png "Missatge que rep la víctima per confirmar la seva eliminació del joc.")

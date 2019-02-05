@@ -6,7 +6,7 @@ import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+export const SinglePageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content;
   return (
     <>
@@ -15,13 +15,13 @@ export const AboutPageTemplate = ({ title, content, contentComponent }) => {
     </>
   );
 };
-AboutPageTemplate.propTypes = {
+SinglePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func
 };
 
-const AboutPage = ({ data }) => {
+const SinglePage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
@@ -29,7 +29,7 @@ const AboutPage = ({ data }) => {
       <Helmet>
         <title>{data.site.siteMetadata.title} - Sobre mi</title>
       </Helmet>
-      <AboutPageTemplate
+      <SinglePageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
@@ -38,14 +38,14 @@ const AboutPage = ({ data }) => {
   );
 };
 
-AboutPage.propTypes = {
+SinglePage.propTypes = {
   data: PropTypes.object.isRequired
 };
 
-export default AboutPage;
+export default SinglePage;
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const singlePageQuery = graphql`
+  query SinglePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {

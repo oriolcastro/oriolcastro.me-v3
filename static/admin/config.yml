@@ -35,9 +35,10 @@ collections:
 
   - name: "pages"
     label: "Pages"
-    folder: "src/pages"
+    folder: "src/pages/simples"
     create: true
     delete: false
+    slug: "{{slug}}"
     editor:
       preview: false
     fields:
@@ -45,7 +46,7 @@ collections:
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "about-page",
+          default: "page",
         }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }

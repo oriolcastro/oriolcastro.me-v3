@@ -10,7 +10,7 @@ exports.createPages = ({ actions, graphql }) => {
     graphql(`
       {
         allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "page" } } }
+          filter: { frontmatter: { templateKey: { eq: "single-page" } } }
         ) {
           edges {
             node {

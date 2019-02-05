@@ -1,5 +1,5 @@
 ---
-templateKey: page
+templateKey: single-page
 title: Una mica sobre mi
 ---
 

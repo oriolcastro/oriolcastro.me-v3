@@ -26,7 +26,7 @@ const PortfolioPage = props => {
                   {repo.name}
                 </Card.Header>
                 <Card.Description>
-                  <p style={{ marginBottom: "16px", height: "3rem" }}>
+                  <p style={{ marginBottom: "16px", height: "6rem" }}>
                     {repo.description}
                   </p>
                   <Button
@@ -35,6 +35,7 @@ const PortfolioPage = props => {
                     href={repo.homepageUrl}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
+                    style={{ marginRight: "8px" }}
                   >
                     <IconContext.Provider
                       value={{
@@ -71,8 +72,10 @@ const PortfolioPage = props => {
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
-                {repo.repositoryTopics.edges.map(node => (
-                  <Label>{node.topic.name}</Label>
+                {repo.repositoryTopics.edges.map(({ node: t }) => (
+                  <Label key={t.id} style={{ marginBottom: "8px" }}>
+                    {t.topic.name}
+                  </Label>
                 ))}
               </Card.Content>
             </Card>

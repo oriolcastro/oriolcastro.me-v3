@@ -17,7 +17,10 @@ const PostLinks = props => {
         <Link to={props.previous.fields.slug}>
           <Button primary size="small">
             <IconContext.Provider
-              value={{ style: { verticalAlign: "middle", marginRight: "8px" } }}
+              value={{
+                style: { verticalAlign: "text-top", marginRight: "8px" },
+                size: "1.15em"
+              }}
             >
               <FaArrowLeft />
             </IconContext.Provider>
@@ -30,7 +33,10 @@ const PostLinks = props => {
           <Button primary size="small">
             Pròxima publicació
             <IconContext.Provider
-              value={{ style: { verticalAlign: "middle", marginLeft: "8px" } }}
+              value={{
+                style: { verticalAlign: "text-top", marginLeft: "8px" },
+                size: "1.15em"
+              }}
             >
               <FaArrowRight />
             </IconContext.Provider>

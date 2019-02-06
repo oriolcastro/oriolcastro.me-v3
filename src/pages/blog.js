@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 import { kebabCase } from "lodash";
 import { Header, Card, Label } from "semantic-ui-react";
 import Layout from "../components/layout";
@@ -19,6 +20,9 @@ const BlogPage = ({ data }) => {
       <Card.Group itemsPerRow="1" stackable>
         {posts.map(({ node: post }) => (
           <Card key={post.id}>
+            {post.frontmatter.thumbnail && (
+              <Img fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
+            )}
             <Card.Content>
               <Card.Header>
                 <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
@@ -70,6 +74,13 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM YYYY", locale: "ca")
             description
             tags
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 700, maxHeight: 300) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
           }
         }
       }

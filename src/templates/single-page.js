@@ -1,15 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
 import { Header } from "semantic-ui-react";
 import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
 import { Helmet } from "react-helmet";
 
-export const SinglePageTemplate = ({ title, content, contentComponent }) => {
+export const SinglePageTemplate = ({
+  title,
+  content,
+  contentComponent,
+  thumbnail
+}) => {
   const PageContent = contentComponent || Content;
   return (
     <>
+      <Img fluid={thumbnail} />
       <Header as="h1">{title}</Header>
       <PageContent className="pageContent" content={content} />
     </>
@@ -32,6 +39,7 @@ const SinglePage = ({ data }) => {
       <SinglePageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        thumbnail={post.frontmatter.thumbnail.childImageSharp.fluid}
         content={post.html}
       />
     </Layout>
@@ -50,6 +58,13 @@ export const singlePageQuery = graphql`
       html
       frontmatter {
         title
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 700, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
       }
     }
     site {

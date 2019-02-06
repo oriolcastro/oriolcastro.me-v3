@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import { Header, Label } from "semantic-ui-react";
 import { kebabCase } from "lodash";
+import Img from "gatsby-image";
 
 import Profile from "../components/Profile";
 import Content, { HTMLContent } from "../components/Content";
@@ -17,13 +18,15 @@ export const BlogPostTemplate = ({
   description,
   tags,
   title,
-  helmet
+  helmet,
+  thumbnail
 }) => {
   const PostContent = contentComponent || Content;
 
   return (
     <>
       {helmet || ""}
+      {thumbnail && <Img fluid={thumbnail} />}
       <Header as="h1">
         {title}
         <Header.Subheader>{description}</Header.Subheader>
@@ -55,6 +58,7 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
+  const hasThumbnail = post.frontmatter.thumbnail;
   const previous = pageContext.prev;
   const next = pageContext.next;
   const url = `https://oriolcastro.me${pageContext.slug}`;
@@ -67,6 +71,9 @@ const BlogPost = ({ data, pageContext }) => {
         helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        thumbnail={
+          hasThumbnail && post.frontmatter.thumbnail.childImageSharp.fluid
+        }
       />
       <SocialShare
         url={url}
@@ -97,6 +104,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 700, maxHeight: 300) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
       }
     }
   }

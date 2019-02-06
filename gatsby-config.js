@@ -49,6 +49,21 @@ module.exports = {
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    `gatsby-plugin-netlify-cms-paths`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        // Url to query from
+        url: "https://api.github.com/graphql",
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.app/env-vars
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+        }
+      }
+    },
     {
       resolve: "gatsby-transformer-remark",
       options: {

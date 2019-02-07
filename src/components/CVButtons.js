@@ -9,7 +9,18 @@ import MyCV_ENG from "../img/OriolCastroArnau_CV[ENG].pdf";
 const CVButtons = () => (
   <div style={{ margin: "calc(2rem - .14285714em) 0 1rem" }}>
     <Header as="h4">Descarrega el meu Curriculum Vitae</Header>
-    <Button primary href={MyCV_CAT} download style={{ marginRight: "8px" }}>
+    <Button
+      primary
+      href={MyCV_CAT}
+      download
+      style={{ marginRight: "8px" }}
+      onClick={() =>
+        gtag("event", "cv button", {
+          event_category: "interacció",
+          event_label: "cv català"
+        })
+      }
+    >
       <IconContext.Provider
         value={{
           style: {
@@ -23,7 +34,17 @@ const CVButtons = () => (
       </IconContext.Provider>
       CV en Català
     </Button>
-    <Button primary href={MyCV_ENG} download>
+    <Button
+      primary
+      href={MyCV_ENG}
+      download
+      onClick={() =>
+        gtag("event", "cv button", {
+          event_category: "interacció",
+          event_label: "cv anglès"
+        })
+      }
+    >
       <IconContext.Provider
         value={{
           style: {

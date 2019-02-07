@@ -6,6 +6,7 @@ description: >-
   Després de setmanes de feina el projecte de desembre arriba al seu final.
   Quines dificultats m'he trobat al llarg del seu desenvolupament? Que he pogut
   aprendre resolent els problemes? I sobretot, quin és el resultat final?
+thumbnail: /img/heroimae_event.jpg
 tags:
   - 6by6
   - Projectes

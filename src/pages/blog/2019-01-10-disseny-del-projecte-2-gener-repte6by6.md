@@ -8,6 +8,7 @@ description: >-
   funcionalitats i escollir la
 
   millor tecnologia i arquitectura a fer servir.
+thumbnail: /img/heroimage_carrots.jpg
 tags:
   - 6by6
   - JAMStack

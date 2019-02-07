@@ -14,7 +14,7 @@ Sempre m'ha apassionat conèixer com funcionava tot el que m'envoltava i trobar 
 * Màster en Ciència i Tecnologia Aeroespacial 2011 - 2014
 * Enginyeria Tècnica Aeronàutica esp. Aeronavegació 2005 - 2009
 
-La curiositat m'ha dut a explorar nous camps i a continuar adquirint coneixements i habilitats. En els últims anys he decidit pivotar la meva carrera professional cap a la programació web front-end. La formació en línia i el bast coneixement accessible a través de la xarxa m'ha permès fer-ho realitat. En aquests mesos d'autoaprenentatge he centrat la meva atenció especialment en:
+La curiositat m'ha dut a explorar nous camps i a continuar adquirint coneixements i habilitats. En els últims anys he decidit pivotar la meva carrera professional cap a la programació web _front-end_. La formació en línia i el bast coneixement accessible a través de la xarxa m'ha permès fer-ho realitat. En aquests mesos d'autoaprenentatge he centrat la meva atenció especialment en:
 
 * L'ecosistema [Reactjs](https://reactjs.org) a través del generador d'apps i webs [Gatsbyjs](https://www.gatsbyjs.org/).
 * El llenguatge [GraphQL](https://graphql.org/) i la seva implementació en el client i servidor.

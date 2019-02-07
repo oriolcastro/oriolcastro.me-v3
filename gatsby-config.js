@@ -12,16 +12,29 @@ module.exports = {
     "gatsby-plugin-feed",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-catch-links",
+    // {
+    //   resolve: "gatsby-plugin-google-analytics",
+    //   options: {
+    //     trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+    //     // Puts tracking script in the head instead of the body
+    //     head: false,
+    //     // Setting this parameter is optional
+    //     anonymize: true,
+    //     // Setting this parameter is also optional
+    //     respectDNT: true,
+    //     // Avoids sending pageview hits from custom paths
+    //     exclude: ["/admin/*"]
+    //   }
+    // },
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: `gatsby-plugin-gtag`,
       options: {
+        // your google analytics tracking id
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
         // Puts tracking script in the head instead of the body
         head: false,
-        // Setting this parameter is optional
+        // enable ip anonymization
         anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
         // Avoids sending pageview hits from custom paths
         exclude: ["/admin/*"]
       }
@@ -49,6 +62,21 @@ module.exports = {
     },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    `gatsby-plugin-netlify-cms-paths`,
+    {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "GitHub",
+        fieldName: "github",
+        // Url to query from
+        url: "https://api.github.com/graphql",
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.app/env-vars
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
+        }
+      }
+    },
     {
       resolve: "gatsby-transformer-remark",
       options: {

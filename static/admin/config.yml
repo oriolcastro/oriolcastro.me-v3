@@ -17,6 +17,8 @@ collections:
     folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: false
     fields:
       - {
           label: "Template Key",
@@ -27,21 +29,39 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
 
   - name: "pages"
     label: "Pages"
-    files:
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "about-page",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+    folder: "src/pages"
+    create: true
+    delete: false
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "single-page",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+    # files:
+    #   - file: "src/pages/about/index.md"
+    #     label: "About"
+    #     name: "about"
+    #     fields:
+    #     - {
+    #           label: "Template Key",
+    #           name: "templateKey",
+    #           widget: "hidden",
+    #           default: "portfolio-page",
+    #         }
+    #       - { label: "Title", name: "title", widget: "string" }
+    #       - { label: "Featured Image", name: "thumbnail", widget: "image" }
+    #       - { label: "Body", name: "body", widget: "markdown" }

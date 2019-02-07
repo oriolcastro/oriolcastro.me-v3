@@ -55,8 +55,8 @@ const Profile = ({ isBlogPost }) => {
             Oriol Castro
             <Header.Subheader style={{ textAlign: "justify" }}>
               Sóc programador web front-end, emprenedor digital i entusiasta
-              tecnològic. En aquest blog escric sobre tecnologia i canvi social.
-              Treballo a{" "}
+              tecnològic. En aquest blog escric sobre els meus projectes, noves
+              tecnologies i canvi social. Treballo a{" "}
               <OutboundLink href="https://okstudio.tech">
                 OK! Studio
               </OutboundLink>
@@ -66,10 +66,10 @@ const Profile = ({ isBlogPost }) => {
         ) : (
           <>
             <Header as="h1">Benvinguts al meu blog!</Header>
-            <Header size="tiny" style={{ textAlign: "justify" }}>
+            <Header size="tiny" textAlign="justified">
               Sóc programador web front-end, emprenedor digital i entusiasta
-              tecnològic. En aquest blog escric sobre tecnologia i canvi social.
-              Treballo a{" "}
+              tecnològic. En aquest blog escric sobre els meus projectes, noves
+              tecnologies i canvi social. Treballo a{" "}
               <OutboundLink
                 href="https://okstudio.tech"
                 target="_blank"

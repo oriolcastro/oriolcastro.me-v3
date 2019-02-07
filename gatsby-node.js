@@ -10,7 +10,7 @@ exports.createPages = ({ actions, graphql }) => {
     graphql(`
       {
         allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "about-page" } } }
+          filter: { frontmatter: { templateKey: { eq: "single-page" } } }
         ) {
           edges {
             node {
@@ -32,7 +32,7 @@ exports.createPages = ({ actions, graphql }) => {
         const id = edge.node.id;
         createPage({
           path: edge.node.fields.slug,
-          component: path.resolve(`src/templates/about-page.js`),
+          component: path.resolve(`src/templates/single-page.js`),
           context: {
             id
           }

@@ -13,7 +13,10 @@ const Navbar = () => (
         <Emoji symbol="👌" label="ok" /> Oriol Castro
       </Menu.Item>
       <Menu.Menu position="right">
-        <Menu.Item as={Link} to="/about">
+        <Menu.Item as={Link} to="/portfolio">
+          Portfoli
+        </Menu.Item>
+        <Menu.Item as={Link} to="/una-mica-sobre-mi">
           Sobre mi
         </Menu.Item>
         <Menu.Item as={Link} to="/blog">

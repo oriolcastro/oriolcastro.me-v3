@@ -2,26 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { Header } from "semantic-ui-react";
-import Content, { HTMLContent } from "../components/Content";
-import Layout from "../components/layout";
+import Img from "gatsby-image";
 import { Helmet } from "react-helmet";
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
+import Content, { HTMLContent } from "../components/Content";
+import Layout from "../components/layout";
+import CVButtons from "../components/CVButtons";
+
+export const SinglePageTemplate = ({
+  title,
+  content,
+  contentComponent,
+  thumbnail
+}) => {
   const PageContent = contentComponent || Content;
   return (
     <>
+      <Img fluid={thumbnail} />
       <Header as="h1">{title}</Header>
       <PageContent className="pageContent" content={content} />
+      {title === "Una mica sobre mi" && <CVButtons />}
     </>
   );
 };
-AboutPageTemplate.propTypes = {
+SinglePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string,
   contentComponent: PropTypes.func
 };
 
-const AboutPage = ({ data }) => {
+const SinglePage = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
@@ -29,27 +39,35 @@ const AboutPage = ({ data }) => {
       <Helmet>
         <title>{data.site.siteMetadata.title} - Sobre mi</title>
       </Helmet>
-      <AboutPageTemplate
+      <SinglePageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        thumbnail={post.frontmatter.thumbnail.childImageSharp.fluid}
         content={post.html}
       />
     </Layout>
   );
 };
 
-AboutPage.propTypes = {
+SinglePage.propTypes = {
   data: PropTypes.object.isRequired
 };
 
-export default AboutPage;
+export default SinglePage;
 
-export const aboutPageQuery = graphql`
-  query AboutPage($id: String!) {
+export const singlePageQuery = graphql`
+  query SinglePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1400, maxHeight: 700) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
       }
     }
     site {

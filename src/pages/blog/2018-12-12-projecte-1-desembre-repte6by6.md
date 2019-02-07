@@ -7,6 +7,7 @@ description: >-
   Repte 6by6. Definir les funcionalitats que tindrà l'aplicació, escollir la
   tecnologia a fer servir i la seva arquitectura, i finalment dissenyar les
   diferents parts que veuran els usuaris.
+thumbnail: /img/mvimg_20181213_164512.jpg
 tags:
   - 6by6
   - Projectes

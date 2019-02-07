@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
 import { Header } from "semantic-ui-react";
+import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
+
 import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
-import { Helmet } from "react-helmet";
+import CVButtons from "../components/CVButtons";
 
 export const SinglePageTemplate = ({
   title,
@@ -19,6 +21,7 @@ export const SinglePageTemplate = ({
       <Img fluid={thumbnail} />
       <Header as="h1">{title}</Header>
       <PageContent className="pageContent" content={content} />
+      {title === "Una mica sobre mi" && <CVButtons />}
     </>
   );
 };
@@ -60,7 +63,7 @@ export const singlePageQuery = graphql`
         title
         thumbnail {
           childImageSharp {
-            fluid(maxWidth: 700, maxHeight: 300) {
+            fluid(maxWidth: 1400, maxHeight: 700) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }

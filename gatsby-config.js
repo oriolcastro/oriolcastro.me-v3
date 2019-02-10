@@ -12,20 +12,6 @@ module.exports = {
     "gatsby-plugin-feed",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-catch-links",
-    // {
-    //   resolve: "gatsby-plugin-google-analytics",
-    //   options: {
-    //     trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-    //     // Puts tracking script in the head instead of the body
-    //     head: false,
-    //     // Setting this parameter is optional
-    //     anonymize: true,
-    //     // Setting this parameter is also optional
-    //     respectDNT: true,
-    //     // Avoids sending pageview hits from custom paths
-    //     exclude: ["/admin/*"]
-    //   }
-    // },
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
@@ -63,6 +49,16 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     `gatsby-plugin-netlify-cms-paths`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Lato`,
+          },
+        ],
+      },
+    }
     {
       resolve: "gatsby-source-graphql",
       options: {

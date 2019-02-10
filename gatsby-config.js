@@ -54,11 +54,11 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Lato`,
-          },
-        ],
-      },
-    }
+            family: `Lato`
+          }
+        ]
+      }
+    },
     {
       resolve: "gatsby-source-graphql",
       options: {

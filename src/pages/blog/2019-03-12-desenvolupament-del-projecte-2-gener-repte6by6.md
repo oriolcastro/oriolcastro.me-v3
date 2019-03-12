@@ -16,6 +16,15 @@ tags:
   - React
   - GraphQL
 ---
+Estructura:
+
+* H2 amb problema/pregunta
+* Descripció
+* Solució que vaig fer servir
+* Aprenentatge obtingut
+
+
+
 Afegir gestió inscripcions + Formik per al formulari
 
 Date picker al formulari

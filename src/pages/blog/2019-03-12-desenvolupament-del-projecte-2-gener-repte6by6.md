@@ -16,4 +16,30 @@ tags:
   - React
   - GraphQL
 ---
-Bla bla
+Afegir gestió inscripcions + Formik per al formulari
+
+Date picker al formulari
+
+Utilitzar react-select i adaptar-lo a material-ui per al formulari
+
+
+
+Mutations amb axios i lambda functions en general
+
+
+
+Tracking PWA amb Analytics
+
+
+
+Custom coutdown fent servir codi existent i adaptat a aspecte visual
+
+
+
+Configuració de firebase per a push notifications
+
+
+
+No test safari i problema amb localhost
+
+intent de solució a ultima hora amb localforaste

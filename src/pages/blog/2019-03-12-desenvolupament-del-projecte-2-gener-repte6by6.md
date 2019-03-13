@@ -1,12 +1,13 @@
 ---
 templateKey: blog-post
 title: 'Desenvolupament del projecte #2 Gener - Repte6by6'
-date: 2019-03-12T11:50:04.578Z
+date: 2019-03-13T11:50:04.578Z
 description: >-
   El que havia de ser només el projecte de gener del Repte6by6 es va acabar
   convertint en un procés d'aprenentatge brutal sobre la importància de conèixer
-  les necessitats dels usuaris finals, la necessitat de testejar a fons el codi
-  i el valor de planificar els projectes abans d'iniciar el seu desenvolupament.
+  els usuaris finals del producte, la necessitat de testejar a fons el codi en
+  les diferents plataformes i el valor de planificar els projectes abans
+  d'iniciar el seu desenvolupament.
 thumbnail: /img/heroimage_pastanagapp.jpg
 tags:
   - 6by6
@@ -16,39 +17,91 @@ tags:
   - React
   - GraphQL
 ---
-Estructura:
+> INTRO
 
-* H2 amb problema/pregunta
-* Descripció
-* Solució que vaig fer servir
-* Aprenentatge obtingut
+## Formulari per a la gestió de les inscripcions
 
+DESCRIPCIÓ
 
+#### Com ho vaig resoldre?
 
-Afegir gestió inscripcions + Formik per al formulari
+FORMIK
 
-Date picker al formulari
+DATE PICKER
 
-Utilitzar react-select i adaptar-lo a material-ui per al formulari
+REACT_SELECT + MATERIAL UI
 
-
-
-Mutations amb axios i lambda functions en general
+#### Que n'he extret?
 
 
 
-Tracking PWA amb Analytics
+## Lambda functions i la comunicació client-servidor
+
+DESCRIPCIO
+
+#### Com ho vaig resoldre?
+
+AXIOS
+
+NETLIFY FUNCTIONS
+
+#### Que n'he extret?
 
 
 
-Custom coutdown fent servir codi existent i adaptat a aspecte visual
+## Característiques per a ser una PWA 
+
+DESCRIPCIO
+
+#### Com ho vaig resoldre?
+
+TRACKING WITH ANALYTICS
+
+MANIFEST
+
+OFFLINE
+
+#### Que n'he extret?
 
 
 
-Configuració de firebase per a push notifications
+## Component compte enrere
+
+DESCRIPCIO
+
+#### Com ho vaig resoldre?
+
+EXISTING CODE
+
+ADAPTAT ASPECTE VISUAL
+
+#### Que n'he extret?
 
 
 
-No test safari i problema amb localhost
+## Implementació de les push notifications
 
-intent de solució a ultima hora amb localforaste
+DESCRIPCIO
+
+#### Com ho vaig resoldre?
+
+FIREBASE\
+SW
+
+LEGACY API
+
+#### Que n'he extret?
+
+
+
+## Localhost amb el navegador safari
+
+DESCRIPCIO
+
+#### Com ho vaig resoldre?
+
+LOCALFORASTE
+
+RENUNCIA
+
+#### Que n'he extret?

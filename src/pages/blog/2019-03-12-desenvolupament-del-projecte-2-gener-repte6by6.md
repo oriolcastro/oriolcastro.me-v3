@@ -23,7 +23,7 @@ tags:
 
 DESCRIPCIÓ
 
-#### Com ho vaig resoldre?
+### Com ho vaig resoldre?
 
 FORMIK
 
@@ -31,7 +31,7 @@ DATE PICKER
 
 REACT_SELECT + MATERIAL UI
 
-#### Que n'he extret?
+### Que n'he extret?
 
 
 
@@ -39,13 +39,13 @@ REACT_SELECT + MATERIAL UI
 
 DESCRIPCIO
 
-#### Com ho vaig resoldre?
+### Com ho vaig resoldre?
 
 AXIOS
 
 NETLIFY FUNCTIONS
 
-#### Que n'he extret?
+### Que n'he extret?
 
 
 
@@ -53,7 +53,7 @@ NETLIFY FUNCTIONS
 
 DESCRIPCIO
 
-#### Com ho vaig resoldre?
+### Com ho vaig resoldre?
 
 TRACKING WITH ANALYTICS
 
@@ -61,7 +61,7 @@ MANIFEST
 
 OFFLINE
 
-#### Que n'he extret?
+### Que n'he extret?
 
 
 
@@ -69,13 +69,13 @@ OFFLINE
 
 DESCRIPCIO
 
-#### Com ho vaig resoldre?
+### Com ho vaig resoldre?
 
 EXISTING CODE
 
 ADAPTAT ASPECTE VISUAL
 
-#### Que n'he extret?
+### Que n'he extret?
 
 
 
@@ -83,14 +83,14 @@ ADAPTAT ASPECTE VISUAL
 
 DESCRIPCIO
 
-#### Com ho vaig resoldre?
+### Com ho vaig resoldre?
 
 FIREBASE\
 SW
 
 LEGACY API
 
-#### Que n'he extret?
+### Que n'he extret?
 
 
 
@@ -98,13 +98,13 @@ LEGACY API
 
 DESCRIPCIO
 
-#### Com ho vaig resoldre?
+### Com ho vaig resoldre?
 
 LOCALFORASTE
 
 RENUNCIA
 
-#### Que n'he extret?
+### Que n'he extret?
 
 
 

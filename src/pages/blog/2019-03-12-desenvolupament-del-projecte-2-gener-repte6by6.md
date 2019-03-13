@@ -105,3 +105,7 @@ LOCALFORASTE
 RENUNCIA
 
 #### Que n'he extret?
+
+
+
+## Conclusions

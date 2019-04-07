@@ -9,7 +9,7 @@ public_folder: /img
 
 display_url: https://oriolcastro.me
 
-logo_url: https://oriolcastro.me/static/a21f9c9b7c7ca3cb1062a93c5a36fe4f/cdec6/me.webp
+logo_url: https://res.cloudinary.com/okstudio/image/upload/v1552298710/me.jpg
 
 collections:
   - name: "blog"
@@ -17,6 +17,7 @@ collections:
     folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
     editor:
       preview: false
     fields:

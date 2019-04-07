@@ -10,7 +10,7 @@ import {
   FaEnvelope
 } from "react-icons/fa";
 import Img from "gatsby-image";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "gatsby-plugin-gtag";
 
 const Profile = ({ isBlogPost }) => {
   return (

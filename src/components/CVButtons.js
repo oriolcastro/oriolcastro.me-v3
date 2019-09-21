@@ -15,7 +15,7 @@ const CVButtons = () => (
       download
       style={{ marginRight: "8px" }}
       onClick={() =>
-        gtag("event", "cv button", {
+        typeof window !== "undefined" && window.gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv català"
         })
@@ -39,7 +39,7 @@ const CVButtons = () => (
       href={MyCV_ENG}
       download
       onClick={() =>
-        gtag("event", "cv button", {
+        typeof window !== "undefined" && window.gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv anglès"
         })

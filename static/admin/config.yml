@@ -12,15 +12,39 @@ display_url: https://oriolcastro.me
 logo_url: https://res.cloudinary.com/okstudio/image/upload/v1552298710/me.jpg
 
 collections:
-  - name: "blog"
-    label: "Blog"
+  - name: "blog_ca"
+    label: "Blog en català"
     folder: "src/pages/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "ca/{{year}}-{{month}}-{{day}}-{{slug}}"
     preview_path: "blog/{{slug}}"
     editor:
       preview: false
     fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "blog-post",
+        }
+      - { label: "Language", name: "language", widget: "select", options: ["en", "ca"]}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list" }
+  - name: "blog_en"
+    label: "Blog in english"
+    folder: "src/pages/blog"
+    create: true
+    slug: "en/{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{slug}}"
+    editor:
+      preview: false
+    filter: {field: "language", value: "en"}
+    fields:
+      - { label: "Language", name: "language", widget: "select", options: ["en", "ca"]}
       - {
           label: "Template Key",
           name: "templateKey",
@@ -33,7 +57,6 @@ collections:
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
-
   - name: "pages"
     label: "Pages"
     folder: "src/pages"

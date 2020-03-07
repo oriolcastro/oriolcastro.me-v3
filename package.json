@@ -1,20 +1,52 @@
 {
   "name": "oriolcastro.me",
-  "description": "My personal blog",
   "version": "3.0.0",
+  "private": true,
+  "description": "My personal blog",
+  "keywords": [
+    "gatsby"
+  ],
+  "homepage": "https://oriolcastro.me",
+  "license": "MIT",
   "author": "Oriol Castro",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop",
+    "lint": "eslint .",
+    "lint:css": "stylelint './src/**/*.{js,jsx}'",
+    "lint:js": "NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mjs --report-unused-disable-directives",
+    "lint:package": "sort-package-json",
+    "serve": "gatsby serve",
+    "start": "npm run develop"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "package.json": [
+      "npm run lint:package"
+    ],
+    "src/**/*.{js,jsx}": [
+      "npm run lint:css",
+      "npm run lint:js --fix"
+    ]
+  },
+  "browserslist": ">0.5%, not ie 11, not safari 5.1, not op_mini all",
   "dependencies": {
     "@theme-ui/typography": "^0.3.0",
     "@weknow/gatsby-remark-twitter": "^0.2.3",
     "dotenv": "^8.2.0",
     "gatsby": "^2.19.32",
     "gatsby-image": "^2.2.43",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-catch-links": "^2.1.27",
     "gatsby-plugin-feed": "^2.3.28",
     "gatsby-plugin-gtag": "^1.0.13",
     "gatsby-plugin-netlify": "^2.1.34",
-    "gatsby-plugin-netlify-cms": "^4.1.41",
-    "gatsby-plugin-netlify-cms-paths": "^1.3.0",
     "gatsby-plugin-offline": "^3.0.37",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "^3.1.23",
@@ -36,7 +68,6 @@
     "gatsby-transformer-remark": "^2.6.55",
     "gatsby-transformer-sharp": "^2.3.17",
     "lodash": "^4.17.15",
-    "netlify-cms": "^2.10.30",
     "node-sass": "^4.13.1",
     "prismjs": "^1.19.0",
     "prop-types": "^15.7.2",
@@ -45,30 +76,40 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",
     "react-share": "^4.0.1",
+    "react-slugify": "^2.0.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.0.1",
     "theme-ui": "^0.3.1",
+    "tinacms": "^0.15.0",
     "typography-theme-noriega": "^0.16.19",
     "typography-theme-sutro": "^0.16.19",
     "uuid": "^7.0.2"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-import-resolver-custom-alias": "^1.2.0",
+    "eslint-plugin-compat": "^3.5.1",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-json": "^2.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "eslint-plugin-simple-import-sort": "^5.0.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
-    "rimraf": "^3.0.2"
+    "prettier-eslint": "^9.0.1",
+    "prettier-stylelint": "^0.4.2",
+    "sort-package-json": "^1.40.0",
+    "stylelint": "^13.2.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-recommended": "^3.0.0"
   }
 }

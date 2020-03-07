@@ -20,8 +20,8 @@ const BlogPage = ({ data }) => {
       <Card.Group itemsPerRow="1" stackable>
         {posts.map(({ node: post }) => (
           <Card key={post.id}>
-            {post.frontmatter.thumbnail && (
-              <Img fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
+            {post.frontmatter.coverImg && (
+              <Img fluid={post.frontmatter.coverImg.childImageSharp.fluid} />
             )}
             <Card.Content>
               <Card.Header>
@@ -74,7 +74,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM YYYY", locale: "ca")
             description
             tags
-            thumbnail {
+            coverImg {
               childImageSharp {
                 fluid(maxWidth: 700, maxHeight: 300) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG

@@ -22,9 +22,9 @@ export default class IndexPage extends React.Component {
           <Card.Group itemsPerRow="2" stackable>
             {posts.map(({ node: post }) => (
               <Card key={post.id}>
-                {post.frontmatter.thumbnail && (
+                {post.frontmatter.coverImg && (
                   <Img
-                    fluid={post.frontmatter.thumbnail.childImageSharp.fluid}
+                    fluid={post.frontmatter.coverImg.childImageSharp.fluid}
                   />
                 )}
                 <Card.Content>
@@ -87,7 +87,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM YYYY", locale: "ca")
             description
             tags
-            thumbnail {
+            coverImg {
               childImageSharp {
                 fluid(maxWidth: 350, maxHeight: 150) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG

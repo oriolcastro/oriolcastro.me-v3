@@ -13,12 +13,12 @@ export const SinglePageTemplate = ({
   title,
   content,
   contentComponent,
-  thumbnail
+  coverImg
 }) => {
   const PageContent = contentComponent || Content;
   return (
     <>
-      <Img fluid={thumbnail} />
+      <Img fluid={coverImg} />
       <Header as="h1">{title}</Header>
       <PageContent className="pageContent" content={content} />
       {title === "Una mica sobre mi" && <CVButtons />}
@@ -42,7 +42,7 @@ const SinglePage = ({ data }) => {
       <SinglePageTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        thumbnail={post.frontmatter.thumbnail.childImageSharp.fluid}
+        coverImg={post.frontmatter.coverImg.childImageSharp.fluid}
         content={post.html}
       />
     </Layout>
@@ -61,7 +61,7 @@ export const singlePageQuery = graphql`
       html
       frontmatter {
         title
-        thumbnail {
+        coverImg {
           childImageSharp {
             fluid(maxWidth: 1400, maxHeight: 700) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG

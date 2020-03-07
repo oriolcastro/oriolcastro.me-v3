@@ -17,7 +17,7 @@ tags:
 ---
 > Avís: aquest serà un article bastant tècnic en alguns dels seus punts.
 
-TESTSegon més del repte i per tant segon projecte a iniciar. En aquest cas durant el desembre només vaig compartir una de les idees que tenia. El motiu és que de seguida vaig veure clar quin havia de ser el projecte que tirés endavant, així que tenia poc sentit "gastar" idees que sabia tenien poques possibilitats.
+Segon més del repte i per tant segon projecte a iniciar. En aquest cas durant el desembre només vaig compartir una de les idees que tenia. El motiu és que de seguida vaig veure clar quin havia de ser el projecte que tirés endavant, així que tenia poc sentit "gastar" idees que sabia tenien poques possibilitats.
 
 La idea que vaig compartir va ser aquesta:
 

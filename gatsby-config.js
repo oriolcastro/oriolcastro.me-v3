@@ -12,7 +12,30 @@ module.exports = {
     "gatsby-plugin-feed",
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-catch-links",
+    "gatsby-plugin-theme-ui",
     {
+      resolve: 'gatsby-plugin-tinacms',
+      options: {
+        sidebar: {
+          hidden: process.env.NODE_ENV === "production",
+          position: "displace",
+        },
+        plugins: [
+          {
+            resolve:"gatsby-tinacms-git",
+            options: {
+              defaultCommitMessage: 'Content edited with TinaCMS',
+              defaultCommitName: 'oriolcastro',
+              defaultCommitEmail: 'oriol.castroarnau@gmail.com',
+              pushOnCommit: false,
+            } 
+          },
+          "gatsby-tinacms-remark",
+        ],
+      },
+    },
+   
+  /*   {
       resolve: `gatsby-plugin-gtag`,
       options: {
         // your google analytics tracking id
@@ -24,14 +47,39 @@ module.exports = {
         // Avoids sending pageview hits from custom paths
         exclude: ["/admin/*"]
       }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/static/img`,
-        name: "uploads"
-      }
-    },
+    }, */
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+        {
+          resolve: "gatsby-transformer-remark",
+          options: {
+            plugins: [
+              "gatsby-remark-prismjs",
+              "gatsby-remark-embed-spotify",
+              "@weknow/gatsby-remark-twitter",
+              {
+                resolve: "gatsby-remark-relative-images-v2"
+              },
+              {
+                resolve: "gatsby-remark-images",
+                options: {
+                  maxWidth: 650,
+                  withWebp: true,
+                  showCaptions: true,
+                  linkImagesToOriginal: false,
+                  quality: 75
+                }
+              },
+              {
+                resolve: "gatsby-remark-relative-links",
+                options: {
+                  domainRegex: /http[s]*:\/\/[www.]*oriolcastro\.me[/]?/
+                }
+              },
+              "gatsby-remark-external-links"
+            ]
+          }
+        },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -42,12 +90,17 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/img`,
-        name: "images"
+        path: `${__dirname}/content/blog`,
+        name: "blog"
       }
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: "assets"
+      }
+    },
     `gatsby-plugin-netlify-cms-paths`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -73,36 +126,7 @@ module.exports = {
         }
       }
     },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          "gatsby-remark-prismjs",
-          "gatsby-remark-embed-spotify",
-          "@weknow/gatsby-remark-twitter",
-          {
-            resolve: "gatsby-remark-relative-images-v2"
-          },
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 650,
-              withWebp: true,
-              showCaptions: true,
-              linkImagesToOriginal: false,
-              quality: 75
-            }
-          },
-          {
-            resolve: "gatsby-remark-relative-links",
-            options: {
-              domainRegex: /http[s]*:\/\/[www.]*oriolcastro\.me[/]?/
-            }
-          },
-          "gatsby-remark-external-links"
-        ]
-      }
-    },
+    
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {

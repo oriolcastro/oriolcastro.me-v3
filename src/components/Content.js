@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Wysiwyg } from "@tinacms/fields";
+import { TinaField } from "@tinacms/form-builder";
 
 export const HTMLContent = ({ content, className }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+  <TinaField name="rawMarkdownBody" Component={Wysiwyg}>
+    <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+  </TinaField>
 );
 
 const Content = ({ content, className }) => (

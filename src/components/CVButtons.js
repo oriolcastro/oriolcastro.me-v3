@@ -14,12 +14,12 @@ const CVButtons = () => (
       href={MyCV_CAT}
       download
       style={{ marginRight: "8px" }}
-      onClick={() =>
+      /* onClick={() =>
         gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv català"
         })
-      }
+      } */
     >
       <IconContext.Provider
         value={{
@@ -38,12 +38,12 @@ const CVButtons = () => (
       primary
       href={MyCV_ENG}
       download
-      onClick={() =>
+     /*  onClick={() =>
         gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv anglès"
         })
-      }
+      } */
     >
       <IconContext.Provider
         value={{

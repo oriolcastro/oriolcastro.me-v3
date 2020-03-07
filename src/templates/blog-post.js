@@ -3,14 +3,78 @@ import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { graphql, Link } from "gatsby";
 import { Header, Label } from "semantic-ui-react";
-import { kebabCase } from "lodash";
+import kebabCase from "lodash/kebabCase";
+import get from "lodash/get";
 import Img from "gatsby-image";
+import { inlineRemarkForm } from "gatsby-tinacms-remark";
 
 import Profile from "../components/Profile";
 import Content, { HTMLContent } from "../components/Content";
 import Layout from "../components/layout";
 import PostLinks from "../components/PostLinks";
 import SocialShare from "../components/SocialShare";
+
+const path = require("path").posix;
+
+const FormConfig = {
+  label: "Blog Post",
+  fields: [
+    {
+      label: "Title",
+      name: "rawFrontmatter.title",
+      description: "The title of this post",
+      component: "text"
+    },
+    {
+      label: "Template Key",
+      name: "rawFrontmatter.templateKey",
+      description: "Type of page",
+      component: "select",
+      options: ["blog-post", "single-page"]
+    },
+    {
+      label: `Date Published`,
+      name: `rawFrontmatter.date`,
+      description: `The date the post was published.`,
+      component: `date`,
+      dateFormat: `YYYY-MM-DD`,
+      timeFormat: false
+    },
+    {
+      label: "Description",
+      name: "rawFrontmatter.description",
+      description: "Short asbtract for the post",
+      component: "textarea"
+    },
+    {
+      label: "Tags",
+      name: "rawFrontmatter.tags",
+      description: "Tags for the post",
+      component: "text"
+    },
+    {
+      label: `Featured Image`,
+      name: `rawFrontmatter.coverImg`,
+      component: `image`,
+      // function to convert uploaded images.
+      parse: filename => `${filename}`,
+      previewSrc: (formValues, { input }) => {
+        const path = input.name.replace("rawFrontmatter", "frontmatter");
+        const gatsbyImageNode = get(formValues, path);
+        if (!gatsbyImageNode) return "";
+        //specific to gatsby-image
+        return gatsbyImageNode.childImageSharp.fluid.src;
+      },
+      uploadDir: blogPost => path.dirname(blogPost.fileRelativePath)
+    },
+    {
+      label: `Content`,
+      name: `rawMarkdownBody`,
+      description: `Write your blog post here!`,
+      component: `markdown`
+    }
+  ]
+};
 
 export const BlogPostTemplate = ({
   content,
@@ -19,7 +83,9 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  thumbnail
+  thumbnail,
+  isEditing,
+  setIsEditing
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -31,7 +97,11 @@ export const BlogPostTemplate = ({
         {title}
         <Header.Subheader>{description}</Header.Subheader>
       </Header>
-
+      {process.env.NODE_ENV === 'development' && (
+        <button onClick={() => setIsEditing(p => !p)}>
+          {isEditing ? 'Preview' : 'Edit'}
+        </button>
+      )}
       <PostContent content={content} className="blogContent" />
       {tags && tags.length ? (
         <div style={{ marginTop: `4rem`, marginBottom: "4rem" }}>
@@ -56,9 +126,9 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.instanceOf(Helmet)
 };
 
-const BlogPost = ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext, isEditing, setIsEditing }) => {
   const { markdownRemark: post } = data;
-  const hasThumbnail = post.frontmatter.thumbnail;
+  const hasThumbnail = post.frontmatter.coverImg;
   const previous = pageContext.prev;
   const next = pageContext.next;
   const url = `https://oriolcastro.me${pageContext.slug}`;
@@ -72,8 +142,10 @@ const BlogPost = ({ data, pageContext }) => {
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
         thumbnail={
-          hasThumbnail && post.frontmatter.thumbnail.childImageSharp.fluid
+          hasThumbnail && post.frontmatter.coverImg.childImageSharp.fluid
         }
+        isEditing={isEditing}
+        setIsEditing={setIsEditing}
       />
       <SocialShare
         url={url}
@@ -92,7 +164,7 @@ BlogPost.propTypes = {
   })
 };
 
-export default BlogPost;
+export default inlineRemarkForm(BlogPost, FormConfig);
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -104,7 +176,7 @@ export const pageQuery = graphql`
         title
         description
         tags
-        thumbnail {
+        coverImg {
           childImageSharp {
             fluid(maxWidth: 1400, maxHeight: 700) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
@@ -112,6 +184,7 @@ export const pageQuery = graphql`
           }
         }
       }
+      ...TinaRemark
     }
   }
 `;

@@ -1,25 +1,27 @@
-import React from "react";
-import { Link } from "gatsby";
-import { Button } from "semantic-ui-react";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
-import { IconContext } from "react-icons";
+import React from 'react';
+import { IconContext } from 'react-icons';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const PostLinks = props => {
+import { Link } from 'gatsby';
+
+import { Button } from 'semantic-ui-react';
+
+const PostLinks = ({ previous, next }) => {
   return (
     <div
       style={{
-        marginBottom: "48px",
-        display: "flex",
-        justifyContent: "space-between"
+        marginBottom: '48px',
+        display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
-      {props.previous && (
-        <Link to={props.previous.fields.slug}>
+      {previous && (
+        <Link to={previous.fields.slug}>
           <Button primary size="small">
             <IconContext.Provider
               value={{
-                style: { verticalAlign: "text-top", marginRight: "8px" },
-                size: "1.15em"
+                style: { verticalAlign: 'text-top', marginRight: '8px' },
+                size: '1.15em',
               }}
             >
               <FaArrowLeft />
@@ -28,14 +30,14 @@ const PostLinks = props => {
           </Button>
         </Link>
       )}
-      {props.next && (
-        <Link to={props.next.fields.slug}>
+      {next && (
+        <Link to={next.fields.slug}>
           <Button primary size="small">
             Pròxima publicació
             <IconContext.Provider
               value={{
-                style: { verticalAlign: "text-top", marginLeft: "8px" },
-                size: "1.15em"
+                style: { verticalAlign: 'text-top', marginLeft: '8px' },
+                size: '1.15em',
               }}
             >
               <FaArrowRight />

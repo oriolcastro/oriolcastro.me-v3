@@ -1,34 +1,32 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import { Header } from "semantic-ui-react";
-import Img from "gatsby-image";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
-import Content, { HTMLContent } from "../components/Content";
-import Layout from "../components/layout";
-import CVButtons from "../components/CVButtons";
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
-export const SinglePageTemplate = ({
-  title,
-  content,
-  contentComponent,
-  coverImg
-}) => {
+import PropTypes from 'prop-types';
+import { Header } from 'semantic-ui-react';
+
+import Content, { HTMLContent } from '@components/Content';
+import CVButtons from '@components/CVButtons';
+import Layout from '@components/layout';
+
+export const SinglePageTemplate = ({ title, content, contentComponent, coverImg }) => {
   const PageContent = contentComponent || Content;
   return (
     <>
       <Img fluid={coverImg} />
       <Header as="h1">{title}</Header>
       <PageContent className="pageContent" content={content} />
-      {title === "Una mica sobre mi" && <CVButtons />}
+      {title === 'Una mica sobre mi' && <CVButtons />}
     </>
   );
 };
 SinglePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func
+  coverImg: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  contentComponent: PropTypes.func.isRequired,
 };
 
 const SinglePage = ({ data }) => {
@@ -50,7 +48,8 @@ const SinglePage = ({ data }) => {
 };
 
 SinglePage.propTypes = {
-  data: PropTypes.object.isRequired
+  // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.object.isRequired,
 };
 
 export default SinglePage;

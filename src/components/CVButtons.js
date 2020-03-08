@@ -1,19 +1,20 @@
-import React from "react";
-import { Button, Header } from "semantic-ui-react";
-import { IconContext } from "react-icons";
-import { FaFilePdf } from "react-icons/fa";
+import React from 'react';
+import { IconContext } from 'react-icons';
+import { FaFilePdf } from 'react-icons/fa';
 
-import MyCV_CAT from "../img/OriolCastroArnau_CV[CAT].pdf";
-import MyCV_ENG from "../img/OriolCastroArnau_CV[ENG].pdf";
+import { Button, Header } from 'semantic-ui-react';
+
+import MyCvCat from '../img/OriolCastroArnau_CV[CAT].pdf';
+import MyCvEng from '../img/OriolCastroArnau_CV[ENG].pdf';
 
 const CVButtons = () => (
-  <div style={{ margin: "calc(2rem - .14285714em) 0 1rem" }}>
+  <div style={{ margin: 'calc(2rem - .14285714em) 0 1rem' }}>
     <Header as="h4">Descarrega el meu Curriculum Vitae</Header>
     <Button
       primary
-      href={MyCV_CAT}
+      href={MyCvCat}
       download
-      style={{ marginRight: "8px" }}
+      style={{ marginRight: '8px' }}
       /* onClick={() =>
         gtag("event", "cv button", {
           event_category: "interacció",
@@ -24,10 +25,10 @@ const CVButtons = () => (
       <IconContext.Provider
         value={{
           style: {
-            verticalAlign: "text-top",
-            marginRight: "8px"
+            verticalAlign: 'text-top',
+            marginRight: '8px',
           },
-          size: "1.15em"
+          size: '1.15em',
         }}
       >
         <FaFilePdf />
@@ -36,9 +37,9 @@ const CVButtons = () => (
     </Button>
     <Button
       primary
-      href={MyCV_ENG}
+      href={MyCvEng}
       download
-     /*  onClick={() =>
+      /*  onClick={() =>
         gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv anglès"
@@ -48,10 +49,10 @@ const CVButtons = () => (
       <IconContext.Provider
         value={{
           style: {
-            verticalAlign: "text-top",
-            marginRight: "8px"
+            verticalAlign: 'text-top',
+            marginRight: '8px',
           },
-          size: "1.15em"
+          size: '1.15em',
         }}
       >
         <FaFilePdf />

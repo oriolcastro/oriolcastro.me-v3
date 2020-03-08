@@ -1,9 +1,8 @@
-const get = require("lodash/get");
-const uniq = require("lodash/uniq");
-const kebabCase = require("lodash/kebabCase");
-const graphql = require("gatsby");
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
+const get = require('lodash/get');
+const uniq = require('lodash/uniq');
+const kebabCase = require('lodash/kebabCase');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -11,9 +10,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const singlePageTemplate = path.resolve(`src/templates/single-page.js`);
   const singlePageData = await graphql(`
     {
-      allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "single-page" } } }
-      ) {
+      allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "single-page" } } }) {
         edges {
           node {
             id
@@ -27,18 +24,18 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
 
   if (singlePageData.errors) {
-    result.errors.forEach(e => console.error(e.toString()));
-    throw result.errors;
+    singlePageData.errors.forEach(e => console.error(e.toString()));
+    throw singlePageData.errors;
   }
   // Create single pages
   const pages = singlePageData.data.allMarkdownRemark.edges;
-  pages.forEach((page, i) => {
+  pages.forEach(page => {
     createPage({
       path: page.node.fields.slug,
       component: singlePageTemplate,
       context: {
-        id: page.node.id
-      }
+        id: page.node.id,
+      },
     });
   });
 
@@ -66,15 +63,15 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
 
   if (blogData.errors) {
-    result.errors.forEach(e => console.error(e.toString()));
-    throw result.error;
+    blogData.errors.forEach(e => console.error(e.toString()));
+    throw blogData.error;
   }
 
   // Create blog post pages
   const posts = blogData.data.allMarkdownRemark.edges;
 
   posts.forEach((post, i) => {
-    const id = post.node.id;
+    const { id } = post.node;
     const prev = i === 0 ? null : posts[i - 1].node;
     const next = i === posts.length - 1 ? null : posts[i + 1].node;
 
@@ -87,8 +84,8 @@ exports.createPages = async ({ actions, graphql }) => {
         id,
         prev,
         next,
-        slug: post.node.fields.slug
-      }
+        slug: post.node.fields.slug,
+      },
     });
   });
 
@@ -112,8 +109,8 @@ exports.createPages = async ({ actions, graphql }) => {
       path: tagPath,
       component: tagsPageTemplate,
       context: {
-        tag
-      }
+        tag,
+      },
     });
   });
 };
@@ -126,20 +123,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     });
 
-    if (node.frontmatter.templateKey === "blog-post") {
+    if (node.frontmatter.templateKey === 'blog-post') {
       const relativeFilePath = createFilePath({
         node,
         getNode,
-        basePath: "content/blog/",
-        trailingSlash: false
+        basePath: 'content/blog/',
+        trailingSlash: false,
       });
       createNodeField({
         name: `slug`,
         node,
-        value: `/blog${relativeFilePath}`
+        value: `/blog${relativeFilePath}`,
       });
     }
   }

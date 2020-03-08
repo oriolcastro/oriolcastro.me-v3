@@ -1,0 +1,99 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react", "plugin:compat/recommended"],
+  "plugins": [
+    "simple-import-sort",
+    "prettier",
+    "import",
+    "jsx-a11y",
+    "react",
+    "react-hooks",
+    "json",
+    "html"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "printWidth": 100,
+        "tabWidth": 2,
+        "bracketSpacing": true,
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "jsxBracketSameLine": false
+      }
+    ],
+    "simple-import-sort/sort": [
+      "error",
+      {
+        "groups": [
+          // Packages. `react` related packages come first.
+          ["^react"],
+          // Packages related to `gatsby`.
+          ["^gatsby"],
+          // The rest of the third party packages.
+          ["^@?\\w"],
+          // App components and containers.
+          ["^(@components|@templates)(/.*|$)"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Parent imports. Put `..` last.
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          // Style imports.
+          ["^.+\\.s?css$"]
+        ]
+      }
+    ],
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    "import/prefer-default-export": "off",
+    "import/order": "off",
+    "class-methods-use-this": "off",
+    "compat/compat": "off",
+    "no-multi-assign": "off",
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "sort-imports": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".jsx", ".js"]
+      }
+    ],
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "arrow": "parens"
+      }
+    ],
+    "react/jsx-props-no-spreading": [
+      "warn",
+      {
+        "html": "enforce",
+        "custom": "ignore"
+      }
+    ],
+    "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx"],
+    "import/resolver": {
+      "eslint-import-resolver-custom-alias": {
+        "alias": {
+          "@components": "./src/components",
+          "@templates": "./src/templates/"
+        },
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "globals": {
+    "React": "writable"
+  }
+}

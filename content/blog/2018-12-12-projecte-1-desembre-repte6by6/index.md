@@ -7,7 +7,7 @@ description: >-
   Repte 6by6. Definir les funcionalitats que tindrà l'aplicació, escollir la
   tecnologia a fer servir i la seva arquitectura, i finalment dissenyar les
   diferents parts que veuran els usuaris.
-thumbnail: /img/mvimg_20181213_164512.jpg
+coverImg: mvimg_20181213_164512.jpg
 tags:
   - 6by6
   - Projectes
@@ -82,12 +82,12 @@ A continuació podeu veure alguns dels mockups que vaig preparar abans de comen�
 
 **Vista d'usuari**
 
-![Vista d'usuari](/img/mvimg_20181213_164512.jpg)
+![Vista d'usuari](./mvimg_20181213_164512.jpg)
 
 **Vista de l'administrador**
 
-![Vista de l'administrador](/img/mvimg_20181213_164628.jpg)
+![Vista de l'administrador](./mvimg_20181213_164628.jpg)
 
 **Vista de projecció**
 
-![Vista de projecció](/img/mvimg_20181213_164949.jpg)
+![Vista de projecció](./mvimg_20181213_164949.jpg)

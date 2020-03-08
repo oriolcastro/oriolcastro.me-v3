@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-const Emoji = props => (
+const Emoji = ({ label, symbol }) => (
   <span
-    style={{ marginRight: "4px" }}
+    style={{ marginRight: '4px' }}
     role="img"
-    aria-label={props.label ? props.label : ""}
-    aria-hidden={props.label ? "false" : "true"}
+    aria-label={label || ''}
+    aria-hidden={label ? 'false' : 'true'}
   >
-    {props.symbol}
+    {symbol}
   </span>
 );
 

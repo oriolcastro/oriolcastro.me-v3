@@ -1,10 +1,13 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import Img from "gatsby-image";
-import { kebabCase } from "lodash";
-import { Header, Card, Label } from "semantic-ui-react";
-import Layout from "../components/layout";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import { Helmet } from 'react-helmet';
+
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
+
+import { kebabCase } from 'lodash';
+import { Card, Header, Label } from 'semantic-ui-react';
+
+import Layout from '@components/layout';
 
 const BlogPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
@@ -14,14 +17,14 @@ const BlogPage = ({ data }) => {
       <Helmet>
         <title>{data.site.siteMetadata.title} - Blog</title>
       </Helmet>
-      <Header as="h1" style={{ marginBottom: "24px" }}>
+      <Header as="h1" style={{ marginBottom: '24px' }}>
         Blog
       </Header>
       <Card.Group itemsPerRow="1" stackable>
         {posts.map(({ node: post }) => (
           <Card key={post.id}>
-            {post.frontmatter.thumbnail && (
-              <Img fluid={post.frontmatter.thumbnail.childImageSharp.fluid} />
+            {post.frontmatter.coverImg && (
+              <Img fluid={post.frontmatter.coverImg.childImageSharp.fluid} />
             )}
             <Card.Content>
               <Card.Header>
@@ -30,7 +33,7 @@ const BlogPage = ({ data }) => {
               <Card.Meta>
                 {post.frontmatter.date} - {post.timeToRead} min
               </Card.Meta>
-              <Card.Description style={{ textAlign: "justify" }}>
+              <Card.Description style={{ textAlign: 'justify' }}>
                 {post.frontmatter.description}
                 <br />
                 <Link to={post.fields.slug}>Llegeix més</Link>
@@ -39,7 +42,7 @@ const BlogPage = ({ data }) => {
             <Card.Content extra>
               {post.frontmatter.tags.map(tag => (
                 <Link to={`/tags/${kebabCase(tag)}/`}>
-                  <Label as="a" tag style={{ margin: "8px" }}>
+                  <Label as="a" tag style={{ margin: '8px' }}>
                     {tag}
                   </Label>
                 </Link>
@@ -74,7 +77,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM YYYY", locale: "ca")
             description
             tags
-            thumbnail {
+            coverImg {
               childImageSharp {
                 fluid(maxWidth: 700, maxHeight: 300) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG

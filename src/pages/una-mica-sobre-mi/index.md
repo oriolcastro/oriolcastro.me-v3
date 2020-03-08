@@ -1,7 +1,7 @@
 ---
-templateKey: single-page
 title: Una mica sobre mi
-thumbnail: /img/p1030836_edited.jpeg
+templateKey: single-page
+coverImg: p1030836_edited.jpeg
 ---
 Em dic Oriol Castro Arnau i sóc programador web, actualment ubicat a Vilanova i la Geltrú però connectat amb el món.
 

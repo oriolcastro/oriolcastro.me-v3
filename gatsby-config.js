@@ -101,7 +101,6 @@ module.exports = {
         name: 'assets',
       },
     },
-    `gatsby-plugin-netlify-cms-paths`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
@@ -124,12 +123,6 @@ module.exports = {
           // Learn about environment variables: https://gatsby.app/env-vars
           Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         },
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     {

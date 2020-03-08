@@ -15,7 +15,6 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "lint": "eslint .",
-    "lint:css": "stylelint './src/**/*.{js,jsx}'",
     "lint:js": "NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html,.ts,.tsx,.mjs --report-unused-disable-directives",
     "lint:package": "sort-package-json",
     "serve": "gatsby serve",
@@ -31,7 +30,6 @@
       "npm run lint:package"
     ],
     "src/**/*.{js,jsx}": [
-      "npm run lint:css",
       "npm run lint:js --fix"
     ]
   },
@@ -106,10 +104,6 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "prettier-eslint": "^9.0.1",
-    "prettier-stylelint": "^0.4.2",
-    "sort-package-json": "^1.40.0",
-    "stylelint": "^13.2.0",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-recommended": "^3.0.0"
+    "sort-package-json": "^1.40.0"
   }
 }

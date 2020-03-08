@@ -7,10 +7,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { Button, Header } from 'semantic-ui-react';
 
 const CVButtons = () => {
-  const {
-    cvInCat: { publicURL: MyCvCat },
-    cvInEng: { publicURL: MyCvEng },
-  } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
       cvInCat: file(extension: { eq: "pdf" }, name: { in: "OriolCastroArnau_CV[CAT]" }) {
         publicURL
@@ -26,7 +23,7 @@ const CVButtons = () => {
       <Header as="h4">Descarrega el meu Curriculum Vitae</Header>
       <Button
         primary
-        href={MyCvCat}
+        href={data?.cvInCat?.publicURL}
         download
         style={{ marginRight: '8px' }}
         /* onClick={() =>
@@ -51,7 +48,7 @@ const CVButtons = () => {
       </Button>
       <Button
         primary
-        href={MyCvEng}
+        href={data?.cvInEng?.publicURL}
         download
         /*  onClick={() =>
         gtag("event", "cv button", {

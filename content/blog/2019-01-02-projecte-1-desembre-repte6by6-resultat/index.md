@@ -1,7 +1,7 @@
 ---
-templateKey: blog-post
 title: 'Desenvolupament del projecte #1 Desembre - Repte6by6'
-date: 2019-01-02T15:34:58.663Z
+templateKey: blog-post
+date: '2019-01-02T15:34:58.663Z'
 description: >-
   Després de setmanes de feina el projecte de desembre arriba al seu final.
   Quines dificultats m'he trobat al llarg del seu desenvolupament? Que he pogut

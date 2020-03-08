@@ -96,7 +96,7 @@ export const BlogPostTemplate = ({
         <div style={{ marginTop: `4rem`, marginBottom: '4rem' }}>
           <Header as="h4">Etiquetes</Header>
           {tags.map(tag => (
-            <Link to={`/tags/${kebabCase(tag)}/`}>
+            <Link to={`/tags/${kebabCase(tag)}/`} key={tag}>
               <Label as="a" tag style={{ margin: '8px' }}>
                 {tag}
               </Label>

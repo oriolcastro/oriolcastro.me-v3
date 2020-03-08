@@ -2,46 +2,41 @@ import React from 'react';
 import { IconContext } from 'react-icons';
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-import { graphql, StaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { OutboundLink } from 'gatsby-plugin-gtag';
 
 import { Grid, Header } from 'semantic-ui-react';
 
 const Profile = ({ isBlogPost }) => {
+  const { profileImage } = useStaticQuery(graphql`
+    query ProfileQuery {
+      profileImage: imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
+        fluid(maxWidth: 650) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+      }
+    }
+  `);
+
   return (
     <Grid columns={2} centered verticalAlign="middle">
       <Grid.Column computer={6} tablet={6} mobile={10}>
-        <StaticQuery
-          query={graphql`
-            query ProfileQuery {
-              profileImage: imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
-                fluid(maxWidth: 650) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
-          `}
-          render={data => (
-            <>
-              {isBlogPost ? (
-                <Img
-                  fluid={data.profileImage.fluid}
-                  title="My profile"
-                  alt="La meva foto de perfil"
-                  className="profileImageSmall"
-                />
-              ) : (
-                <Img
-                  fluid={data.profileImage.fluid}
-                  title="My profile"
-                  alt="La meva foto de perfil"
-                  className="profileImageCircular"
-                />
-              )}
-            </>
-          )}
-        />
+        {isBlogPost ? (
+          <Img
+            fluid={profileImage.fluid}
+            title="My profile"
+            alt="La meva foto de perfil"
+            className="profileImageSmall"
+          />
+        ) : (
+          <Img
+            fluid={profileImage.fluid}
+            title="My profile"
+            alt="La meva foto de perfil"
+            className="profileImageCircular"
+          />
+        )}
       </Grid.Column>
       <Grid.Column computer={8} tablet={8} mobile={14}>
         {isBlogPost ? (

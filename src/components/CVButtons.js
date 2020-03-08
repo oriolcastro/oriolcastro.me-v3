@@ -2,64 +2,79 @@ import React from 'react';
 import { IconContext } from 'react-icons';
 import { FaFilePdf } from 'react-icons/fa';
 
+import { graphql, useStaticQuery } from 'gatsby';
+
 import { Button, Header } from 'semantic-ui-react';
 
-import MyCvCat from '../img/OriolCastroArnau_CV[CAT].pdf';
-import MyCvEng from '../img/OriolCastroArnau_CV[ENG].pdf';
+const CVButtons = () => {
+  const {
+    cvInCat: { publicURL: MyCvCat },
+    cvInEng: { publicURL: MyCvEng },
+  } = useStaticQuery(graphql`
+    {
+      cvInCat: file(extension: { eq: "pdf" }, name: { in: "OriolCastroArnau_CV[CAT]" }) {
+        publicURL
+      }
+      cvInEng: file(extension: { eq: "pdf" }, name: { in: "OriolCastroArnau_CV[ENG]" }) {
+        publicURL
+      }
+    }
+  `);
 
-const CVButtons = () => (
-  <div style={{ margin: 'calc(2rem - .14285714em) 0 1rem' }}>
-    <Header as="h4">Descarrega el meu Curriculum Vitae</Header>
-    <Button
-      primary
-      href={MyCvCat}
-      download
-      style={{ marginRight: '8px' }}
-      /* onClick={() =>
+  return (
+    <div style={{ margin: 'calc(2rem - .14285714em) 0 1rem' }}>
+      <Header as="h4">Descarrega el meu Curriculum Vitae</Header>
+      <Button
+        primary
+        href={MyCvCat}
+        download
+        style={{ marginRight: '8px' }}
+        /* onClick={() =>
         gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv català"
         })
       } */
-    >
-      <IconContext.Provider
-        value={{
-          style: {
-            verticalAlign: 'text-top',
-            marginRight: '8px',
-          },
-          size: '1.15em',
-        }}
       >
-        <FaFilePdf />
-      </IconContext.Provider>
-      CV en Català
-    </Button>
-    <Button
-      primary
-      href={MyCvEng}
-      download
-      /*  onClick={() =>
+        <IconContext.Provider
+          value={{
+            style: {
+              verticalAlign: 'text-top',
+              marginRight: '8px',
+            },
+            size: '1.15em',
+          }}
+        >
+          <FaFilePdf />
+        </IconContext.Provider>
+        CV en Català
+      </Button>
+      <Button
+        primary
+        href={MyCvEng}
+        download
+        /*  onClick={() =>
         gtag("event", "cv button", {
           event_category: "interacció",
           event_label: "cv anglès"
         })
       } */
-    >
-      <IconContext.Provider
-        value={{
-          style: {
-            verticalAlign: 'text-top',
-            marginRight: '8px',
-          },
-          size: '1.15em',
-        }}
       >
-        <FaFilePdf />
-      </IconContext.Provider>
-      CV en Anglès
-    </Button>
-  </div>
-);
+        <IconContext.Provider
+          value={{
+            style: {
+              verticalAlign: 'text-top',
+              marginRight: '8px',
+            },
+            size: '1.15em',
+          }}
+        >
+          <FaFilePdf />
+        </IconContext.Provider>
+        CV en Anglès
+      </Button>
+    </div>
+  );
+};
 
 export default CVButtons;

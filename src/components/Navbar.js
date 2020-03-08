@@ -1,15 +1,15 @@
-import React from "react";
-import { Link } from "gatsby";
-import { Menu, Container } from "semantic-ui-react";
-import Emoji from "./Emoji";
+import React from 'react';
+
+import { Link } from 'gatsby';
+
+import { Container, Menu } from 'semantic-ui-react';
+
+import Emoji from './Emoji';
+
 const Navbar = () => (
-  <Menu
-    size="massive"
-    borderless
-    style={{ borderRadius: "inherit", marginBottom: "4rem" }}
-  >
+  <Menu size="massive" borderless style={{ borderRadius: 'inherit', marginBottom: '4rem' }}>
     <Container text>
-      <Menu.Item header as={Link} to={"/"}>
+      <Menu.Item header as={Link} to="/">
         <Emoji symbol="👌" label="ok" /> Oriol Castro
       </Menu.Item>
       <Menu.Menu position="right">

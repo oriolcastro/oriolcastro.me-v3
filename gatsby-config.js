@@ -1,18 +1,41 @@
-const config = require("./src/meta/siteConfig");
-require("dotenv").config();
+const config = require('./src/meta/siteConfig');
+require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
     description: config.siteDescription,
-    siteUrl: config.siteUrl
+    siteUrl: config.siteUrl,
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-feed",
-    "gatsby-plugin-robots-txt",
-    "gatsby-plugin-catch-links",
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-feed',
+    'gatsby-plugin-robots-txt',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-theme-ui',
     {
+      resolve: 'gatsby-plugin-tinacms',
+      options: {
+        sidebar: {
+          hidden: process.env.NODE_ENV === 'production',
+          position: 'displace',
+        },
+        plugins: [
+          {
+            resolve: 'gatsby-tinacms-git',
+            options: {
+              defaultCommitMessage: 'Content edited with TinaCMS',
+              defaultCommitName: 'oriolcastro',
+              defaultCommitEmail: 'oriol.castroarnau@gmail.com',
+              pushOnCommit: false,
+            },
+          },
+          'gatsby-tinacms-remark',
+        ],
+      },
+    },
+
+    /*   {
       resolve: `gatsby-plugin-gtag`,
       options: {
         // your google analytics tracking id
@@ -24,92 +47,95 @@ module.exports = {
         // Avoids sending pageview hits from custom paths
         exclude: ["/admin/*"]
       }
-    },
+    }, */
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/static/img`,
-        name: "uploads"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/pages`,
-        name: "pages"
-      }
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/img`,
-        name: "images"
-      }
-    },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    `gatsby-plugin-netlify-cms-paths`,
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Lato`
-          }
-        ]
-      }
-    },
-    {
-      resolve: "gatsby-source-graphql",
-      options: {
-        typeName: "GitHub",
-        fieldName: "github",
-        // Url to query from
-        url: "https://api.github.com/graphql",
-        // HTTP headers
-        headers: {
-          // Learn about environment variables: https://gatsby.app/env-vars
-          Authorization: `bearer ${process.env.GITHUB_TOKEN}`
-        }
-      }
-    },
-    {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          "gatsby-remark-prismjs",
-          "gatsby-remark-embed-spotify",
-          "@weknow/gatsby-remark-twitter",
+          'gatsby-remark-prismjs',
+          'gatsby-remark-embed-spotify',
+          '@weknow/gatsby-remark-twitter',
           {
-            resolve: "gatsby-remark-relative-images-v2"
+            resolve: 'gatsby-remark-relative-images-v2',
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 650,
               withWebp: true,
               showCaptions: true,
               linkImagesToOriginal: false,
-              quality: 75
-            }
+              quality: 75,
+            },
           },
           {
-            resolve: "gatsby-remark-relative-links",
+            resolve: 'gatsby-remark-relative-links',
             options: {
-              domainRegex: /http[s]*:\/\/[www.]*oriolcastro\.me[/]?/
-            }
+              domainRegex: /http[s]*:\/\/[www.]*oriolcastro\.me[/]?/,
+            },
           },
-          "gatsby-remark-external-links"
-        ]
-      }
+          'gatsby-remark-external-links',
+        ],
+      },
     },
     {
-      resolve: "gatsby-plugin-netlify-cms",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        modulePath: `${__dirname}/src/cms/cms.js`
-      }
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
     },
-    "gatsby-plugin-offline",
-    "gatsby-plugin-netlify" // make sure to keep it last in the array
-  ]
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: 'assets',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Lato`,
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'GitHub',
+        fieldName: 'github',
+        // Url to query from
+        url: 'https://api.github.com/graphql',
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.app/env-vars
+          Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': 'src/components',
+          '@templates': 'src/templates',
+        },
+        extensions: ['js', 'jsx'],
+      },
+    },
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify', // make sure to keep it last in the array
+  ],
 };

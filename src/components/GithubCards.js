@@ -1,55 +1,47 @@
-import React from "react";
-import { IconContext } from "react-icons";
-import { FaExternalLinkSquareAlt, FaCode } from "react-icons/fa";
-import { Container, Card, Button, Label } from "semantic-ui-react";
+import React from 'react';
+import { IconContext } from 'react-icons';
+import { FaCode, FaExternalLinkSquareAlt } from 'react-icons/fa';
 
-const GithubCards = props => (
+import { Button, Card, Container, Label } from 'semantic-ui-react';
+
+const GithubCards = ({ repos }) => (
   <Container>
     <Card.Group itemsPerRow="2" stackable>
-      {props.repos.map(({ node: repo }) => (
+      {repos.map(({ node: repo }) => (
         <Card key={repo.id}>
           <Card.Content>
-            <Card.Header style={{ textTransform: "capitalize" }}>
-              {repo.name}
-            </Card.Header>
+            <Card.Header style={{ textTransform: 'capitalize' }}>{repo.name}</Card.Header>
             <Card.Description>
-              <p style={{ marginBottom: "16px", height: "6rem" }}>
-                {repo.description}
-              </p>
+              <p style={{ marginBottom: '16px', height: '6rem' }}>{repo.description}</p>
               <Button
                 basic
                 color="blue"
                 href={repo.homepageUrl}
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-                style={{ marginRight: "8px" }}
+                style={{ marginRight: '8px' }}
               >
                 <IconContext.Provider
                   value={{
                     style: {
-                      verticalAlign: "text-top",
-                      marginRight: "8px"
+                      verticalAlign: 'text-top',
+                      marginRight: '8px',
                     },
-                    size: "1.15em"
+                    size: '1.15em',
                   }}
                 >
                   <FaExternalLinkSquareAlt />
                 </IconContext.Provider>
                 Projecte
               </Button>
-              <Button
-                secondary
-                href={repo.url}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              >
+              <Button secondary href={repo.url} target="_blank" rel="nofollow noopener noreferrer">
                 <IconContext.Provider
                   value={{
                     style: {
-                      verticalAlign: "text-top",
-                      marginRight: "8px"
+                      verticalAlign: 'text-top',
+                      marginRight: '8px',
                     },
-                    size: "1.15em"
+                    size: '1.15em',
                   }}
                 >
                   <FaCode />
@@ -60,7 +52,7 @@ const GithubCards = props => (
           </Card.Content>
           <Card.Content extra>
             {repo.repositoryTopics.edges.map(({ node: t }) => (
-              <Label key={t.id} style={{ marginBottom: "8px" }}>
+              <Label key={t.id} style={{ marginBottom: '8px' }}>
                 {t.topic.name}
               </Label>
             ))}

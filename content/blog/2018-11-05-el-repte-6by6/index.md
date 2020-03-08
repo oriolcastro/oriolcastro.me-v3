@@ -6,7 +6,7 @@ description: >-
   Per a millorar els meus coneixements com a desenvolupador web front-end m'he
   proposat un repte per als propers 6 mesos. En aquest article explico en què
   consisteix el #Repte6by6
-thumbnail: /img/heroimage_challenge.jpg
+coverImg: heroimage_challenge.jpg
 tags:
   - 6by6
   - projecte

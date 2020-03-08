@@ -1,41 +1,37 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
-import { Header, List } from "semantic-ui-react";
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import Layout from "../components/layout";
+import { graphql, Link } from 'gatsby';
 
-class TagRoute extends React.Component {
-  render() {
-    const posts = this.props.data.allMarkdownRemark.edges;
-    const postLinks = posts.map(post => (
-      <List.Item as="li" key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-      </List.Item>
-    ));
-    const tag = this.props.pageContext.tag;
-    const title = this.props.data.site.siteMetadata.title;
-    const totalCount = this.props.data.allMarkdownRemark.totalCount;
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? "" : "s"
-    } amb l'etiqueta “${tag}”`;
+import { Header, List } from 'semantic-ui-react';
 
-    return (
-      <Layout>
-        <Helmet title={`${tag} | ${title}`} />
-        <Header as="h3" style={{ marginTop: "24px" }}>
-          {tagHeader}
-        </Header>
-        <List as="ul" size="huge">
-          {postLinks}
-        </List>
-        <p>
-          <Link to="/tags/">Explora totes les etiquetes</Link>
-        </p>
-      </Layout>
-    );
-  }
-}
+import Layout from '@components/layout';
+
+const TagRoute = ({ data, tag }) => {
+  const posts = data.allMarkdownRemark.edges;
+  const { title } = data.site.siteMetadata;
+  const { totalCount } = data.allMarkdownRemark;
+  const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} amb l'etiqueta “${tag}”`;
+
+  return (
+    <Layout>
+      <Helmet title={`${tag} | ${title}`} />
+      <Header as="h3" style={{ marginTop: '24px' }}>
+        {tagHeader}
+      </Header>
+      <List as="ul" size="huge">
+        {posts.map(post => (
+          <List.Item as="li" key={post.node.fields.slug}>
+            <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
+          </List.Item>
+        ))}
+      </List>
+      <p>
+        <Link to="/tags/">Explora totes les etiquetes</Link>
+      </p>
+    </Layout>
+  );
+};
 
 export default TagRoute;
 

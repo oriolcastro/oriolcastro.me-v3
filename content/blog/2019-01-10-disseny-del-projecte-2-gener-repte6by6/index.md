@@ -1,14 +1,14 @@
 ---
-templateKey: blog-post
 title: 'Disseny del projecte #2 Gener - Repte6by6'
-date: 2019-01-12T12:05:08.431Z
+templateKey: blog-post
+date: '2019-01-12T12:05:08.431Z'
 description: >-
   Resum de la primera setmana amb el nou projecte del Repte 6by6. Força més
   ambiciós i complex que l'anterior requereix una bona definició de
   funcionalitats i escollir la
 
   millor tecnologia i arquitectura a fer servir.
-thumbnail: /img/heroimage_carrots.jpg
+coverImg: heroimage_carrots.jpg
 tags:
   - 6by6
   - JAMStack
@@ -21,7 +21,7 @@ Segon més del repte i per tant segon projecte a iniciar. En aquest cas durant e
 
 La idea que vaig compartir va ser aquesta:
 
-**\#Idea 3 - La Brava**
+**#Idea 3 - La Brava**
 
 > _Tripadvisor_ temàtic d'una de les tapes més típiques i tòpiques dels bars d'arreu. Valora, comenta, puntua i descobreix els millors locals on gaudir d'unes bones braves.
 
@@ -74,7 +74,7 @@ Les tecnologies i eines utilitzades en el _back end_:
 * Tota la informació es guardarà a la base de dades [Heroku Postgres](https://www.heroku.com/)
 * L'aplicació web estarà allotjada al CDN de [Netlify](https://www.netlify.com/) que també gestionarà el CD (_Continous Deploy_) des del repositori de Github.
 * **NOU:** Tota la lògica de servidor estarà distribuïda en diferents _lambda functions_ implementades a través del servei de [Netlify functions](https://www.netlify.com/features/functions/).
-* **NOU:** Faré ús dels [_event triggers_](https://hasura.io/event-triggers) de Hasura per executar les funcions a partir de canvis a la base de dades.
+* **NOU:** Faré ús dels _[event triggers](https://hasura.io/event-triggers)_ de Hasura per executar les funcions a partir de canvis a la base de dades.
 * **NOU:** El servei d'identitat el proveirà [Auth0](https://auth0.com/).
 * **NOU:** Les notificacions faran servir el servei de [Firebase Cloud Messaging](https://firebase.google.com/products/cloud-messaging/).
 
@@ -84,10 +84,10 @@ Tot i que limitades, les funcionalitats d'aquesta primera versió són força am
 
 A continuació podeu veure alguns dels mockups que he preparat de les diferents parts de l'aplicació per a fer-vos una idea de quin aspecte tindrà (en la versió final segurament canviaran coses).
 
-![](/img/6by6january-generalview.png "Vista general amb estadístiques del joc.")
+![](./6by6january-generalview.png "Vista general amb estadístiques del joc.")
 
-![](/img/6by6january-playerview.png "Pàgina un cop logejat amb informació del teu joc.")
+![](./6by6january-playerview.png "Pàgina un cop logejat amb informació del teu joc.")
 
-![](/img/6by6january-validatekill.png "Diàleg per a confirmar l'eliminació de la teva víctima.")
+![](./6by6january-validatekill.png "Diàleg per a confirmar l'eliminació de la teva víctima.")
 
-![](/img/6by6january-killtoconfirm.png "Missatge que rep la víctima per confirmar la seva eliminació del joc.")
+![](./6by6january-killtoconfirm.png "Missatge que rep la víctima per confirmar la seva eliminació del joc.")

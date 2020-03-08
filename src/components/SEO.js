@@ -1,48 +1,40 @@
-import React, { Component } from "react";
-import { Helmet } from "react-helmet";
-import config from "../meta/siteConfig";
+import React from 'react';
+import { Helmet } from 'react-helmet';
 
-class SEO extends Component {
-  render() {
-    let title = config.siteTitle;
-    let description = config.siteDescription;
-    let pageUrl = config.siteUrl;
+import config from '../meta/siteConfig';
 
-    const schemaOrgJSONLD = [
-      {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        url: config.siteUrl,
-        name: config.siteTitle,
-        alternateName: config.siteTitleAlt ? config.siteTitleAlt : ""
-      }
-    ];
+const SEO = () => {
+  const { siteTitle, siteTitleAlt, siteDescription, siteUrl, userTwitter } = config.siteTitle;
 
-    return (
-      <Helmet>
-        {/* General tags */}
-        <title>{config.siteTitle}</title>
-        <meta name="description" content={description} />
-        {/* Schema.org tags */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
-        </script>
-        {/* OpenGraph tags */}
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:description" content={description} />
+  const schemaOrgJSONLD = [
+    {
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      url: siteUrl,
+      name: siteTitle,
+      alternateName: siteTitleAlt || '',
+    },
+  ];
 
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:creator"
-          content={config.userTwitter ? config.userTwitter : ""}
-        />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-      </Helmet>
-    );
-  }
-}
+  return (
+    <Helmet>
+      {/* General tags */}
+      <title>{siteTitle}</title>
+      <meta name="description" content={siteDescription} />
+      {/* Schema.org tags */}
+      <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
+      {/* OpenGraph tags */}
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:description" content={siteDescription} />
+
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={userTwitter || ''} />
+      <meta name="twitter:title" content={siteTitle} />
+      <meta name="twitter:description" content={siteDescription} />
+    </Helmet>
+  );
+};
 
 export default SEO;

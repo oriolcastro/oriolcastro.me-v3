@@ -28,6 +28,7 @@ module.exports = {
               defaultCommitName: 'oriolcastro',
               defaultCommitEmail: 'oriol.castroarnau@gmail.com',
               pushOnCommit: false,
+              sshKey: process.env.SSH_KEY,
             },
           },
           'gatsby-tinacms-remark',

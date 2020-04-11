@@ -7,45 +7,13 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const singlePageTemplate = path.resolve(`src/templates/single-page.js`);
-  const singlePageData = await graphql(`
-    {
-      allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "single-page" } } }) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (singlePageData.errors) {
-    singlePageData.errors.forEach(e => console.error(e.toString()));
-    throw singlePageData.errors;
-  }
-  // Create single pages
-  const pages = singlePageData.data.allMarkdownRemark.edges;
-  pages.forEach(page => {
-    createPage({
-      path: page.node.fields.slug,
-      component: singlePageTemplate,
-      context: {
-        id: page.node.id,
-      },
-    });
-  });
-
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
+  const blogPostTemplate = path.resolve(`src/templates/blog.js`);
   const blogData = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         limit: 1000
         sort: { order: ASC, fields: frontmatter___date }
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+        filter: { fields: { type: { eq: "blog" } } }
       ) {
         edges {
           node {
@@ -63,12 +31,12 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
 
   if (blogData.errors) {
-    blogData.errors.forEach(e => console.error(e.toString()));
+    blogData.errors.forEach((e) => console.error(e.toString()));
     throw blogData.error;
   }
 
   // Create blog post pages
-  const posts = blogData.data.allMarkdownRemark.edges;
+  const posts = blogData.data.allMdx.edges;
 
   posts.forEach((post, i) => {
     const { id } = post.node;
@@ -93,7 +61,7 @@ exports.createPages = async ({ actions, graphql }) => {
   let tags = [];
   const tagsPageTemplate = path.resolve(`src/templates/tags.js`);
   // Iterate through each post, putting all found tags into `tags`
-  posts.forEach(post => {
+  posts.forEach((post) => {
     if (get(post, `node.frontmatter.tags`)) {
       tags = tags.concat(post.node.frontmatter.tags);
     }
@@ -102,9 +70,8 @@ exports.createPages = async ({ actions, graphql }) => {
   tags = uniq(tags);
 
   // Make tag pages
-  tags.forEach(tag => {
-    const tagPath = `/tags/${kebabCase(tag)}/`;
-
+  tags.forEach((tag) => {
+    const tagPath = `/tags/${kebabCase(tag)}`;
     createPage({
       path: tagPath,
       component: tagsPageTemplate,
@@ -117,27 +84,28 @@ exports.createPages = async ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
+  if (node.internal.type !== `Mdx`) {
+    return;
+  }
+  const fileNode = getNode(node.parent);
+  const source = fileNode.sourceInstanceName;
 
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+  if (node.internal.type === `Mdx` && source === 'blog') {
+    const relativeFilePath = createFilePath({
+      node,
+      getNode,
+      basePath: 'content/blog/',
+      trailingSlash: false,
+    });
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: `/blog${relativeFilePath}`,
     });
-
-    if (node.frontmatter.templateKey === 'blog-post') {
-      const relativeFilePath = createFilePath({
-        node,
-        getNode,
-        basePath: 'content/blog/',
-        trailingSlash: false,
-      });
-      createNodeField({
-        name: `slug`,
-        node,
-        value: `/blog${relativeFilePath}`,
-      });
-    }
+    createNodeField({
+      name: `type`,
+      node,
+      value: source,
+    });
   }
 };

@@ -1,40 +1,37 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+/** @jsx jsx */
+import { Helmet } from 'react-helmet';
 
 import { graphql, Link } from 'gatsby';
 
 import { kebabCase } from 'lodash';
+import { Heading, jsx, Styled } from 'theme-ui';
 
-import Layout from '@components/layout';
+import Layout from '@components/Layout';
 
 const TagsPage = ({
   data: {
-    allMarkdownRemark: { group },
+    allMdx: { group },
     site: {
       siteMetadata: { title },
     },
   },
 }) => (
   <Layout>
-    <section className="section">
-      <Helmet title={`Tags | ${title}`} />
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1" style={{ marginBottom: '6rem' }}>
-            <h1 className="title is-size-2 is-bold-light">Tags</h1>
-            <ul className="taglist">
-              {group.map(tag => (
-                <li key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Helmet>
+      <title>{`Tags | ${title}`}</title>
+    </Helmet>
+    <Heading as="h1" sx={{ mb: 4 }}>
+      Tags
+    </Heading>
+    <Styled.ul>
+      {group.map((tag) => (
+        <Styled.li key={tag.fieldValue}>
+          <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>
+            {`${tag.fieldValue} (${tag.totalCount})`}
+          </Link>
+        </Styled.li>
+      ))}
+    </Styled.ul>
   </Layout>
 );
 
@@ -47,7 +44,7 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(limit: 1000) {
+    allMdx(limit: 1000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

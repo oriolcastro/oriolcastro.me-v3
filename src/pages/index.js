@@ -1,57 +1,29 @@
-import React from 'react';
+/** @jsx jsx */
+import { graphql } from 'gatsby';
 
-import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
-
-import { kebabCase } from 'lodash';
 import PropTypes from 'prop-types';
-import { Card, Container, Header, Label } from 'semantic-ui-react';
+import { Box, Grid, Heading, jsx } from 'theme-ui';
 
-import Layout from '@components/layout';
-import Profile from '@components/Profile';
+import Hero from '@components/Hero';
+import Layout from '@components/Layout';
+import PostCard from '@components/PostCard';
 
 const IndexPage = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark;
+  const { edges: posts } = data.allMdx;
 
   return (
     <Layout>
-      <Profile isBlogPost={false} />
-      <Header as="h1" dividing style={{ marginBottom: '24px' }}>
-        Últims articles
-      </Header>
-      <Container>
-        <Card.Group itemsPerRow="2" stackable>
+      <Hero />
+      <Box sx={{ py: 4 }}>
+        <Heading as="h2" sx={{ marginBottom: 4 }}>
+          Latest articles
+        </Heading>
+        <Grid gap={[4, 5]} columns={[1, 2]} sx={{ py: 3 }}>
           {posts.map(({ node: post }) => (
-            <Card key={post.id}>
-              {post.frontmatter.coverImg && (
-                <Img fluid={post.frontmatter.coverImg.childImageSharp.fluid} />
-              )}
-              <Card.Content>
-                <Card.Header>
-                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-                </Card.Header>
-                <Card.Meta>
-                  {post.frontmatter.date} - {post.timeToRead} min
-                </Card.Meta>
-                <Card.Description className="cardDescription">
-                  {post.frontmatter.description}
-                  <br />
-                  <Link to={post.fields.slug}>Llegeix més</Link>
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                {post.frontmatter.tags.map(tag => (
-                  <Link to={`/tags/${kebabCase(tag)}/`}>
-                    <Label as="a" tag style={{ margin: '8px' }}>
-                      {tag}
-                    </Label>
-                  </Link>
-                ))}
-              </Card.Content>
-            </Card>
+            <PostCard key={post.id} post={post} />
           ))}
-        </Card.Group>
-      </Container>
+        </Grid>
+      </Box>
     </Layout>
   );
 };
@@ -68,10 +40,10 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-      limit: 4
+      filter: { fields: { type: { eq: "blog" } } }
+      limit: 2
     ) {
       edges {
         node {
@@ -83,7 +55,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            templateKey
             date(formatString: "DD MMMM YYYY", locale: "ca")
             description
             tags

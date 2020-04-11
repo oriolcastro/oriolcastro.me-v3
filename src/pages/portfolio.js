@@ -1,14 +1,13 @@
-import React from 'react';
-
+/** @jsx jsx */
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import { OutboundLink } from 'gatsby-plugin-gtag';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { Container, Header } from 'semantic-ui-react';
+import { Box, Grid, Heading, jsx, Styled, Text } from 'theme-ui';
 
 import CVButtons from '@components/CVButtons';
-import GithubCards from '@components/GithubCards';
-import Layout from '@components/layout';
+import GithubCard from '@components/GithubCard';
+import Layout from '@components/Layout';
 
 const PortfolioPage = ({ data }) => {
   const { edges: repos } = data.github.user.repositories;
@@ -17,34 +16,35 @@ const PortfolioPage = ({ data }) => {
   return (
     <Layout>
       <Img fluid={HeroImage} />
-      <Header as="h1" style={{ marginBottom: '24px' }}>
-        Portfoli
-      </Header>
-      <Container
-        textAlign="justified"
-        content
-        text
-        style={{ marginBottom: '24px', whiteSpace: 'pre-line' }}
-      >
-        <p>
-          Aquí podeu consultar els últims projectes en que he treballat ja sigui pel meu compte o
-          com a desenvolupador web freelance per a diferents clients.{'\n'}
-          Tot el codi està allotjat al meu compte de Github i és consultable. També podeu veure el
-          resultat final de cada projecte.{'\n'}
-          Si voleu més informció podeu llegir els articles del meu <Link to="/blog">blog</Link> o
-          els apartats de{' '}
-          <OutboundLink href="https://www.okstudio.tech/projectes" target="_blank">
-            projectes
-          </OutboundLink>{' '}
-          i{' '}
-          <OutboundLink href="https://www.okstudio.tech/lab" target="_blank">
-            el LAB
-          </OutboundLink>{' '}
-          de la web d{'&apos;'}Ok! Studio.
-        </p>
-      </Container>
-      <GithubCards repos={repos} />
-      <CVButtons />
+      <Box sx={{ py: 4 }}>
+        <Heading as="h1" sx={{ mb: 5 }}>
+          Projects
+        </Heading>
+        <Text sx={{ whiteSpace: 'pre-line' }}>
+          If you want to know how do I code, check out my latest projects!
+          {'\n'}
+          All the code is publicly available in my Github profile, you can also see a hosted demo of
+          some of them. If you want to read a more in deep explanation you can go to the
+          <Styled.a as={Link} to="/blog">
+            {' blog '}
+          </Styled.a>
+          section or the
+          <Styled.a as={OutboundLink} href="https://www.okstudio.tech/projectes" target="_blank">
+            {' projects '}
+          </Styled.a>
+          and
+          <Styled.a as={OutboundLink} href="https://www.okstudio.tech/lab" target="_blank">
+            {' The LAB '}
+          </Styled.a>
+          sections of my (currently on hiatus) freelancing job website, Ok! Studio
+        </Text>
+        <Grid gap={[4, 5]} columns={[1, 2]} sx={{ py: 3 }}>
+          {repos.map(({ node: repo }) => (
+            <GithubCard key={repo.id} repo={repo} />
+          ))}
+        </Grid>
+        <CVButtons />
+      </Box>
     </Layout>
   );
 };
@@ -70,7 +70,7 @@ export const query = graphql`
               description
               url
               homepageUrl
-              repositoryTopics(first: 5) {
+              repositoryTopics(first: 4) {
                 edges {
                   node {
                     id

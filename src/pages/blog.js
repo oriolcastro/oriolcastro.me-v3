@@ -1,56 +1,29 @@
-import React from 'react';
+/** @jsx jsx */
 import { Helmet } from 'react-helmet';
 
-import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
 
-import { kebabCase } from 'lodash';
-import { Card, Header, Label } from 'semantic-ui-react';
+import { Grid, Heading, jsx } from 'theme-ui';
 
-import Layout from '@components/layout';
+import Layout from '@components/Layout';
+import PostCard from '@components/PostCard';
 
 const BlogPage = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark;
+  const { edges: posts } = data.allMdx;
 
   return (
     <Layout>
       <Helmet>
-        <title>{data.site.siteMetadata.title} - Blog</title>
+        <title>{`${data.site.siteMetadata.title} - Blog`}</title>
       </Helmet>
-      <Header as="h1" style={{ marginBottom: '24px' }}>
+      <Heading as="h1" sx={{ mb: 5 }}>
         Blog
-      </Header>
-      <Card.Group itemsPerRow="1" stackable>
+      </Heading>
+      <Grid gap={[4, 5]} columns={1} sx={{ py: 3 }}>
         {posts.map(({ node: post }) => (
-          <Card key={post.id}>
-            {post.frontmatter.coverImg && (
-              <Img fluid={post.frontmatter.coverImg.childImageSharp.fluid} />
-            )}
-            <Card.Content>
-              <Card.Header>
-                <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-              </Card.Header>
-              <Card.Meta>
-                {post.frontmatter.date} - {post.timeToRead} min
-              </Card.Meta>
-              <Card.Description style={{ textAlign: 'justify' }}>
-                {post.frontmatter.description}
-                <br />
-                <Link to={post.fields.slug}>Llegeix més</Link>
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              {post.frontmatter.tags.map(tag => (
-                <Link to={`/tags/${kebabCase(tag)}/`}>
-                  <Label as="a" tag style={{ margin: '8px' }}>
-                    {tag}
-                  </Label>
-                </Link>
-              ))}
-            </Card.Content>
-          </Card>
+          <PostCard key={post.id} post={post} />
         ))}
-      </Card.Group>
+      </Grid>
     </Layout>
   );
 };
@@ -59,9 +32,9 @@ export default BlogPage;
 
 export const pageQuery = graphql`
   query BlogQuery {
-    allMarkdownRemark(
+    allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      filter: { fields: { type: { eq: "blog" } } }
     ) {
       edges {
         node {
@@ -73,13 +46,12 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            templateKey
-            date(formatString: "DD MMMM YYYY", locale: "ca")
+            date(formatString: "DD MMMM YYYY", locale: "en")
             description
             tags
             coverImg {
               childImageSharp {
-                fluid(maxWidth: 700, maxHeight: 300) {
+                fluid(maxWidth: 980, maxHeight: 400) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }

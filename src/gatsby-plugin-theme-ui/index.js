@@ -1,4 +1,3 @@
-import { base } from '@theme-ui/presets';
 import merge from 'lodash/merge';
 
 import colors from './colors';
@@ -6,9 +5,9 @@ import prism from './prism';
 import styles from './styles';
 import typography from './typography';
 
-export default merge({}, typography, {
-  ...base,
+export default merge(typography, {
   initialColorMode: `light`,
+  useColorSchemeMediaQuery: true,
   colors,
   fonts: {
     heading: `Open Sans, sans-serif`,
@@ -24,6 +23,16 @@ export default merge({}, typography, {
     hard: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
     base: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
     x2: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+  },
+  text: {
+    blogDescription: {
+      my: 4,
+      px: 2,
+      borderLeft: '1px solid',
+      borderColor: 'accent',
+      textAlign: 'justify',
+      fontStyle: 'oblique',
+    },
   },
   links: {
     logo: {
@@ -116,6 +125,12 @@ export default merge({}, typography, {
     },
   },
   badges: {
+    primary: {
+      fontWeight: 400,
+      borderRadius: 1,
+      p: 1,
+      mx: 1,
+    },
     light: {
       color: 'text',
       bg: 'muted',

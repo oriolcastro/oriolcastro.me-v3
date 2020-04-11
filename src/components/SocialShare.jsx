@@ -33,7 +33,7 @@ const SocialShare = ({ title, url, tags }) => {
       <Heading as="h4" sx={{ mb: 3 }}>
         Share this post
       </Heading>
-      <Flex sx={{ marginBottom: 5, width: ['100%', 1 / 3], justifyContent: 'space-around' }}>
+      <Flex sx={{ marginBottom: 5, width: ['100%', '33%'], justifyContent: 'space-around' }}>
         {hasNativeShare ? (
           <IconButton onClick={handleShare}>
             <FaShare />

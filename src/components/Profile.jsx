@@ -49,8 +49,8 @@ const Profile = () => {
   `);
 
   return (
-    <Grid gap={[2, 4]} columns="2fr 3fr" sx={{ mb: 4 }}>
-      <Flex sx={{ justifyContent: 'center', flexDirection: 'column' }}>
+    <Grid gap={[2, 4]} columns={[1, '1fr 3fr']} sx={{ mb: 4 }}>
+      <Flex sx={{ justifyContent: 'center', flexDirection: 'column', m: [4, 0] }}>
         <ProfileImg profileImage={profileImage} />
       </Flex>
       <Flex sx={{ py: [3, 4], px: [0, 4], justifyContent: 'center', flexDirection: 'column' }}>

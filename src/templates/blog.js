@@ -19,7 +19,7 @@ import SocialShare from '@components/SocialShare';
 
 const shortcodes = { Link, pre: (props) => <div {...props} />, code: CodeBlock }; // Provide common components here
 
-const BlogPost = ({ data, pageContext }) => {
+const BlogTemplate = ({ data, pageContext }) => {
   const {
     mdx: { body, frontmatter },
   } = data;
@@ -31,42 +31,46 @@ const BlogPost = ({ data, pageContext }) => {
         <title>{`${frontmatter.title} | Blog`}</title>
       </Helmet>
       {frontmatter.coverImg && <Img fluid={frontmatter.coverImg.childImageSharp.fluid} />}
-      <Heading as="h1">{frontmatter.title}</Heading>
-      <Text>{frontmatter.description}</Text>
-      <MDXProvider components={shortcodes}>
-        <MDXRenderer>{body}</MDXRenderer>
-      </MDXProvider>
+      <Box sx={{ py: 4 }}>
+        <Heading as="h1">{frontmatter.title}</Heading>
+        <Text variant="blogDescription">{frontmatter.description}</Text>
+        <MDXProvider components={shortcodes}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
+      </Box>
       {frontmatter.tags?.length && (
-        <Box mt="4rem" mb="4rem">
-          <Heading as="h4">Topics</Heading>
+        <Box mb={5}>
+          <Heading as="h4" mb={3}>
+            Tags
+          </Heading>
           {frontmatter.tags.map((tag) => (
-            <Link to={`/tags/${kebabCase(tag)}/`} key={tag}>
-              <Badge>{tag}</Badge>
-            </Link>
+            <Badge variant="primary" as={Link} to={`/tags/${kebabCase(tag)}/`} key={tag}>
+              {tag}
+            </Badge>
           ))}
         </Box>
       )}
       <SocialShare url={url} title={frontmatter.title} tags={frontmatter.tags} />
       <PostLinks prev={prev} next={next} />
-      <Profile isBlogPost />
+      <Profile />
     </Layout>
   );
 };
 
-BlogPost.propTypes = {
+BlogTemplate.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.object,
   }),
 };
 
-BlogPost.defaultProps = {
+BlogTemplate.defaultProps = {
   data: {},
 };
 
-export default BlogPost;
+export default BlogTemplate;
 
-export const pageQuery = graphql`
-  query BlogPostByIDMdx($id: String!) {
+export const postQuery = graphql`
+  query BlogPostByID($id: String!) {
     mdx(id: { eq: $id }) {
       id
       body

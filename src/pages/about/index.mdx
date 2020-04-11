@@ -3,17 +3,16 @@ pageId: 1
 coverImg: p1030836_edited.jpeg
 ---
 
+export const pageMeta = {
+  title: 'A little bit about me'
+}
+
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 
 <Helmet>
   <title>{props.data.site.siteMetadata.title} - About me</title>
 </Helmet>
-
-<Img fluid={props.data.mdx.frontmatter.coverImg.childImageSharp.fluid} />
-
-# A little bit about me
 
 Em dic Oriol Castro Arnau i sóc programador web, actualment ubicat a Vilanova i la Geltrú però connectat amb el món.
 

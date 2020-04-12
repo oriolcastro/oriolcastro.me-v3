@@ -44,7 +44,7 @@ const BlogTemplate = ({ data, pageContext }) => {
             Tags
           </Heading>
           {frontmatter.tags.map((tag) => (
-            <Badge variant="primary" as={Link} to={`/tags/${kebabCase(tag)}/`} key={tag}>
+            <Badge variant="light" as={Link} to={`/tags/${kebabCase(tag)}/`} key={tag}>
               {tag}
             </Badge>
           ))}

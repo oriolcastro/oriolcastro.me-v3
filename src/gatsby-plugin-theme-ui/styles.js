@@ -5,10 +5,6 @@ export default {
       textDecoration: 'none',
       color: 'inherit',
     },
-    figcaption: {
-      color: 'text',
-      textAlign: 'center',
-    },
   },
   a: {
     color: 'secondary',

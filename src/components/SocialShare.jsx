@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { useCallback } from 'react';
-import { FaShare } from 'react-icons/fa';
+import { FaShareAlt } from 'react-icons/fa';
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -33,26 +33,32 @@ const SocialShare = ({ title, url, tags }) => {
       <Heading as="h4" sx={{ mb: 3 }}>
         Share this post
       </Heading>
-      <Flex sx={{ marginBottom: 5, width: ['100%', '33%'], justifyContent: 'space-around' }}>
+      <Flex sx={{ marginBottom: 5, width: ['100%', '33%'] }}>
         {hasNativeShare ? (
           <IconButton onClick={handleShare}>
-            <FaShare />
+            <FaShareAlt />
           </IconButton>
         ) : (
           <React.Fragment>
-            <FacebookShareButton quote={title} url={url}>
+            <FacebookShareButton quote={title} url={url} sx={{ mx: 1 }}>
               <FacebookIcon round size={36} />
             </FacebookShareButton>
-            <TwitterShareButton title={title} hastags={tags} via="Oriolcastro_" url={url}>
+            <TwitterShareButton
+              title={title}
+              hastags={tags}
+              via="Oriolcastro_"
+              url={url}
+              sx={{ mx: 1 }}
+            >
               <TwitterIcon round size={36} />
             </TwitterShareButton>
-            <LinkedinShareButton title={title} url={url}>
+            <LinkedinShareButton title={title} url={url} sx={{ mx: 1 }}>
               <LinkedinIcon round size={36} />
             </LinkedinShareButton>
-            <WhatsappShareButton title={title} url={url}>
+            <WhatsappShareButton title={title} url={url} sx={{ mx: 1 }}>
               <WhatsappIcon round size={36} />
             </WhatsappShareButton>
-            <TelegramShareButton title={title} url={url}>
+            <TelegramShareButton title={title} url={url} sx={{ mx: 1 }}>
               <TelegramIcon round size={36} />
             </TelegramShareButton>
           </React.Fragment>

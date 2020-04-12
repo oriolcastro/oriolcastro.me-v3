@@ -40,8 +40,8 @@ const PostCard = ({ post }) => {
           as="p"
           css={{
             display: '-webkit-box',
-            '-webkit-line-clamp': '3',
-            '-webkit-box-orient': 'vertical',
+            WebkitLineClamp: '3',
+            WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
             marginBottom: '1em',
           }}
@@ -65,13 +65,13 @@ const PostCard = ({ post }) => {
 PostCard.propTypes = {
   post: PropTypes.shape({
     frontmatter: PropTypes.shape({
-      coverImg: PropTypes.string.isRequired,
+      coverImg: PropTypes.object.isRequired,
       date: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       tags: PropTypes.arrayOf(PropTypes.string),
     }),
     fields: PropTypes.shape({ slug: PropTypes.string.isRequired }),
-    timeToRead: PropTypes.string,
+    timeToRead: PropTypes.number,
     id: PropTypes.string.isRequired,
   }).isRequired,
 };

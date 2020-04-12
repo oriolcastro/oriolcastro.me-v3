@@ -37,7 +37,9 @@ const GithubCard = ({ repo }) => {
           Code
         </Button>
       </Flex>
-      <Flex sx={{ borderTop: '1px solid', borderColor: 'muted', pt: 3 }}>
+      <Flex
+        sx={{ borderTop: '1px solid', borderColor: 'muted', pt: 3, flexWrap: ['wrap', 'nowrap'] }}
+      >
         {repositoryTopics.edges.map(({ node }) => (
           <Badge
             variant="light"

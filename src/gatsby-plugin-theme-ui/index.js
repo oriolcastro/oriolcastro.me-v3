@@ -6,8 +6,6 @@ import styles from './styles';
 import typography from './typography';
 
 export default merge(typography, {
-  initialColorMode: `light`,
-  useColorSchemeMediaQuery: true,
   colors,
   fonts: {
     heading: `Open Sans, sans-serif`,
@@ -36,13 +34,15 @@ export default merge(typography, {
   },
   links: {
     logo: {
-      fontSize: '1.6rem',
+      fontSize: ['1.2rem', '1.6rem'],
       fontWeight: 300,
       letterSpacing: 1.2,
       fontFamily: 'Open Sans,sans-serif',
     },
     nav: {
       marginX: 2,
+      display: 'block',
+      fontSize: ['0.85rem', 2],
     },
     '&:hover': {
       color: 'secondary',
@@ -137,7 +137,7 @@ export default merge(typography, {
       fontWeight: 400,
       borderRadius: 1,
       p: 1,
-      mx: 1,
+      m: 1,
     },
   },
   styles,

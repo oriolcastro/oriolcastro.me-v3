@@ -62,14 +62,16 @@ GithubCard.propTypes = {
     homepageUrl: PropTypes.string,
     url: PropTypes.string,
     repositoryTopics: PropTypes.shape({
-      edges: PropTypes.arrayOf({
-        node: PropTypes.shape({
-          id: PropTypes.string,
-          topic: PropTypes.shape({
-            name: PropTypes.string,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            topic: PropTypes.shape({
+              name: PropTypes.string,
+            }),
           }),
-        }),
-      }),
+        })
+      ),
     }),
   }).isRequired,
 };

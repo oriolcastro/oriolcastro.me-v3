@@ -1,34 +1,32 @@
-/* eslint-disable no-unused-vars */
-const blue70 = '#001D77';
-const blue50 = '#0F52BA';
-const blue40 = '#4970DD';
-const blue30 = '#7290FF';
-const orange = '#FF6B35';
-const red = '#ED5467';
-const grey90 = '#232129';
-const black60 = '#1B1F23';
-const black80 = '#191716';
+import { lighten } from 'polished';
+
+const sapphire = '#0F52BA';
+const fadedBlue = '#7290FF';
+const burntOrange = '#FF6B35';
+const orangeDARK = `${lighten(0.1, burntOrange)}`;
+const mandy = '#ED5467';
+const darkJungle = '#1B1F23';
+const onyx = '#121212';
+const bunker = '#2C2C2C';
+const mineShaft = '#323232';
+const mystic = '#E1E8F1';
 const white = '#fff';
 const lightWhite = 'rgba(255, 255, 255, 0.86)';
+const lighterWhite = 'rgba(255, 255, 255, 0.6)';
+const opaqueLightWhite = 'hsla(0, 0%, 100%, 0.2)';
 const opaqueLightYellow = 'rgba(255, 229, 100, 0.2)';
 
-const grey = '#A9AABC';
-const lightGray = '#E1E8F1';
-
-const purple60 = '#663399';
-const purple30 = '#D9BAE8';
-const opaqueLightWhite = 'hsla(0, 0%, 100%, 0.2)';
-
 export default {
-  text: black60,
+  text: darkJungle,
+  lightText: mineShaft,
   background: white,
-  primary: blue50,
-  secondary: blue30,
-  muted: lightGray,
+  primary: sapphire,
+  secondary: fadedBlue,
+  muted: mystic,
   highlight: opaqueLightYellow,
-  accent: orange,
-  red,
-  purple: purple60,
+  accent: burntOrange,
+  red: mandy,
+  cardBackground: white,
   prism: {
     background: '#011627',
     comment: '#809393',
@@ -47,12 +45,15 @@ export default {
   modes: {
     dark: {
       text: lightWhite,
-      background: grey90,
-      primary: purple30,
-      secondary: lightWhite,
+      lightText: lighterWhite,
+      background: onyx,
+      primary: fadedBlue,
+      secondary: fadedBlue,
+      accent: orangeDARK,
       muted: opaqueLightWhite,
-      highlight: purple60,
+      highlight: opaqueLightYellow,
       heading: white,
+      cardBackground: bunker,
     },
   },
 };

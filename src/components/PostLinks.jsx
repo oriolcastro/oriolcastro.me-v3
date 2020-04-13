@@ -13,18 +13,32 @@ const PostLinks = ({ prev, next }) => (
     }}
   >
     {prev && (
-      <Button as={Link} to={prev.fields.slug}>
-        <FaArrowLeft sx={{ size: '1.15em', mr: 2, verticalAlign: 'text-top' }} />
+      <Button
+        variant="text"
+        as={Link}
+        to={prev.fields.slug}
+        sx={{ '&:hover': { transition: 'transform .5s', transform: 'translateX(-12px)' } }}
+      >
+        <FaArrowLeft
+          sx={{
+            size: '1.15em',
+            mr: 2,
+            verticalAlign: 'text-top',
+          }}
+        />
         Prev post
       </Button>
     )}
     {next && (
-      <Link to={next.fields.slug}>
-        <Button primary size="small">
-          Next post
-          <FaArrowRight sx={{ size: '1.15em', ml: 2, verticalAlign: 'text-top' }} />
-        </Button>
-      </Link>
+      <Button
+        variant="text"
+        as={Link}
+        to={next.fields.slug}
+        sx={{ '&:hover': { transition: 'transform .5s', transform: 'translateX(12px)' } }}
+      >
+        Next post
+        <FaArrowRight sx={{ size: '1.15em', ml: 2, verticalAlign: 'text-top' }} />
+      </Button>
     )}
   </Flex>
 );

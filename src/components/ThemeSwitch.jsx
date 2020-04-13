@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { jsx, useColorMode } from 'theme-ui';
 
@@ -68,19 +68,34 @@ const ThemeSwitch = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   const toggleMode = useCallback(() => {
-    if (colorMode === 'default') {
+    if (colorMode === 'light') {
       setColorMode('dark');
     } else {
-      setColorMode('default');
+      setColorMode('light');
     }
   }, [setColorMode, colorMode]);
+
+  useEffect(() => {
+    const switchMode = (e) => {
+      const isDarkMode = e.matches;
+      if (isDarkMode) {
+        setColorMode('dark');
+      } else {
+        setColorMode('light');
+      }
+    };
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    darkModeMediaQuery.addListener(switchMode);
+
+    // return () => darkModeMediaQuery.removeEventListener(switchMode);
+  }, []);
 
   return (
     <div sx={containerStyle}>
       <input
         type="checkbox"
         onChange={toggleMode}
-        checked={colorMode !== 'default'}
+        checked={colorMode !== 'light'}
         aria-label="Theme switcher"
         sx={inputStyle}
       />

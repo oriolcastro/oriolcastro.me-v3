@@ -58,7 +58,7 @@ const Profile = () => {
           Oriol Castro
         </Heading>
         <Box sx={{ mb: 2 }}>
-          <Text sx={{ fontSize: 0 }}>
+          <Text sx={{ fontSize: [0, 1] }}>
             A self-taught front-end developer and a technology enthusiast from Barcelona.
           </Text>
         </Box>

@@ -50,9 +50,9 @@ const BlogTemplate = ({ data, pageContext }) => {
           ))}
         </Box>
       )}
+      <Profile />
       <SocialShare url={url} title={frontmatter.title} tags={frontmatter.tags} />
       <PostLinks prev={prev} next={next} />
-      <Profile />
     </Layout>
   );
 };

@@ -6,7 +6,6 @@ import styles from './styles';
 import typography from './typography';
 
 export default merge(typography, {
-  initialColorModeName: 'light',
   useColorSchemeMediaQuery: true,
   colors,
   fonts: {

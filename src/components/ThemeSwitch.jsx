@@ -68,10 +68,10 @@ const ThemeSwitch = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   const toggleMode = useCallback(() => {
-    if (colorMode === 'light') {
+    if (colorMode === 'default') {
       setColorMode('dark');
     } else {
-      setColorMode('light');
+      setColorMode('default');
     }
   }, [setColorMode, colorMode]);
 
@@ -81,7 +81,7 @@ const ThemeSwitch = () => {
       if (isDarkMode) {
         setColorMode('dark');
       } else {
-        setColorMode('light');
+        setColorMode('default');
       }
     };
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -95,7 +95,7 @@ const ThemeSwitch = () => {
       <input
         type="checkbox"
         onChange={toggleMode}
-        checked={colorMode !== 'light'}
+        checked={colorMode !== 'default'}
         aria-label="Theme switcher"
         sx={inputStyle}
       />

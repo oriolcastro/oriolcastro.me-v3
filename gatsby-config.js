@@ -1,86 +1,43 @@
 const config = require('./src/meta/siteConfig');
 require('dotenv').config();
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.example.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
     description: config.siteDescription,
-    siteUrl: config.siteUrl,
+    siteUrl,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-feed',
     'gatsby-plugin-robots-txt',
     'gatsby-plugin-catch-links',
+    'gatsby-remark-images',
     'gatsby-plugin-theme-ui',
+    '@pauliescanlon/gatsby-mdx-embed',
     {
-      resolve: 'gatsby-plugin-tinacms',
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        sidebar: {
-          hidden: process.env.NODE_ENV === 'production',
-          position: 'displace',
-        },
-        plugins: [
-          {
-            resolve: 'gatsby-tinacms-git',
-            options: {
-              defaultCommitMessage: 'Content edited with TinaCMS',
-              defaultCommitName: 'oriolcastro',
-              defaultCommitEmail: 'oriol.castroarnau@gmail.com',
-              pushOnCommit: false,
-              sshKey: process.env.SSH_KEY,
-            },
-          },
-          'gatsby-tinacms-remark',
-        ],
+        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        pageTransitionDelay: 0,
+        sampleRate: 5,
+        siteSpeedSampleRate: 10,
+        cookieDomain: 'oriolcastro.me',
       },
     },
-
-    /*   {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        // Puts tracking script in the head instead of the body
-        head: false,
-        // enable ip anonymization
-        anonymize: true,
-        // Avoids sending pageview hits from custom paths
-        exclude: ["/admin/*"]
-      }
-    }, */
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          'gatsby-remark-prismjs',
-          'gatsby-remark-embed-spotify',
-          '@weknow/gatsby-remark-twitter',
-          {
-            resolve: 'gatsby-remark-relative-images-v2',
-          },
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 650,
-              withWebp: true,
-              showCaptions: true,
-              linkImagesToOriginal: false,
-              quality: 75,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-relative-links',
-            options: {
-              domainRegex: /http[s]*:\/\/[www.]*oriolcastro\.me[/]?/,
-            },
-          },
-          'gatsby-remark-external-links',
-        ],
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -103,12 +60,23 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        fonts: [
+        defaultLayouts: {
+          pages: require.resolve('./src/templates/page.js'),
+        },
+        gatsbyRemarkPlugins: [
           {
-            family: `Lato`,
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 800,
+              withWebp: true,
+              linkImagesToOriginal: false,
+              tracedSVG: true,
+              quality: 75,
+            },
           },
+          'gatsby-remark-external-links',
         ],
       },
     },
@@ -117,12 +85,21 @@ module.exports = {
       options: {
         typeName: 'GitHub',
         fieldName: 'github',
-        // Url to query from
         url: 'https://api.github.com/graphql',
-        // HTTP headers
         headers: {
-          // Learn about environment variables: https://gatsby.app/env-vars
           Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop'],
+        options: {
+          emitWarning: true,
+          failOnError: false,
         },
       },
     },
@@ -134,6 +111,42 @@ module.exports = {
           '@templates': 'src/templates',
         },
         extensions: ['js', 'jsx'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'oriolcastro.me',
+        short_name: 'oriolcastro.me',
+        description: config.siteDescription,
+        lang: `en`,
+        start_url: `/`,
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'standalone',
+        theme_color_in_head: false,
+        // icon: ''
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }],
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null,
+          },
+        },
       },
     },
     'gatsby-plugin-offline',

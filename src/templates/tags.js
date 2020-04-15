@@ -1,34 +1,43 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+/** @jsx jsx */
+import { useMemo } from 'react';
+import { Helmet } from 'react-helmet';
 
 import { graphql, Link } from 'gatsby';
 
-import { Header, List } from 'semantic-ui-react';
+import { Heading, jsx, Styled } from 'theme-ui';
 
-import Layout from '@components/layout';
+import Layout from '@components/Layout';
 
-const TagRoute = ({ data, tag }) => {
-  const posts = data.allMarkdownRemark.edges;
-  const { title } = data.site.siteMetadata;
-  const { totalCount } = data.allMarkdownRemark;
-  const tagHeader = `${totalCount} post${totalCount === 1 ? '' : 's'} amb l'etiqueta “${tag}”`;
+const TagRoute = ({ data, pageContext: { tag } }) => {
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+    allMdx: { totalCount, edges: posts },
+  } = data;
+  const tagHeader = useMemo(
+    () => `${totalCount} post${totalCount === 1 ? '' : 's'} with the tag “${tag}”`,
+    [totalCount, tag]
+  );
 
   return (
     <Layout>
-      <Helmet title={`${tag} | ${title}`} />
-      <Header as="h3" style={{ marginTop: '24px' }}>
+      <Helmet>
+        <title>{`${tag} | ${title}`}</title>
+      </Helmet>
+      <Heading as="h2" sx={{ mb: 4 }}>
         {tagHeader}
-      </Header>
-      <List as="ul" size="huge">
-        {posts.map(post => (
-          <List.Item as="li" key={post.node.fields.slug}>
+      </Heading>
+      <Styled.ul>
+        {posts.map((post) => (
+          <Styled.li key={post.node.fields.slug}>
             <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-          </List.Item>
+          </Styled.li>
         ))}
-      </List>
-      <p>
-        <Link to="/tags/">Explora totes les etiquetes</Link>
-      </p>
+      </Styled.ul>
+      <Styled.a as={Link} to="/tags">
+        Explore all categories
+      </Styled.a>
     </Layout>
   );
 };
@@ -42,7 +51,7 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }

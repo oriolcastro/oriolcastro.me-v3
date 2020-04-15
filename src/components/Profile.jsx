@@ -4,7 +4,7 @@ import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-
 import { graphql, useStaticQuery } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { Box, Flex, Grid, Heading, IconButton, jsx, Styled, Text } from 'theme-ui';
+import { Box, Flex, Grid, Heading, IconButton, jsx, Text } from 'theme-ui';
 
 import ProfileImg from './ProfileImg';
 
@@ -49,26 +49,20 @@ const Profile = () => {
   `);
 
   return (
-    <Grid gap={[2, 4]} columns="2fr 3fr" sx={{ mb: 4 }}>
-      <Flex sx={{ justifyContent: 'center', flexDirection: 'column' }}>
+    <Grid gap={[2, 4]} columns={['1fr 4fr', '1fr 6fr']} sx={{ mb: 4 }}>
+      <Box sx={{ py: 3 }}>
         <ProfileImg profileImage={profileImage} />
-      </Flex>
-      <Flex sx={{ py: [3, 4], px: [0, 4], justifyContent: 'center', flexDirection: 'column' }}>
-        <Heading as="h2">Oriol Castro</Heading>
-        <Box sx={{ textAlign: 'justify', whiteSpace: 'pre-wrap', mb: 2 }}>
-          <Text>A self-taught front-end developer and a technology enthusiast from Barcelona.</Text>
-          <Text>
-            Here I write about my personal projects, coding tips and tricks, and new cool tech to
-            explore.
-          </Text>
-          <Text>
-            I currently work at
-            <Styled.a as={OutboundLink} href="https://xceed.me">
-              {' Xceed.'}
-            </Styled.a>
+      </Box>
+      <Flex sx={{ py: 3, px: [0, 4], flexDirection: 'column' }}>
+        <Heading as="h4" sx={{ display: ['none', 'block'] }}>
+          Oriol Castro
+        </Heading>
+        <Box sx={{ mb: 2 }}>
+          <Text sx={{ fontSize: [0, 1] }}>
+            A self-taught front-end developer and a technology enthusiast from Barcelona.
           </Text>
         </Box>
-        <Flex sx={{ justifyContent: ['center', 'start'] }}>
+        <Box sx={{ justifyContent: ['', 'start'], display: ['none', 'flex'] }}>
           {LINKS.map((link) => (
             <OutboundLink
               key={link.name}
@@ -79,7 +73,7 @@ const Profile = () => {
               <IconButton>{link.icon}</IconButton>
             </OutboundLink>
           ))}
-        </Flex>
+        </Box>
       </Flex>
     </Grid>
   );

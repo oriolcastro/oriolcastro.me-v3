@@ -1,4 +1,3 @@
-import { base } from '@theme-ui/presets';
 import merge from 'lodash/merge';
 
 import colors from './colors';
@@ -6,9 +5,8 @@ import prism from './prism';
 import styles from './styles';
 import typography from './typography';
 
-export default merge({}, typography, {
-  ...base,
-  initialColorMode: `light`,
+export default merge(typography, {
+  useColorSchemeMediaQuery: true,
   colors,
   fonts: {
     heading: `Open Sans, sans-serif`,
@@ -22,18 +20,30 @@ export default merge({}, typography, {
   radii: [0, 4, 8, 16, 32, 9999],
   shadows: {
     hard: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    base: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    x2: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+    base: `0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)`,
+    x2: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+  },
+  text: {
+    blogDescription: {
+      my: 4,
+      px: 2,
+      borderLeft: '1px solid',
+      borderColor: 'accent',
+      textAlign: 'justify',
+      fontStyle: 'oblique',
+    },
   },
   links: {
     logo: {
-      fontSize: '1.6rem',
+      fontSize: ['1.2rem', '1.6rem'],
       fontWeight: 300,
       letterSpacing: 1.2,
       fontFamily: 'Open Sans,sans-serif',
     },
     nav: {
       marginX: 2,
+      display: 'block',
+      fontSize: ['0.85rem', 2],
     },
     '&:hover': {
       color: 'secondary',
@@ -43,7 +53,7 @@ export default merge({}, typography, {
     post: {
       transition: 'transform .5s',
       borderRadius: '1rem',
-      backgroundColor: 'background',
+      backgroundColor: 'cardBackground',
       boxShadow: 'base',
       '&:hover': {
         boxShadow: 'x2',
@@ -52,7 +62,7 @@ export default merge({}, typography, {
     },
     project: {
       borderRadius: '1rem',
-      backgroundColor: 'background',
+      backgroundColor: 'cardBackground',
       boxShadow: 'hard',
       px: [3, 4],
       py: 4,
@@ -71,23 +81,30 @@ export default merge({}, typography, {
       border: '1px solid transparent',
       cursor: 'pointer',
       '&:hover': {
-        color: 'primary',
-        backgroundColor: 'background',
-        border: '1px solid',
-        borderColor: 'primary',
+        // color: 'primary',
+        // backgroundColor: 'background',
+        // border: '1px solid',
+        // borderColor: 'primary',
+        opacity: 0.7,
       },
     },
+    text: {
+      backgroundColor: 'transparent',
+      color: 'primary',
+      cursor: 'pointer',
+    },
     secondary: {
-      color: 'background',
+      color: 'cardBackground',
       backgroundColor: 'text',
       borderRadius: 2,
       border: '1px solid transparent',
       cursor: 'pointer',
       '&:hover': {
-        color: 'text',
-        backgroundColor: 'background',
-        border: '1px solid',
-        borderColor: 'text',
+        // color: 'text',
+        // backgroundColor: 'cardBackground',
+        // border: '1px solid',
+        // borderColor: 'text',
+        opacity: 0.7,
       },
     },
     icon: {
@@ -98,31 +115,37 @@ export default merge({}, typography, {
       fontSize: '1rem',
       cursor: 'pointer',
       '&:hover': {
-        color: '#fff',
+        color: 'background',
         backgroundColor: 'primary',
       },
     },
     outline: {
       border: '1px solid',
-      borderColor: 'secondary',
+      borderColor: 'primary',
       borderRadius: 2,
-      color: 'secondary',
+      color: 'primary',
       backgroundColor: 'transparent',
       cursor: 'pointer',
       '&:hover': {
-        color: 'background',
-        backgroundColor: 'secondary',
+        color: 'cardBackground',
+        backgroundColor: 'primary',
       },
     },
   },
   badges: {
-    light: {
-      color: 'text',
-      bg: 'muted',
+    primary: {
       fontWeight: 400,
       borderRadius: 1,
       p: 1,
       mx: 1,
+    },
+    light: {
+      color: 'lightText',
+      bg: 'muted',
+      fontWeight: 400,
+      borderRadius: 1,
+      p: 1,
+      m: 1,
     },
   },
   styles,

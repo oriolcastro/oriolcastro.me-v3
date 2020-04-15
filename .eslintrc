@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": ["react-app","airbnb","plugin:react/recommended", "plugin:prettier/recommended","plugin:compat/recommended","plugin:jsx-a11y/recommended"],
+  "extends": ["react-app","airbnb","plugin:react/recommended", "plugin:prettier/recommended","plugin:compat/recommended","plugin:jsx-a11y/recommended", "plugin:mdx/recommended"],
   "plugins": ["react", "prettier","simple-import-sort","import","jsx-a11y","react-hooks","json"],
   "rules": {
     "strict": 0,

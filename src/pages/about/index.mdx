@@ -3,53 +3,48 @@ pageId: 1
 coverImg: p1030836_edited.jpeg
 ---
 
+export const pageMeta = {
+  title: 'A little bit about me',
+};
+
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 
-<Helmet>
-  <title>{props.data.site.siteMetadata.title} - About me</title>
-</Helmet>
+My name is Oriol Casto Arnau and I'm a front-end developer living in a beautiful Mediterranean small city called Vilanova i la Geltrú near Barcelona and fully connected to the world.
 
-<Img fluid={props.data.mdx.frontmatter.coverImg.childImageSharp.fluid} />
+I have been always interested in everything related to technology and how it can change the way we live. Three years ago I decided to make a turn in my career and become a full-time professional developer.
 
-# A little bit about me
+These are the beacons that led me, and still do, through my journey.
 
-Em dic Oriol Castro Arnau i sóc programador web, actualment ubicat a Vilanova i la Geltrú però connectat amb el món.
+### Make it easy
 
-Des de sempre m'ha interessat tot allò relacionat amb les "noves tecnologies", especialment les vinculades a Internet, i com aquestes estaven canviant la nostra forma de viure. Actualment ajudo empreses i organitzacions a no quedar-se enrere i aprofitar les possibilitats existents per transformar-se des de [OK! Studio](https://www.okstudio.tech/).
+The understanding of how things work and the desire to find the best possible solution to a problem is a great fuel for exploration. That's why I became an engineer.
 
-### Fer-ho fàcil
+- Master's Degree in Aerospace Science and Technology 2011 - 2014
+- Aeronautical Technical Engineering esp. Aircraft navigation 2005 - 2009
 
-Sempre m'ha apassionat conèixer com funcionava tot el que m'envoltava i trobar la millor solució als problemes, és per això que em vaig fer enginyer.
+After college and reflecting on where my path was leading me I decided to make a 42-degree turn and become a web developer. I consider myself a product-centric engineer so it made sense to put the focus in the web dev area closer to the final user, the _front-end_. With dedication and thanks to the vast online resources available nowadays I have been able to grow my knowledge stack:
 
-- Màster en Ciència i Tecnologia Aeroespacial 2011 - 2014
-- Enginyeria Tècnica Aeronàutica esp. Aeronavegació 2005 - 2009
+- The ecosystem of [Reactjs](https://reactjs.org) and the component-based aproach to build web applications.
+- Metaframeworks like [Gatsbyjs](https://www.gatsbyjs.org/) or [Next.js](https://nextjs.org/) and the architecture of modern web.
+- Client-server communication using both REST and [GraphQL](https://graphql.org/) APIs for the data layer.
+- _Responsive_ and _mobile-first_ design using pure CSS, libraries like [Bulma](https://bulma.io/), [Material-UI](https://material-ui.com/) or [Semantic-UI](https://semantic-ui.com/), or developing a custom components library using [Styled Components](https://www.styled-components.com/) and [Styled System.](https://styled-system.com/)
 
-La curiositat m'ha dut a explorar nous camps i a continuar adquirint coneixements i habilitats. En els últims anys he decidit pivotar la meva carrera professional cap a la programació web _front-end_. La formació en línia i el bast coneixement accessible a través de la xarxa m'ha permès fer-ho realitat. En aquests mesos d'autoaprenentatge he centrat la meva atenció especialment en:
+### Do it together
 
-- L'ecosistema [Reactjs](https://reactjs.org) a través del generador d'apps i webs [Gatsbyjs](https://www.gatsbyjs.org/).
-- El llenguatge [GraphQL](https://graphql.org/) i la seva implementació en el client i servidor.
-- El disseny _responsive_ i _mobile-first_ a través de diferents _frameworks_ com [Bulma](https://bulma.io/), [Material-UI](https://material-ui.com/), [Semantic-UI](https://semantic-ui.com/) o [Styled Components.](https://www.styled-components.com/)
+Aside of developing a carrer I have always considered that as a citizen is very important to be involved in some form of social activism.
+From my time in the _free time educational movement (Esplais)_ with [Drac Màgic](http://dracmagic.org/) first and as part of the board of [Esplais Catalans](http://esplac.cat/) later, and also as an active member of [La Unió Vilanovina](http://www.launiovilanovina.cat/) I have achieved some key abilities that I use now in my professional career.
 
-### Fer-ho junts
+- The **teamwork** spirit as a must.
+- The ability to **communicate effectively**.
+- The tools for an **effective leadership**.
+- The importance of **commitment** and to **bond** with the project.
 
-En paral·lel al desenvolupament de la meva carrera professional sempre he tingut clara la importància de participar de projectes socials col·lectius. És per això que he procurat mantenir una vida associativa molt activa.
+### Do it right!
 
-Del meu pas per l'esplai [Drac Màgic](http://dracmagic.org/), dels anys com a dirigent d'[Esplais Catalans](http://esplac.cat/) i de l'etapa actual al capdavant de [La Unió Vilanovina](http://www.launiovilanovina.cat/) m'enduc tota una sèrie d'habilitats i capacitats que mai hagués aconseguit a la Universitat.
+You can find me in my social networks as @oriolcastro_ or write me to the email <mailto:uri@oriolcastro.me>
 
-- La capacitat per **treball en equip**.
-- L'habilitat de **comunicar**-me de forma efectiva.
-- Les eines per exercir un **lideratge** efectiu.
-- La importància del **compromís** i la **responsabilitat** amb el projecte.
-
-### Fer-ho bé!
-
-Aquest blog vol ser un espai per a publicar articles sobre els projectes personals que engegui, sobre l'avanç de la tecnologia i la seva vinculació amb la transformació social, així com per difondre coneixement i explorar noves oportunitats.
-
-Podeu contactar amb mi a través de les xarxes socials amb l'usuari @oriolcastro\_ o al correu electrònic <mailto:uri@oriolcastro.me>.
-
-Per a projectes professionals visiteu la web de [OK! Studio](https://www.okstudio.tech/) o escriviu a <mailto:hola@okstudio.tech>.
+At the moment I don't take freelancing projects in [OK! Studio](https://www.okstudio.tech/) as I'm working full time in [Xceed](https://xceed.me).
 
 export const aboutPageQuery = graphql`
   query About {

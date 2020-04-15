@@ -1,22 +1,10 @@
 /** @jsx jsx */
-import React, { useCallback } from 'react';
-import { FaShare } from 'react-icons/fa';
-import {
-  FacebookIcon,
-  FacebookShareButton,
-  LinkedinIcon,
-  LinkedinShareButton,
-  TelegramIcon,
-  TelegramShareButton,
-  TwitterIcon,
-  TwitterShareButton,
-  WhatsappIcon,
-  WhatsappShareButton,
-} from 'react-share';
+import { useCallback } from 'react';
+import { FaShareAlt } from 'react-icons/fa';
 
-import { Flex, Heading, IconButton, jsx } from 'theme-ui';
+import { Button, Flex, jsx } from 'theme-ui';
 
-const SocialShare = ({ title, url, tags }) => {
+const SocialShare = ({ title, url }) => {
   const hasNativeShare = typeof window !== 'undefined' && navigator.share;
   const handleShare = useCallback(() => {
     if (hasNativeShare) {
@@ -28,37 +16,14 @@ const SocialShare = ({ title, url, tags }) => {
     }
   }, [title, url, hasNativeShare]);
 
+  if (!hasNativeShare) return null;
   return (
-    <React.Fragment>
-      <Heading as="h4" sx={{ mb: 3 }}>
+    <Flex sx={{ marginBottom: 5, justifyContent: 'center' }}>
+      <Button variant="secondary" onClick={handleShare}>
+        <FaShareAlt sx={{ verticalAlign: 'text-top', fontSize: '1.25rem', mr: 2 }} />
         Share this post
-      </Heading>
-      <Flex sx={{ marginBottom: 5, width: ['100%', 1 / 3], justifyContent: 'space-around' }}>
-        {hasNativeShare ? (
-          <IconButton onClick={handleShare}>
-            <FaShare />
-          </IconButton>
-        ) : (
-          <React.Fragment>
-            <FacebookShareButton quote={title} url={url}>
-              <FacebookIcon round size={36} />
-            </FacebookShareButton>
-            <TwitterShareButton title={title} hastags={tags} via="Oriolcastro_" url={url}>
-              <TwitterIcon round size={36} />
-            </TwitterShareButton>
-            <LinkedinShareButton title={title} url={url}>
-              <LinkedinIcon round size={36} />
-            </LinkedinShareButton>
-            <WhatsappShareButton title={title} url={url}>
-              <WhatsappIcon round size={36} />
-            </WhatsappShareButton>
-            <TelegramShareButton title={title} url={url}>
-              <TelegramIcon round size={36} />
-            </TelegramShareButton>
-          </React.Fragment>
-        )}
-      </Flex>
-    </React.Fragment>
+      </Button>
+    </Flex>
   );
 };
 

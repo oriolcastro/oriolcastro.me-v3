@@ -37,7 +37,9 @@ const GithubCard = ({ repo }) => {
           Code
         </Button>
       </Flex>
-      <Flex sx={{ borderTop: '1px solid', borderColor: 'muted', pt: 3 }}>
+      <Flex
+        sx={{ borderTop: '1px solid', borderColor: 'muted', pt: 3, flexWrap: ['wrap', 'nowrap'] }}
+      >
         {repositoryTopics.edges.map(({ node }) => (
           <Badge
             variant="light"
@@ -60,14 +62,16 @@ GithubCard.propTypes = {
     homepageUrl: PropTypes.string,
     url: PropTypes.string,
     repositoryTopics: PropTypes.shape({
-      edges: PropTypes.arrayOf({
-        node: PropTypes.shape({
-          id: PropTypes.string,
-          topic: PropTypes.shape({
-            name: PropTypes.string,
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            topic: PropTypes.shape({
+              name: PropTypes.string,
+            }),
           }),
-        }),
-      }),
+        })
+      ),
     }),
   }).isRequired,
 };

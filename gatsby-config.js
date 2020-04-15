@@ -63,16 +63,16 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          pages: require.resolve('./src/components/Layout.jsx'),
+          pages: require.resolve('./src/templates/page.js'),
         },
         gatsbyRemarkPlugins: [
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 650,
+              maxWidth: 800,
               withWebp: true,
-              showCaptions: true,
               linkImagesToOriginal: false,
+              tracedSVG: true,
               quality: 75,
             },
           },

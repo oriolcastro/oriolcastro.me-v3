@@ -7,7 +7,10 @@ export default {
     },
   },
   a: {
-    color: 'secondary',
+    color: 'primary',
     textDecoration: 'none',
+  },
+  p: {
+    textAlign: 'justify',
   },
 };

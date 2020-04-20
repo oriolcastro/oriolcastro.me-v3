@@ -7,6 +7,6 @@ module.exports = {
   siteUrl: 'https://oriolcastro.me',
   shortTitle: 'Oriol Castro',
   userTwitter: '@oriolcastro_',
-  backgroundColor: 'rgba(255, 255, 255, 0.86)',
+  backgroundColor: '#fff',
   themeColor: '#0F52BA',
 };

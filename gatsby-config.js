@@ -124,8 +124,7 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-        theme_color_in_head: false,
-        // icon: ''
+        icon: 'src/img/icon.png',
       },
     },
     {

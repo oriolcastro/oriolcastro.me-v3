@@ -10,7 +10,7 @@ import GithubCard from '@components/GithubCard';
 import Layout from '@components/Layout';
 import SEO from '@components/SEO';
 
-const PortfolioPage = ({ data }) => {
+const PortfolioPage = ({ data, path }) => {
   const { edges: repos } = data.github.user.repositories;
   const HeroImage = data.file.childImageSharp.fluid;
 
@@ -18,8 +18,9 @@ const PortfolioPage = ({ data }) => {
     <Layout>
       <SEO
         title="My projects"
-        desription="Some of the projects I have been working as a front-end developer"
-        pathname="/portfolio"
+        description="Some of the projects I have been working as a front-end developer"
+        pathname={path}
+        image={data.file.childImageSharp.original.src}
       />
       <Img fluid={HeroImage} />
       <Box sx={{ py: 4 }}>
@@ -63,6 +64,9 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 1400, maxHeight: 700) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+        original: fluid {
+          src
         }
       }
     }

@@ -15,7 +15,6 @@ const query = graphql`
         titleTemplate
         defaultDescription: description
         siteUrl: url
-        defaultImage: image
         twitterUsername
       }
     }
@@ -25,21 +24,13 @@ const query = graphql`
 const SEO = ({ title, description, image, pathname, article }) => {
   const {
     site: {
-      siteMetadata: {
-        defaultTitle,
-        titleTemplate,
-        defaultDescription,
-        siteUrl,
-        defaultImage,
-        twitterUsername,
-      },
+      siteMetadata: { defaultTitle, titleTemplate, defaultDescription, siteUrl, twitterUsername },
     },
   } = useStaticQuery(query);
-
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
+    image: `${siteUrl}${image}`,
     url: `${siteUrl}${pathname || '/'}`,
   };
 
@@ -61,7 +52,7 @@ const SEO = ({ title, description, image, pathname, article }) => {
       <link rel="icon" href={favicon} />
       {/* General tags */}
       <meta name="description" content={seo.description} />
-      <meta name="image" content={seo.image} />
+      {image && <meta name="image" content={seo.image} />}
       {/* Schema.org tags */}
       <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
       {/* OpenGraph tags */}
@@ -69,13 +60,13 @@ const SEO = ({ title, description, image, pathname, article }) => {
       {(article ? true : null) && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && <meta property="og:description" content={seo.description} />}
-      {seo.image && <meta property="og:image" content={seo.image} />}
+      {image && <meta property="og:image" content={seo.image} />}
       {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
       {twitterUsername && <meta name="twitter:creator" content={twitterUsername} />}
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && <meta name="twitter:description" content={seo.description} />}
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {image && <meta name="twitter:card" content="summary_large_image" />}
+      {image && <meta name="twitter:image" content={seo.image} />}
     </Helmet>
   );
 };
@@ -92,7 +83,7 @@ SEO.propTypes = {
 SEO.defaultProps = {
   title: null,
   description: null,
-  image: null,
+  image: '',
   pathname: null,
   article: false,
 };

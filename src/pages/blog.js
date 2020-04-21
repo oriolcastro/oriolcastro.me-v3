@@ -7,12 +7,12 @@ import Layout from '@components/Layout';
 import PostCard from '@components/PostCard';
 import SEO from '@components/SEO';
 
-const BlogPage = ({ data }) => {
+const BlogPage = ({ data, path }) => {
   const { edges: posts } = data.allMdx;
 
   return (
     <Layout>
-      <SEO title="Latest articles" desription="Latest articles in my blog" pathname="/blog" />
+      <SEO title="Latest articles" description="Latest articles in my blog" pathname={path} />
       <Heading as="h1" sx={{ mb: 5 }}>
         Blog
       </Heading>

@@ -8,6 +8,7 @@ import { Box, Grid, Heading, jsx, Styled, Text } from 'theme-ui';
 import CVButtons from '@components/CVButtons';
 import GithubCard from '@components/GithubCard';
 import Layout from '@components/Layout';
+import SEO from '@components/SEO';
 
 const PortfolioPage = ({ data }) => {
   const { edges: repos } = data.github.user.repositories;
@@ -15,6 +16,11 @@ const PortfolioPage = ({ data }) => {
 
   return (
     <Layout>
+      <SEO
+        title="My projects"
+        desription="Some of the projects I have been working as a front-end developer"
+        pathname="/portfolio"
+      />
       <Img fluid={HeroImage} />
       <Box sx={{ py: 4 }}>
         <Heading as="h1" sx={{ mb: 5 }}>

@@ -13,8 +13,11 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 module.exports = {
   siteMetadata: {
     title: config.siteTitle,
+    titleTemplate: "%s · Oriol's Blog",
     description: config.siteDescription,
-    siteUrl,
+    url: siteUrl,
+    image: '',
+    twitterUsername: config.userTwitter,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

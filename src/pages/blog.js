@@ -1,21 +1,18 @@
 /** @jsx jsx */
-import { Helmet } from 'react-helmet';
-
 import { graphql } from 'gatsby';
 
 import { Grid, Heading, jsx } from 'theme-ui';
 
 import Layout from '@components/Layout';
 import PostCard from '@components/PostCard';
+import SEO from '@components/SEO';
 
 const BlogPage = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (
     <Layout>
-      <Helmet>
-        <title>{`${data.site.siteMetadata.title} - Blog`}</title>
-      </Helmet>
+      <SEO title="Latest articles" desription="Latest articles in my blog" pathname="/blog" />
       <Heading as="h1" sx={{ mb: 5 }}>
         Blog
       </Heading>

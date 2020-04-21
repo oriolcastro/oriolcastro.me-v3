@@ -5,10 +5,13 @@ coverImg: p1030836_edited.jpeg
 
 export const pageMeta = {
   title: 'A little bit about me',
+  description: 'A quick introduction into my jounry and who am I'
 };
 
 import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
+import SEO from '@components/SEO';
+
+<SEO title={pageMeta.title} desription={pageMeta.description} pathname="/about" image={frontmatter.coverImg} />
 
 My name is Oriol Casto Arnau and I'm a front-end developer living in a beautiful Mediterranean small city called Vilanova i la Geltrú near Barcelona and fully connected to the world.
 

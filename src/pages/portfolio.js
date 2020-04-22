@@ -8,13 +8,20 @@ import { Box, Grid, Heading, jsx, Styled, Text } from 'theme-ui';
 import CVButtons from '@components/CVButtons';
 import GithubCard from '@components/GithubCard';
 import Layout from '@components/Layout';
+import SEO from '@components/SEO';
 
-const PortfolioPage = ({ data }) => {
+const PortfolioPage = ({ data, path }) => {
   const { edges: repos } = data.github.user.repositories;
   const HeroImage = data.file.childImageSharp.fluid;
 
   return (
     <Layout>
+      <SEO
+        title="My projects"
+        description="Some of the projects I have been working as a front-end developer"
+        pathname={path}
+        image={data.file.childImageSharp.original.src}
+      />
       <Img fluid={HeroImage} />
       <Box sx={{ py: 4 }}>
         <Heading as="h1" sx={{ mb: 5 }}>
@@ -57,6 +64,9 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 1400, maxHeight: 700) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
+        original: fluid {
+          src
         }
       }
     }

@@ -7,12 +7,14 @@ import { Box, Grid, Heading, jsx } from 'theme-ui';
 import Hero from '@components/Hero';
 import Layout from '@components/Layout';
 import PostCard from '@components/PostCard';
+import SEO from '@components/SEO';
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx;
 
   return (
     <Layout>
+      <SEO title="Hi!" />
       <Hero />
       <Box sx={{ py: 4 }}>
         <Heading as="h2" sx={{ marginBottom: 4 }}>

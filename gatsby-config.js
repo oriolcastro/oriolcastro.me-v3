@@ -15,7 +15,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-remark-images',
     'gatsby-plugin-theme-ui',
-    '@pauliescanlon/gatsby-mdx-embed',
+    'gatsby-plugin-mdx-embed',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

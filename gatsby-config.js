@@ -16,6 +16,12 @@ module.exports = {
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-mdx-embed',
     {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://www.google-analytics.com'],
+      },
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,

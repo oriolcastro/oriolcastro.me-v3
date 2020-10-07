@@ -35,6 +35,7 @@ export default IndexPage;
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
+      // eslint-disable-next-line react/forbid-prop-types
       edges: PropTypes.array,
     }),
   }).isRequired,

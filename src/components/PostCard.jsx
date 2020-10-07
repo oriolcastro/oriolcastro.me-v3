@@ -65,7 +65,7 @@ const PostCard = ({ post }) => {
 PostCard.propTypes = {
   post: PropTypes.shape({
     frontmatter: PropTypes.shape({
-      coverImg: PropTypes.object.isRequired,
+      coverImg: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       tags: PropTypes.arrayOf(PropTypes.string),

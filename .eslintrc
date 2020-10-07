@@ -74,7 +74,7 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
-    "import/no-webpack-loader-syntax": [0]
+    "import/no-webpack-loader-syntax": [0],
   },
   "env": {
     "browser": true,

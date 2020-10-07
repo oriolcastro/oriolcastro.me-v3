@@ -88,7 +88,7 @@ const ThemeSwitch = () => {
     darkModeMediaQuery.addListener(switchMode);
 
     // return () => darkModeMediaQuery.removeEventListener(switchMode);
-  }, []);
+  }, [setColorMode]);
 
   return (
     <div sx={containerStyle}>

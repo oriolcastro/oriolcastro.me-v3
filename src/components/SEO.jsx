@@ -11,10 +11,10 @@ const query = graphql`
   query SEO {
     site {
       siteMetadata {
-        defaultTitle: title
+        defaultTitle
         titleTemplate
-        defaultDescription: description
-        siteUrl: url
+        defaultDescription
+        siteUrl
         twitterUsername
       }
     }

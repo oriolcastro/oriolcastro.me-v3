@@ -3,15 +3,14 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: config.siteTitle,
+    defaultTitle: config.siteTitle,
     titleTemplate: "%s · Oriol's Blog",
-    description: config.siteDescription,
-    url: config.siteUrl,
+    defaultDescription: config.siteDescription,
+    siteUrl: config.siteUrl,
     twitterUsername: config.userTwitter,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-robots-txt',
     'gatsby-plugin-catch-links',
     'gatsby-remark-images',
     'gatsby-plugin-theme-ui',

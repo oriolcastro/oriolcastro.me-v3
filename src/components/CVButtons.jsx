@@ -25,10 +25,11 @@ const CVButtons = () => {
       </Heading>
       <Flex sx={{ flexWrap: 'wrap', justifyContent: 'flex-start' }}>
         <Button
+          as="a"
+          download
           href={data?.cvInEng?.publicURL}
           sx={{ width: ['100%', 'auto'], mr: [0, 3], mb: 3 }}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             trackCustomEvent({
               category: 'interaction',
               action: 'Click',
@@ -40,10 +41,11 @@ const CVButtons = () => {
           Resume [ENG]
         </Button>
         <Button
+          as="a"
+          download
           href={data?.cvInCat?.publicURL}
           sx={{ width: ['100%', 'auto'], mb: 3 }}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={() => {
             trackCustomEvent({
               category: 'interaction',
               action: 'Click',

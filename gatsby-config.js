@@ -15,6 +15,7 @@ module.exports = {
     'gatsby-remark-images',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-mdx-embed',
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {

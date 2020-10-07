@@ -18,6 +18,7 @@
     "lint:js": "NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.html --report-unused-disable-directives",
     "lint:mdx": "NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .mdx --report-unused-disable-directives",
     "lint:package": "sort-package-json",
+    "preload-fonts": "gatsby-preload-fonts",
     "serve": "gatsby serve",
     "start": "npm run develop"
   },
@@ -59,6 +60,7 @@
     "gatsby-plugin-netlify": "2.3.17",
     "gatsby-plugin-offline": "3.2.31",
     "gatsby-plugin-preconnect": "^1.1.54",
+    "gatsby-plugin-preload-fonts": "^1.2.28",
     "gatsby-plugin-react-helmet": "3.3.13",
     "gatsby-plugin-robots-txt": "1.5.3",
     "gatsby-plugin-sharp": "2.6.39",

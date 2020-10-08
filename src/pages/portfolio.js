@@ -18,7 +18,7 @@ const PortfolioPage = ({ data, path }) => {
     <Layout>
       <SEO
         title="My projects"
-        description="Some of the projects I have been working as a front-end developer"
+        description="Some of the projects I have been working on as a front-end developer"
         pathname={path}
         image={data.file.childImageSharp.original.src}
       />

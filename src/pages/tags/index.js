@@ -8,6 +8,9 @@ import { Heading, jsx, Styled } from 'theme-ui';
 
 import Layout from '@components/Layout';
 
+const Ul = Styled.ul;
+const Li = Styled.li;
+
 const TagsPage = ({
   data: {
     allMdx: { group },
@@ -23,15 +26,15 @@ const TagsPage = ({
     <Heading as="h1" sx={{ mb: 4 }}>
       Tags
     </Heading>
-    <Styled.ul>
+    <Ul>
       {group.map((tag) => (
-        <Styled.li key={tag.fieldValue}>
+        <Li key={tag.fieldValue}>
           <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>
             {`${tag.fieldValue} (${tag.totalCount})`}
           </Link>
-        </Styled.li>
+        </Li>
       ))}
-    </Styled.ul>
+    </Ul>
   </Layout>
 );
 

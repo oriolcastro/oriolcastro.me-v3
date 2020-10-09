@@ -8,6 +8,9 @@ import { Heading, jsx, Styled } from 'theme-ui';
 
 import Layout from '@components/Layout';
 
+const Ul = Styled.ul;
+const Li = Styled.li;
+
 const TagRoute = ({ data, pageContext: { tag } }) => {
   const {
     site: {
@@ -28,13 +31,13 @@ const TagRoute = ({ data, pageContext: { tag } }) => {
       <Heading as="h2" sx={{ mb: 4 }}>
         {tagHeader}
       </Heading>
-      <Styled.ul>
+      <Ul>
         {posts.map((post) => (
-          <Styled.li key={post.node.fields.slug}>
+          <Li key={post.node.fields.slug}>
             <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-          </Styled.li>
+          </Li>
         ))}
-      </Styled.ul>
+      </Ul>
       <Styled.a as={Link} to="/tags">
         Explore all categories
       </Styled.a>

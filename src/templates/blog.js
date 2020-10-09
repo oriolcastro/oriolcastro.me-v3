@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 /* eslint-disable react/display-name */
 import React from 'react';
 import { Helmet } from 'react-helmet';

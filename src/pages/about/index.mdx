@@ -9,6 +9,7 @@ export const pageMeta = {
 };
 
 import { graphql } from 'gatsby';
+import CVButtons from '@components/CVButtons';
 
 My name is Oriol Casto Arnau, but you can call me Oriol or just Uri for short. I'm a front-end developer living in a beautiful Mediterranean small city called Vilanova i la Geltrú near Barcelona and fully connected to the world.
 
@@ -54,6 +55,9 @@ From my time in the _free time educational movement (Esplais)_ with [Drac Màgic
 You can find me in my social networks as @oriolcastro_ or write me to the email <mailto:uri@oriolcastro.me>
 
 <!-- At the moment I don't take freelancing projects in [OK! Studio](https://www.okstudio.tech/) as I'm working full time in [Xceed](https://xceed.me). -->
+
+<CVButtons />
+
 
 export const aboutPageQuery = graphql`
   query About {

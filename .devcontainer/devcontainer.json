@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/javascript-node
 {
-	"name": "Node.js",
+	"name": "Javascript-Frontend",
 	"build": {
 		"dockerfile": "Dockerfile",
 		// Update 'VARIANT' to pick a Node version: 10, 12, 14
@@ -23,15 +23,19 @@
 		"chakrounanas.turbo-console-log",
 		"pflannery.vscode-versionlens",
 		"visualstudioexptteam.vscodeintellicode",
-		"snipsnapdev.snipsnap-vscode"
+		"snipsnapdev.snipsnap-vscode",
+		"shd101wyy.markdown-preview-enhanced",
+		"yzhang.markdown-all-in-one",
+		"kamikillerto.vscode-colorize",
+		"streetsidesoftware.code-spell-checker"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [8000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install --unsafe-perm --ignore-scripts=false",
+	"postCreateCommand": "npm install --ignore-scripts=false",
 
 	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "node"
+	"remoteUser": "node"
 }

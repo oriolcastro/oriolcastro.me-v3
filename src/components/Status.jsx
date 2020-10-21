@@ -43,7 +43,7 @@ const Status = () => {
           </Text>
         ) : (
           <Text>
-            Working as front-end developer at
+            Working as a front-end developer at
             <Styled.a as={OutboundLink} href="https://xceed.me">
               {' '}
               {company}

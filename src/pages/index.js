@@ -8,6 +8,7 @@ import Hero from '@components/Hero';
 import Layout from '@components/Layout';
 import PostCard from '@components/PostCard';
 import SEO from '@components/SEO';
+import Status from '@components/Status';
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx;
@@ -16,6 +17,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Hi!" />
       <Hero />
+      <Status />
       <Box sx={{ py: 4 }}>
         <Heading as="h2" sx={{ marginBottom: 4 }}>
           Latest articles

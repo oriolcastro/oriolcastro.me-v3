@@ -18,16 +18,18 @@ const IndexPage = ({ data }) => {
       <SEO title="Hi!" />
       <Hero />
       <Status />
-      <Box sx={{ py: 4 }}>
-        <Heading as="h2" sx={{ marginBottom: 4 }}>
-          Latest articles
-        </Heading>
-        <Grid gap={[4, 5]} columns={[1, 2]} sx={{ py: 3 }}>
-          {posts.map(({ node: post }) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </Grid>
-      </Box>
+      {posts.lenght && (
+        <Box sx={{ py: 4 }}>
+          <Heading as="h2" sx={{ marginBottom: 4 }}>
+            Featured articles
+          </Heading>
+          <Grid gap={[4, 5]} columns={[1, 2]} sx={{ py: 3 }}>
+            {posts.map(({ node: post }) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </Grid>
+        </Box>
+      )}
     </Layout>
   );
 };
@@ -47,7 +49,10 @@ export const pageQuery = graphql`
   query IndexQuery {
     allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fields: { type: { eq: "blog" } } }
+      filter: {
+        fields: { type: { eq: "blog" } }
+        frontmatter: { status: { eq: "published" }, isFeatured: { eq: true } }
+      }
       limit: 2
     ) {
       edges {

@@ -31,7 +31,7 @@ export const pageQuery = graphql`
   query BlogQuery {
     allMdx(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fields: { type: { eq: "blog" } } }
+      filter: { fields: { type: { eq: "blog" } }, frontmatter: { status: { eq: "published" } } }
     ) {
       edges {
         node {

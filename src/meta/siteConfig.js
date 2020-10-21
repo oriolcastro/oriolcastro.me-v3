@@ -8,5 +8,5 @@ module.exports = {
   shortTitle: "Oriol's Blog",
   userTwitter: '@oriolcastro_',
   backgroundColor: '#fff',
-  themeColor: '#0F52BA',
+  themeColor: '#7290FF',
 };

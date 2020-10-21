@@ -4,7 +4,7 @@ import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-
 import { graphql, useStaticQuery } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { Box, Flex, Grid, Heading, IconButton, jsx, Styled, Text } from 'theme-ui';
+import { Box, Flex, Grid, Heading, IconButton, jsx, Text } from 'theme-ui';
 
 import Emoji from './Emoji';
 import ProfileImg from './ProfileImg';
@@ -61,14 +61,8 @@ const Hero = () => {
         <Box sx={{ mb: 3, fontSize: ['1.3rem', '1.5rem'], whiteSpace: 'pre-wrap' }}>
           <Text>A self-taught front-end developer and a technology enthusiast from Barcelona.</Text>
           <Text>
-            Here I write about my personal projects, coding tips and tricks, and new cool tech to
-            explore.
-          </Text>
-          <Text>
-            I currently work at
-            <Styled.a as={OutboundLink} href="https://xceed.me">
-              {' Xceed.'}
-            </Styled.a>
+            Here I write about personal projects, my programming career, and any new cool tech I
+            find.
           </Text>
         </Box>
         <Flex sx={{ justifyContent: ['center', 'start'] }}>

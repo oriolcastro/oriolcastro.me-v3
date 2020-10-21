@@ -67,6 +67,12 @@ export default merge(typography, {
       px: [3, 4],
       py: 4,
     },
+    status: {
+      borderRadius: 2,
+      backgroundColor: 'cardBackground',
+      boxShadow: 'hard',
+      p: 3,
+    },
   },
   images: {
     cardMedia: {

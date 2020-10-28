@@ -5,7 +5,7 @@ coverImg: p1030836_edited.jpeg
 
 export const pageMeta = {
   title: 'A little bit about me',
-  description: 'A quick introduction into my journy and who am I'
+  description: 'A quick introduction into my journy and who am I',
 };
 
 import { graphql } from 'gatsby';
@@ -13,7 +13,7 @@ import CVButtons from '@components/CVButtons';
 
 My name is Oriol Casto Arnau, but you can call me Oriol or just Uri for short. I'm a front-end developer living in a beautiful Mediterranean small city called Vilanova i la Geltrú near Barcelona and fully connected to the world.
 
-I have been always interested in everything related to technology and how it can change the way we live. In 2017 I decided to make a turn in my career and become a full-time professional developer.
+In 2017 I decided to make a turn in my career and become a full-time professional developer. I have always been interested in everything related to technology and how it could change our lives.
 
 Since then I have worked first as a part-time freelancer while I level up my skills, and now I'm a front-end engineer at Xceed. I consider myself a product-centric engineer, I thrive when outlining, architecting, and developing enjoyable and crafted products that scale.
 
@@ -21,7 +21,7 @@ Always willing to learn new things.
 
 These are the beacons that led me, and still do, through my journey.
 
-### Make it easy
+### Make it easier
 
 The understanding of how things work and the desire to find the best possible solution to a problem is a great fuel for exploration. That's why I became an engineer.
 
@@ -32,7 +32,7 @@ After college and reflecting on where my path was leading me I decided to make a
 
 ### Do it right
 
-I'm not a _fanboy_ of any particular stack as I tend to consider all technologies as just tools for the job. For each project, I try to select the best set of tools considering the developer experience, the existing community, and the expertise level of myself and the rest of the team. 
+I'm not a _fanboy_ of any particular stack as I tend to consider all technologies as just tools for the job. For each project, I try to select the best set of tools considering the developer experience, the existing community, and the expertise level of myself and the rest of the team.
 
 These are some of the tools I carry in my toolbox:
 
@@ -52,12 +52,11 @@ From my time in the _free time educational movement (Esplais)_ with [Drac Màgic
 - The tools for an **effective leadership**.
 - The importance of **commitment** and to **bond** with the project.
 
-You can find me in my social networks as @oriolcastro_ or write me to the email <mailto:uri@oriolcastro.me>
+You can find me in my social networks as @oriolcastro\_ or write me to the email <mailto:uri@oriolcastro.me>
 
 <!-- At the moment I don't take freelancing projects in [OK! Studio](https://www.okstudio.tech/) as I'm working full time in [Xceed](https://xceed.me). -->
 
 <CVButtons />
-
 
 export const aboutPageQuery = graphql`
   query About {
@@ -68,7 +67,7 @@ export const aboutPageQuery = graphql`
             fluid(maxWidth: 1400, maxHeight: 700) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
-            original: fluid{
+            original: fluid {
               src
             }
           }

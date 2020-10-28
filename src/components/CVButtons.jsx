@@ -9,10 +9,7 @@ import { Button, Flex, Heading, jsx } from 'theme-ui';
 const CVButtons = () => {
   const data = useStaticQuery(graphql`
     {
-      cvInCat: file(extension: { eq: "pdf" }, name: { in: "OriolCastroArnau_CV[CAT]" }) {
-        publicURL
-      }
-      cvInEng: file(extension: { eq: "pdf" }, name: { in: "OriolCastroArnau_CV[ENG]" }) {
+      myCV: file(extension: { eq: "pdf" }, name: { in: "OriolCastroArnau_CV" }) {
         publicURL
       }
     }
@@ -27,34 +24,18 @@ const CVButtons = () => {
         <Button
           as="a"
           download
-          href={data?.cvInEng?.publicURL}
+          href={data?.myCV?.publicURL}
           sx={{ width: ['100%', 'auto'], mr: [0, 3], mb: 3 }}
           onClick={() => {
             trackCustomEvent({
               category: 'interaction',
               action: 'Click',
-              label: 'ENG CV download',
+              label: 'CV download',
             });
           }}
         >
           <FaFilePdf sx={{ size: '1.15em', mr: 2, verticalAlign: 'text-top' }} />
-          Resume [ENG]
-        </Button>
-        <Button
-          as="a"
-          download
-          href={data?.cvInCat?.publicURL}
-          sx={{ width: ['100%', 'auto'], mb: 3 }}
-          onClick={() => {
-            trackCustomEvent({
-              category: 'interaction',
-              action: 'Click',
-              label: 'CAT CV download',
-            });
-          }}
-        >
-          <FaFilePdf sx={{ size: '1.15em', mr: 2, verticalAlign: 'text-top' }} />
-          Resume [CAT]
+          Resume
         </Button>
       </Flex>
     </div>

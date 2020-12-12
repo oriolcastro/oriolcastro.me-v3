@@ -44,7 +44,7 @@ const Status = () => {
         ) : (
           <Text>
             Working as a front-end developer at
-            <Styled.a as={OutboundLink} href="https://xceed.me">
+            <Styled.a as={OutboundLink} href="https://immfly.com/">
               {' '}
               {company}
             </Styled.a>

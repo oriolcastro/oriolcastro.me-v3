@@ -1,8 +1,24 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": ["react-app","airbnb","plugin:react/recommended", "plugin:prettier/recommended","plugin:compat/recommended","plugin:jsx-a11y/recommended", "plugin:mdx/recommended"],
-  "plugins": ["react", "prettier","simple-import-sort","import","jsx-a11y","react-hooks","json"],
+  "extends": [
+    "react-app",
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:compat/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:mdx/recommended"
+  ],
+  "plugins": [
+    "react",
+    "prettier",
+    "simple-import-sort",
+    "import",
+    "jsx-a11y",
+    "react-hooks",
+    "json"
+  ],
   "rules": {
     "strict": 0,
     "prettier/prettier": [
@@ -16,7 +32,7 @@
         "jsxBracketSameLine": false
       }
     ],
-    "simple-import-sort/sort": [
+    "simple-import-sort/imports": [
       "error",
       {
         "groups": [
@@ -50,7 +66,7 @@
     "no-underscore-dangle": "off",
     "no-param-reassign": "off",
     "sort-imports": "off",
-    "react/jsx-uses-react": "error",   
+    "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/prop-types": "off",
     "react/no-array-index-key": "off",
@@ -74,7 +90,7 @@
       }
     ],
     "react/react-in-jsx-scope": "off",
-    "import/no-webpack-loader-syntax": [0],
+    "import/no-webpack-loader-syntax": [0]
   },
   "env": {
     "browser": true,

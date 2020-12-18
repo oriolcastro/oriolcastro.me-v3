@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Hi!" />
       <Hero />
       <Status />
-      {posts.lenght && (
+      {posts.length ? (
         <Box sx={{ py: 4 }}>
           <Heading as="h2" sx={{ marginBottom: 4 }}>
             Featured articles
@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
             ))}
           </Grid>
         </Box>
-      )}
+      ) : null}
     </Layout>
   );
 };
@@ -70,9 +70,12 @@ export const pageQuery = graphql`
             tags
             coverImg {
               childImageSharp {
-                fluid(maxWidth: 350, maxHeight: 150) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
+                gatsbyImageData(
+                  maxWidth: 350
+                  maxHeight: 150
+                  placeholder: TRACED_SVG
+                  layout: FLUID
+                )
               }
             }
           }

@@ -64,9 +64,7 @@ export const aboutPageQuery = graphql`
       frontmatter {
         coverImg {
           childImageSharp {
-            fluid(maxWidth: 1400, maxHeight: 700) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(maxWidth: 1400, maxHeight: 700, placeholder: TRACED_SVG, layout: FLUID)
             original: fluid {
               src
             }

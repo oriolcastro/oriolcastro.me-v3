@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Box, Heading, jsx } from 'theme-ui';
 
@@ -16,7 +16,9 @@ const PageTemplate = ({ data: { mdx }, pageMeta, children, path }) => {
         pathname={path}
         image={mdx.frontmatter.coverImg.childImageSharp.original.src}
       />
-      {mdx.frontmatter.coverImg && <Img fluid={mdx.frontmatter.coverImg.childImageSharp.fluid} />}
+      {mdx.frontmatter.coverImg && (
+        <GatsbyImage image={mdx.frontmatter.coverImg.childImageSharp.gatsbyImageData} />
+      )}
       <Box sx={{ py: 4 }}>
         <Heading as="h1" sx={{ mb: 5 }}>
           {pageMeta.title}

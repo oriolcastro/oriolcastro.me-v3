@@ -4,7 +4,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import { MDXProvider } from '@mdx-js/react';
@@ -31,7 +31,9 @@ const BlogTemplate = ({ data, pageContext }) => {
       <Helmet>
         <title>{`${frontmatter.title} | Blog`}</title>
       </Helmet>
-      {frontmatter.coverImg && <Img fluid={frontmatter.coverImg.childImageSharp.fluid} />}
+      {frontmatter.coverImg && (
+        <GatsbyImage image={frontmatter.coverImg.childImageSharp.gatsbyImageData} />
+      )}
       <Box sx={{ py: 4 }}>
         <Heading as="h1">{frontmatter.title}</Heading>
         <Text variant="blogDescription">{frontmatter.description}</Text>
@@ -82,9 +84,7 @@ export const postQuery = graphql`
         tags
         coverImg {
           childImageSharp {
-            fluid(maxWidth: 1400, maxHeight: 700) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(maxWidth: 1400, maxHeight: 700, placeholder: TRACED_SVG, layout: FLUID)
           }
         }
       }

@@ -48,9 +48,12 @@ export const pageQuery = graphql`
             tags
             coverImg {
               childImageSharp {
-                fluid(maxWidth: 980, maxHeight: 400) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
+                gatsbyImageData(
+                  maxWidth: 980
+                  maxHeight: 400
+                  placeholder: TRACED_SVG
+                  layout: FLUID
+                )
               }
             }
           }

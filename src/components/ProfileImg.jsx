@@ -1,13 +1,28 @@
 /** @jsx jsx */
-import Img from 'gatsby-image';
+
+import { useStaticQuery } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { jsx } from 'theme-ui';
 
-const ProfileImg = ({ profileImage }) => {
+const ProfileImg = () => {
+  const {
+    profileImage: { gatsbyImageData },
+  } = useStaticQuery(graphql`
+    query HomeHeroQuery {
+      profileImage: imageSharp(fluid: { originalName: { eq: "me.jpg" } }) {
+        gatsbyImageData(maxWidth: 650, placeholder: TRACED_SVG, layout: FLUID)
+        original: fluid {
+          src
+        }
+      }
+    }
+  `);
+
   return (
     <div style={{ position: 'relative' }}>
-      <Img
-        fluid={profileImage.fluid}
+      <GatsbyImage
+        image={gatsbyImageData}
         title="My profile"
         alt="My profile picture"
         sx={{ borderRadius: '24px', margin: 'auto' }}

@@ -38,7 +38,7 @@ const LINKS = [
 ];
 
 const Hero = () => (
-  <Grid gap={[2, 4]} columns={[1, '2fr 3fr']} sx={{ mb: 4 }}>
+  <Grid gap={[2, 4]} columns={[1, '2fr 3fr']} sx={{ mb: 5 }}>
     <Flex sx={{ justifyContent: 'center', flexDirection: 'column' }}>
       <ProfileImg />
     </Flex>

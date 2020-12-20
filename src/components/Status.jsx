@@ -33,7 +33,7 @@ const Status = () => {
   const unicodeEmoji = name.get(emoji);
   const statusStyle = isHireable ? { border: '1px solid', borderColor: 'accent' } : {};
   return (
-    <Grid gap={5} columns={[1, '1fr 1fr']}>
+    <Grid gap={5} columns={[1, '1fr 1fr']} sx={{ mb: 5 }}>
       <Card variant="status" sx={statusStyle}>
         <Text sx={{ color: 'lightText', fontSize: 1, mb: 2 }}>Job status</Text>
         {isHireable ? (

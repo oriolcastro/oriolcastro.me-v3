@@ -9,6 +9,7 @@ import Layout from '@components/Layout';
 import PostCard from '@components/PostCard';
 import SEO from '@components/SEO';
 import Status from '@components/Status';
+import Timeline from '@components/Timeline';
 
 const IndexPage = ({ data }) => {
   const { edges: posts } = data.allMdx;
@@ -18,6 +19,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Hi!" />
       <Hero />
       <Status />
+      <Timeline />
       {posts.length ? (
         <Box sx={{ py: 4 }}>
           <Heading as="h2" sx={{ marginBottom: 4 }}>

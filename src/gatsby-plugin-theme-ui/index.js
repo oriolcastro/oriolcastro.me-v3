@@ -98,6 +98,11 @@ export default merge(typography, {
       backgroundColor: 'transparent',
       color: 'primary',
       cursor: 'pointer',
+      '&:focus': {
+        color: 'text',
+        border: 'none',
+        outline: 'none',
+      },
     },
     secondary: {
       color: 'cardBackground',

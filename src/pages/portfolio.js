@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Box, Grid, Heading, jsx, Styled, Text } from 'theme-ui';
 
@@ -12,7 +12,7 @@ import SEO from '@components/SEO';
 
 const PortfolioPage = ({ data, path }) => {
   const { edges: repos } = data.github.user.repositories;
-  const HeroImage = data.file.childImageSharp.fluid;
+  const HeroImage = data.file.childImageSharp.gatsbyImageData;
 
   return (
     <Layout>
@@ -22,7 +22,7 @@ const PortfolioPage = ({ data, path }) => {
         pathname={path}
         image={data.file.childImageSharp.original.src}
       />
-      <Img fluid={HeroImage} />
+      <GatsbyImage image={HeroImage} />
       <Box sx={{ py: 4 }}>
         <Heading as="h1" sx={{ mb: 5 }}>
           Projects
@@ -62,9 +62,7 @@ export const query = graphql`
   query PortfolioPageQuery {
     file(name: { eq: "portfoliHero" }) {
       childImageSharp {
-        fluid(maxWidth: 1400, maxHeight: 700) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+        gatsbyImageData(maxWidth: 1400, maxHeight: 700, placeholder: TRACED_SVG, layout: FLUID)
         original: fluid {
           src
         }

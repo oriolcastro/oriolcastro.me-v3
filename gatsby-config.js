@@ -9,6 +9,11 @@ module.exports = {
     siteUrl: config.siteUrl,
     twitterUsername: config.userTwitter,
   },
+  flags: {
+    QUERY_ON_DEMAND: true,
+    LAZY_IMAGES: true,
+    FAST_REFRESH: true,
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
@@ -16,6 +21,7 @@ module.exports = {
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-mdx-embed',
     `gatsby-plugin-preload-fonts`,
+    'gatsby-plugin-image',
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {

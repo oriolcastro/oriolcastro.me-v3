@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import PropTypes from 'prop-types';
 import { Badge, Card, Flex, Heading, jsx, Text } from 'theme-ui';
@@ -22,8 +22,8 @@ const PostCard = ({ post }) => {
       sx={{ display: 'flex', flexDirection: 'column' }}
     >
       {coverImg && (
-        <Img
-          fluid={coverImg.childImageSharp.fluid}
+        <GatsbyImage
+          image={coverImg.childImageSharp.gatsbyImageData}
           title=""
           alt=""
           style={{ borderRadius: '1em 1em 0 0' }}

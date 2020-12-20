@@ -88,9 +88,9 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "eslint": "^7.15.0",
+    "eslint": "^7.16.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-import-resolver-custom-alias": "^1.2.0",
     "eslint-loader": "^4.0.2",

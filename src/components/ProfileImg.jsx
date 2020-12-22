@@ -5,17 +5,23 @@ import { StaticImage } from 'gatsby-plugin-image';
 import { jsx } from 'theme-ui';
 
 const ProfileImg = () => (
-  <div style={{ position: 'relative' }}>
+  <div
+    style={{ position: 'relative' }}
+    css={{
+      position: 'relative',
+      '.gatsby-image-wrapper': {
+        clipPath: 'url(#hexagon)',
+      },
+    }}
+  >
     <StaticImage
       src="../../content/assets/me.jpg"
-      placeholder="NONE"
+      placeholder="TRACED_SVG"
       layout="fluid"
       maxWidth={650}
       title="My profile"
       alt="My profile picture"
-      imgStyle={{ clipPath: 'url(#hexagon)' }}
     />
-
     <svg
       viewBox="0 0 483.013 483.013"
       preserveAspectRatio="xMidYMid meet"
@@ -35,7 +41,6 @@ const ProfileImg = () => (
     c15.925,0,30.634-8.491,38.607-22.293l98.469-170.543C485.003,249.99,485.003,233.006,477.043,219.205z"
       />
     </svg>
-
     <svg
       x="0px"
       y="0px"

@@ -24,11 +24,11 @@
     },
     {
       "title": "WordPress as the entry point 💾",
-      "content": "I started creating most of my freelance projects in WordPress because of its approachability and because it fitted well within the requirements of my clients. It worked for them as a technical solution and for me as an entry point of the tech-stack world."
+      "content": "I started creating most of my freelance projects in WordPress because of its approachability and because it fitted well within the requirements of my clients."
     },
     {
       "title": "Discover and learn React ⚛️",
-      "content": "I almost by accident came across Gatsby an SSG framework build around React. The declarative nature, component-based approach, and one-way data binding got my attention so I went back to learning mode."
+      "content": "I almost by accident came across Gatsby which lead me to React. The declarative nature and the component-based approach got my attention so I went back to learning mode."
     },
     {
       "title": "Balancing career-development and daily-to-daily problems 💸",
@@ -46,17 +46,17 @@
     },
     {
       "title": "Started the 6by6challenge ⚗️",
-      "content": "This challenge consisted to design, develop, and deploy a web application each month for 6 months. It started in December but only lasted for the first three months because then I get hired and did not have time to invest in it."
+      "content": "This challenge consisted to design, develop, and deploy a web application each month for 6 months. It started in December but only lasted until march 2019 because I get hired!"
     }
   ],
   "2019": [
     {
       "title": "I get hired as a front-end developer at Xceed 🥳",
-      "content": "At the beginning of the year, I started to apply for full-time front-end positions in Barcelona. Surprisingly for me just after a little bit more than a month I had gone through the hiring process and I received my first offers."
+      "content": "At the beginning of the year, I started to apply for full-time front-end positions in Barcelona. Surprisingly for me after just a month I received my first offers and in April I started working."
     },
     {
       "title": "Learning the in and outs of software development inside a team 🤯",
-      "content": "Before starting at Xceed I had always worked by myself, so working with a team and in a fast-paced tech company was a challenge. Agile methodology, pull request, code reviews, retrospective meetings, user stories, production, sprints, staging environment, DevOps, a new concept to learn every single week."
+      "content": "I had always worked by myself, so working within a team and in a fast-paced tech company was a challenge. Agile methodology, pull request, code reviews, retrospective meetings, user stories, production, sprints, staging environment, DevOps, a new concept to learn every single week."
     }
   ],
   "2020": [

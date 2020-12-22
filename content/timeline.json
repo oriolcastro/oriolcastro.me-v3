@@ -1,76 +1,76 @@
 {
   "2016": [
     {
-      "title": "Create my Github account 👨‍💻",
-      "content": "Having an online presence was very important, if I wanted to become a developer I should be where the community was."
-    },
-    {
-      "title": "Created my Codecademy account 📖",
-      "content": "Codecademy helped me, in the beginning, to learn the basics of web programming in a fun and engaging way."
+      "title": "Quit my part-time job as a maths and physics teacher 👨‍🏫",
+      "content": "At the end of the year, I quit my job to go all-in and pursue my dream to become a software engineer."
     },
     {
       "title": "Developed an experimental PWA using Polymer 🧪",
       "content": "Learning by doing has always been my motto, and trying new technologies the best way to keep me motivated."
     },
     {
-      "title": "Quit my part-time job as a maths and physics teacher 👨‍🏫",
-      "content": "At the end of the year, I quit my job to go all-in and pursue my dream to become a software engineer."
+      "title": "Created my Codecademy account 📖",
+      "content": "Codecademy helped me, in the beginning, to learn the basics of web programming in a fun and engaging way."
+    },
+    {
+      "title": "Create my Github account 👨‍💻",
+      "content": "Having an online presence was very important, if I wanted to become a developer I should be where the community was."
     }
   ],
   "2017": [
     {
-      "title": "First free-lance projects 🎉",
-      "content": "The beginnings are always hard and being completely new to this sector finding clients wasn't easy. But I had the goal and vision clear so I kept pushing forward."
-    },
-    {
-      "title": "WordPress as the entry point 💾",
-      "content": "I started creating most of my freelance projects in WordPress because of its approachability and because it fitted well within the requirements of my clients."
+      "title": "Balancing career-development and daily-to-daily problems 💸",
+      "content": "With my little experience, the few projects I received were not enough to support me economically so I started a new part-time job."
     },
     {
       "title": "Discover and learn React ⚛️",
       "content": "I almost by accident came across Gatsby which lead me to React. The declarative nature and the component-based approach got my attention so I went back to learning mode."
     },
     {
-      "title": "Balancing career-development and daily-to-daily problems 💸",
-      "content": "With my little experience, the few projects I received were not enough to support me economically so I started a new part-time job."
+      "title": "WordPress as the entry point 💾",
+      "content": "I started creating most of my freelance projects in WordPress because of its approachability and because it fitted well within the requirements of my clients."
+    },
+    {
+      "title": "First free-lance projects 🎉",
+      "content": "The beginnings are always hard and being completely new to this sector finding clients wasn't easy. But I had the goal and vision clear so I kept pushing forward."
     }
   ],
   "2018": [
     {
-      "title": "Launched my first PWA build with React (Esplaiada18) ⚛️🚀",
-      "content": "Until this point, all the projects I developed were basic WordPress sites or simple experiments. This was my first product launch of a React app used by thousands of users."
+      "title": "Started the 6by6challenge ⚗️",
+      "content": "This challenge consisted to design, develop, and deploy a web application each month for 6 months. It started in December but only lasted until march 2019 because I get hired!"
     },
     {
       "title": "Launched okstudio.tech ✨",
       "content": "If I wanted to be successful I needed a place to showcase what I could do and the work I had already done for others. This is why I rebrand my freelance work and launched a brand new site."
     },
     {
-      "title": "Started the 6by6challenge ⚗️",
-      "content": "This challenge consisted to design, develop, and deploy a web application each month for 6 months. It started in December but only lasted until march 2019 because I get hired!"
+      "title": "Launched my first PWA build with React (Esplaiada18) ⚛️🚀",
+      "content": "Until this point, all the projects I developed were basic WordPress sites or simple experiments. This was my first product launch of a React app used by thousands of users."
     }
   ],
   "2019": [
     {
-      "title": "I get hired as a front-end developer at Xceed 🥳",
-      "content": "At the beginning of the year, I started to apply for full-time front-end positions in Barcelona. Surprisingly for me after just a month I received my first offers and in April I started working."
-    },
-    {
       "title": "Learning the in and outs of software development inside a team 🤯",
       "content": "I had always worked by myself, so working within a team and in a fast-paced tech company was a challenge. Agile methodology, pull request, code reviews, retrospective meetings, user stories, production, sprints, staging environment, DevOps, a new concept to learn every single week."
+    },
+    {
+      "title": "I get hired as a front-end developer at Xceed 🥳",
+      "content": "At the beginning of the year, I started to apply for full-time front-end positions in Barcelona. Surprisingly for me after just a month I received my first offers and in April I started working."
     }
   ],
   "2020": [
     {
-      "title": "Welcome to the remote life 🏠",
-      "content": "Before Covid-19 I almost never worked remotely but now we had to learn how to keep working together as a fully distributed team."
+      "title": "A new chapter: I join Immfly 🛫",
+      "content": "At the end of the year, I started looking for a new chapter in my career. A different path to keep growing and trying different roles, and also new challenges to never stop learning."
     },
     {
       "title": "Ship a brand new site during the pandemic 🚀",
       "content": "Apart from working remotely we also launched the new application for xceed.me during the lockdown."
     },
     {
-      "title": "A new chapter: I join Immfly 🛫",
-      "content": "At the end of the year, I started looking for a new chapter in my career. A different path to keep growing and trying different roles, and also new challenges to never stop learning."
+      "title": "Welcome to the remote life 🏠",
+      "content": "Before Covid-19 I almost never worked remotely but now we had to learn how to keep working together as a fully distributed team."
     }
   ]
 }

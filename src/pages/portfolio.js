@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { graphql, Link } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Box, Grid, Heading, jsx, Styled, Text } from 'theme-ui';
@@ -36,11 +35,19 @@ const PortfolioPage = ({ data, path }) => {
             {' blog '}
           </Styled.a>
           section or the
-          <Styled.a as={OutboundLink} href="https://www.okstudio.tech/projectes" target="_blank">
+          <Styled.a
+            href="https://www.okstudio.tech/projectes"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
             {' projects '}
           </Styled.a>
           and
-          <Styled.a as={OutboundLink} href="https://www.okstudio.tech/lab" target="_blank">
+          <Styled.a
+            href="https://www.okstudio.tech/lab"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
             {' The LAB '}
           </Styled.a>
           sections of my (currently on hiatus) freelancing job website, Ok! Studio

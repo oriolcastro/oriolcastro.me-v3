@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
-
 import { Box, Flex, Grid, Heading, IconButton, jsx, Text } from 'theme-ui';
 
 import Emoji from './Emoji';
@@ -55,14 +53,15 @@ const Hero = () => (
       </Box>
       <Flex sx={{ justifyContent: ['center', 'start'] }}>
         {LINKS.map((link) => (
-          <OutboundLink
+          <a
             key={link.name}
             href={link.href}
             target="_blank"
             rel="nofollow noopener noreferrer"
+            aria-label={`Navigate to my ${link.name}`}
           >
-            <IconButton>{link.icon}</IconButton>
-          </OutboundLink>
+            <IconButton aria-label={`Icon for ${link.name}`}>{link.icon}</IconButton>
+          </a>
         ))}
       </Flex>
     </Flex>

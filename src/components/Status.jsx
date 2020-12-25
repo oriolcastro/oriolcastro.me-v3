@@ -1,6 +1,6 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /** @jsx jsx */
 import { graphql, useStaticQuery } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import name from 'emoji-name-map';
 import { Card, Grid, jsx, Styled, Text } from 'theme-ui';
@@ -43,9 +43,8 @@ const Status = () => {
           </Text>
         ) : (
           <Text>
-            Working as a front-end developer at
-            <Styled.a as={OutboundLink} href="https://immfly.com/">
-              {' '}
+            Working as a front-end developer at{' '}
+            <Styled.a href="https://immfly.com/" target="_blank" rel="nofollow noopener noreferrer">
               {company}
             </Styled.a>
           </Text>

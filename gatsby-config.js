@@ -22,25 +22,6 @@ module.exports = {
     'gatsby-plugin-mdx-embed',
     `gatsby-plugin-preload-fonts`,
     'gatsby-plugin-image',
-    {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: ['https://www.google-analytics.com'],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        head: true,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: 'oriolcastro.me',
-      },
-    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -132,8 +113,14 @@ module.exports = {
         icon: 'src/img/icon.png',
       },
     },
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-robots-txt',
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        precachePages: [`/portfolio`, `/about`],
+      },
+    },
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 };

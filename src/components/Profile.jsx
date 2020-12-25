@@ -2,7 +2,6 @@
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Box, Flex, Grid, Heading, IconButton, jsx, Text } from 'theme-ui';
 
@@ -64,14 +63,9 @@ const Profile = () => {
         </Box>
         <Box sx={{ justifyContent: ['', 'start'], display: ['none', 'flex'] }}>
           {LINKS.map((link) => (
-            <OutboundLink
-              key={link.name}
-              href={link.href}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
+            <a key={link.name} href={link.href} target="_blank" rel="nofollow noopener noreferrer">
               <IconButton>{link.icon}</IconButton>
-            </OutboundLink>
+            </a>
           ))}
         </Box>
       </Flex>

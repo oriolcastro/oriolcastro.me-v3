@@ -2,7 +2,6 @@
 import { FaFilePdf } from 'react-icons/fa';
 
 import { graphql, useStaticQuery } from 'gatsby';
-import { trackCustomEvent } from 'gatsby-plugin-google-analytics';
 
 import { Button, Flex, Heading, jsx } from 'theme-ui';
 
@@ -26,13 +25,6 @@ const CVButtons = () => {
           download
           href={data?.myCV?.publicURL}
           sx={{ width: ['100%', 'auto'], mr: [0, 3], mb: 3 }}
-          onClick={() => {
-            trackCustomEvent({
-              category: 'interaction',
-              action: 'Click',
-              label: 'CV download',
-            });
-          }}
         >
           <FaFilePdf sx={{ size: '1.15em', mr: 2, verticalAlign: 'text-top' }} />
           Resume

@@ -53,8 +53,14 @@ const Hero = () => (
       </Box>
       <Flex sx={{ justifyContent: ['center', 'start'] }}>
         {LINKS.map((link) => (
-          <a key={link.name} href={link.href} target="_blank" rel="nofollow noopener noreferrer">
-            <IconButton>{link.icon}</IconButton>
+          <a
+            key={link.name}
+            href={link.href}
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+            aria-label={`Navigate to my ${link.name}`}
+          >
+            <IconButton aria-label={`Icon for ${link.name}`}>{link.icon}</IconButton>
           </a>
         ))}
       </Flex>

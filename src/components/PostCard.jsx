@@ -1,10 +1,9 @@
-/** @jsx jsx */
+import React from 'react';
 
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import PropTypes from 'prop-types';
-import { Badge, Card, Flex, Heading, jsx, Text } from 'theme-ui';
 
 const PostCard = ({ post }) => {
   const {
@@ -14,51 +13,37 @@ const PostCard = ({ post }) => {
     id,
   } = post;
   return (
-    <Card
-      as={Link}
-      to={slug}
-      key={id}
-      variant="post"
-      sx={{ display: 'flex', flexDirection: 'column' }}
-    >
-      {coverImg && (
-        <GatsbyImage
-          image={coverImg.childImageSharp.gatsbyImageData}
-          title=""
-          alt=""
-          style={{ borderRadius: '1em 1em 0 0' }}
-        />
-      )}
-      <Flex sx={{ px: [3, 4], py: 4, flexDirection: 'column', flex: 1 }}>
-        <div sx={{ flex: 1 }}>
-          <Text sx={{ width: '100%' }}>{`${date} - ${timeToRead} min`}</Text>
-          <Heading as="h2" sx={{ mb: [2, 3], width: '100%', color: 'primary' }}>
-            {title}
-          </Heading>
-        </div>
-        <Text
-          as="p"
-          css={{
-            display: '-webkit-box',
-            WebkitLineClamp: '3',
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden',
-            marginBottom: '1em',
-          }}
-        >
-          {description}
-        </Text>
-        <Flex sx={{ my: 2 }}>
-          <div style={{ flex: 1 }}>
-            {tags.slice(0, 4).map((tag) => (
-              <Badge key={tag} variant="light">
-                {tag}
-              </Badge>
-            ))}
+    <Link to={slug} key={id}>
+      <div className="rounded-2xl bg-cardBackground flex flex-col shadow-md transform transition-transform duration-500 hover:shadow-lg hover:scale-[1.02]">
+        {coverImg && (
+          <GatsbyImage
+            image={coverImg.childImageSharp.gatsbyImageData}
+            title=""
+            alt=""
+            style={{ borderRadius: '1em 1em 0 0' }}
+          />
+        )}
+        <div className="flex flex-col flex-1 px-4 py-6 lg:px-6">
+          <div className="flex-1">
+            <p className="w-full text-lg">{`${date} - ${timeToRead} min`}</p>
+            <h2 className="w-full text-2xl font-bold text-primary mb-2 lg:mb-4">{title}</h2>
           </div>
-        </Flex>
-      </Flex>
-    </Card>
+          <p className="line-clamp-3 mb-4 text-lg">{description}</p>
+          <div className="flex my-2">
+            <div className="flex-1">
+              {tags.slice(0, 4).map((tag) => (
+                <div
+                  className="inline-block text-sm whitespace-nowrap text-lightText bg-muted font-normal rounded p-1 m-1"
+                  key={tag}
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
   );
 };
 

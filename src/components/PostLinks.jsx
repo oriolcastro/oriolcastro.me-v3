@@ -1,46 +1,29 @@
-/** @jsx jsx */
+import React from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import { Link } from 'gatsby';
 
-import { Button, Flex, jsx } from 'theme-ui';
-
 const PostLinks = ({ prev, next }) => (
-  <Flex
-    sx={{
-      mb: 5,
-      justifyContent: 'space-between',
-    }}
-  >
+  <div className="flex mb-8 justify-between">
     {prev && (
-      <Button
-        variant="text"
-        as={Link}
+      <Link
+        className="flex items-center px-4 py-2 bg-transparent text-primary cursor-pointer focus:text-text focus:border-none focus:outline-none transform transition-transform hover:-translate-x-3 duration-500"
         to={prev.fields.slug}
-        sx={{ '&:hover': { transition: 'transform .5s', transform: 'translateX(-12px)' } }}
       >
-        <FaArrowLeft
-          sx={{
-            size: '1.15em',
-            mr: 2,
-            verticalAlign: 'text-top',
-          }}
-        />
+        <FaArrowLeft className="w-5 h-5 mr-2" />
         Prev post
-      </Button>
+      </Link>
     )}
     {next && (
-      <Button
-        variant="text"
-        as={Link}
+      <Link
+        className="flex items-center px-4 py-2 bg-transparent  bg-transparent text-primary cursor-pointer focus:text-text focus:border-none focus:outline-none transform transition-transform hover:translate-x-3 duration-500"
         to={next.fields.slug}
-        sx={{ '&:hover': { transition: 'transform .5s', transform: 'translateX(12px)' } }}
       >
         Next post
-        <FaArrowRight sx={{ size: '1.15em', ml: 2, verticalAlign: 'text-top' }} />
-      </Button>
+        <FaArrowRight className="w-5 h-5 ml-2" />
+      </Link>
     )}
-  </Flex>
+  </div>
 );
 
 export default PostLinks;

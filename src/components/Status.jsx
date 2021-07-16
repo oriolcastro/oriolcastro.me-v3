@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/** @jsx jsx */
+import React from 'react';
+
 import { graphql, useStaticQuery } from 'gatsby';
 
 import name from 'emoji-name-map';
-import { Card, Grid, jsx, Styled, Text } from 'theme-ui';
 
 import Emoji from './Emoji';
 
@@ -31,33 +30,42 @@ const Status = () => {
   `);
 
   const unicodeEmoji = name.get(emoji);
-  const statusStyle = isHireable ? { border: '1px solid', borderColor: 'accent' } : {};
   return (
-    <Grid gap={5} columns={[1, '1fr 1fr']} sx={{ mb: 5 }}>
-      <Card variant="status" sx={statusStyle}>
-        <Text sx={{ color: 'lightText', fontSize: 1, mb: 2 }}>Job status</Text>
+    <div className="grid gap-8 grid-cols-1 mb-8 lg:grid-cols-2">
+      <div
+        className={`bg-cardBackground shadow p-4 rounded-lg ${
+          isHireable ? 'border-solid border border-accent' : ''
+        }`}
+      >
+        <p className="text-lightText text-base mb-2">Job status</p>
         {isHireable ? (
-          <Text sx={{ fontWeight: 700 }}>
+          <p className="font-bold">
             <Emoji symbol="🔍" />
             Looking for my new challenge!
-          </Text>
+          </p>
         ) : (
-          <Text>
-            Working as a front-end developer at{' '}
-            <Styled.a href="https://immfly.com/" target="_blank" rel="nofollow noopener noreferrer">
+          <p>
+            Working as a front-end developer at
+            <a
+              className="no-underline text-primary"
+              href="https://immfly.com/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >
+              {' '}
               {company}
-            </Styled.a>
-          </Text>
+            </a>
+          </p>
         )}
-      </Card>
-      <Card variant="status">
-        <Text sx={{ color: 'lightText', fontSize: 1, mb: 2 }}>Interests status</Text>
-        <Text>
+      </div>
+      <div className="bg-cardBackground shadow p-4 rounded-lg">
+        <p className="text-lightText text-base mb-2">Interests status</p>
+        <p>
           <Emoji symbol={unicodeEmoji} />
           {message}
-        </Text>
-      </Card>
-    </Grid>
+        </p>
+      </div>
+    </div>
   );
 };
 

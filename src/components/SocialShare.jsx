@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { FaShareAlt } from 'react-icons/fa';
-
-import { Button, Flex, jsx } from 'theme-ui';
 
 const SocialShare = ({ title, url }) => {
   const hasNativeShare = typeof window !== 'undefined' && navigator.share;
@@ -18,12 +15,16 @@ const SocialShare = ({ title, url }) => {
 
   if (!hasNativeShare) return null;
   return (
-    <Flex sx={{ marginBottom: 5, justifyContent: 'center' }}>
-      <Button variant="secondary" onClick={handleShare}>
-        <FaShareAlt sx={{ verticalAlign: 'text-top', fontSize: '1.25rem', mr: 2 }} />
+    <div className="flex mb-8 justify-center">
+      <button
+        type="button"
+        className="bg-text text-cardBackground rounded-lg border-solid border border-transparent cursor-pointer hover:opacity-70"
+        onClick={handleShare}
+      >
+        <FaShareAlt className="align-text-top text-xl mr-2" />
         Share this post
-      </Button>
-    </Flex>
+      </button>
+    </div>
   );
 };
 

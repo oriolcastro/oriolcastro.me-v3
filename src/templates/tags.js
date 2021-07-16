@@ -1,15 +1,9 @@
-/** @jsx jsx */
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 
 import { graphql, Link } from 'gatsby';
 
-import { Heading, jsx, Styled } from 'theme-ui';
-
 import Layout from '@components/Layout';
-
-const Ul = Styled.ul;
-const Li = Styled.li;
 
 const TagRoute = ({ data, pageContext: { tag } }) => {
   const {
@@ -28,19 +22,17 @@ const TagRoute = ({ data, pageContext: { tag } }) => {
       <Helmet>
         <title>{`${tag} | ${title}`}</title>
       </Helmet>
-      <Heading as="h2" sx={{ mb: 4 }}>
-        {tagHeader}
-      </Heading>
-      <Ul>
+      <h2 className="mb-6">{tagHeader}</h2>
+      <ul>
         {posts.map((post) => (
-          <Li key={post.node.fields.slug}>
+          <li key={post.node.fields.slug}>
             <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-          </Li>
+          </li>
         ))}
-      </Ul>
-      <Styled.a as={Link} to="/tags">
+      </ul>
+      <Link className="no-underline text-primary" to="/tags">
         Explore all categories
-      </Styled.a>
+      </Link>
     </Layout>
   );
 };

@@ -1,15 +1,11 @@
-/** @jsx jsx */
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { graphql, Link } from 'gatsby';
 
 import { kebabCase } from 'lodash';
-import { Heading, jsx, Styled } from 'theme-ui';
 
 import Layout from '@components/Layout';
-
-const Ul = Styled.ul;
-const Li = Styled.li;
 
 const TagsPage = ({
   data: {
@@ -23,18 +19,16 @@ const TagsPage = ({
     <Helmet>
       <title>{`Tags | ${title}`}</title>
     </Helmet>
-    <Heading as="h1" sx={{ mb: 4 }}>
-      Tags
-    </Heading>
-    <Ul>
+    <h1 className="mb-6">Tags</h1>
+    <ul>
       {group.map((tag) => (
-        <Li key={tag.fieldValue}>
+        <li key={tag.fieldValue}>
           <Link to={`/tags/${kebabCase(tag.fieldValue)}`}>
             {`${tag.fieldValue} (${tag.totalCount})`}
           </Link>
-        </Li>
+        </li>
       ))}
-    </Ul>
+    </ul>
   </Layout>
 );
 

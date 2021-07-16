@@ -1,9 +1,7 @@
-/** @jsx jsx */
+import React from 'react';
 import { FaFilePdf } from 'react-icons/fa';
 
 import { graphql, useStaticQuery } from 'gatsby';
-
-import { Button, Flex, Heading, jsx } from 'theme-ui';
 
 const CVButtons = () => {
   const data = useStaticQuery(graphql`
@@ -15,21 +13,18 @@ const CVButtons = () => {
   `);
 
   return (
-    <div sx={{ py: 3 }}>
-      <Heading as="h4" sx={{ mb: 3 }}>
-        Download my resume
-      </Heading>
-      <Flex sx={{ flexWrap: 'wrap', justifyContent: 'flex-start' }}>
-        <Button
-          as="a"
+    <div className="py-4">
+      <h4 className="mb-4 font-bold text-lg">Download my resume</h4>
+      <div className="flex flex-wrap justify-start">
+        <a
+          className="flex justify-center items-center p-4 mr-0 mb-4 w-full !text-background bg-primary rounded-lg cursor-pointer hover:opacity-70 lg:mr-4 lg:w-auto"
           download
           href={data?.myCV?.publicURL}
-          sx={{ width: ['100%', 'auto'], mr: [0, 3], mb: 3 }}
         >
-          <FaFilePdf sx={{ size: '1.15em', mr: 2, verticalAlign: 'text-top' }} />
+          <FaFilePdf className="w-5 mr-2 align-top" />
           Resume
-        </Button>
-      </Flex>
+        </a>
+      </div>
     </div>
   );
 };

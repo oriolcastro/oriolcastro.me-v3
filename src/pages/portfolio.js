@@ -1,8 +1,7 @@
-/** @jsx jsx */
+import React from 'react';
+
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-
-import { Box, Grid, Heading, jsx, Styled, Text } from 'theme-ui';
 
 import CVButtons from '@components/CVButtons';
 import GithubCard from '@components/GithubCard';
@@ -22,43 +21,43 @@ const PortfolioPage = ({ data, path }) => {
         image={data.file.childImageSharp.original.src}
       />
       <GatsbyImage image={HeroImage} />
-      <Box sx={{ py: 4 }}>
-        <Heading as="h1" sx={{ mb: 5 }}>
-          Projects
-        </Heading>
-        <Text sx={{ whiteSpace: 'pre-line' }}>
+      <div className="py-6">
+        <h1 className="mb-8 text-4xl font-bold">Projects</h1>
+        <p className="whitespace-pre-line text-base">
           If you want to know how do I code, check out my latest projects!
           {'\n'}
           All the code is publicly available in my Github profile, you can also see a hosted demo of
           some of them. If you want to read a more in deep explanation you can go to the
-          <Styled.a as={Link} to="/blog">
+          <Link className="no-underline text-primary" to="/blog">
             {' blog '}
-          </Styled.a>
+          </Link>
           section or the
-          <Styled.a
+          <a
             href="https://www.okstudio.tech/projectes"
             target="_blank"
             rel="nofollow noopener noreferrer"
+            className="no-underline text-primary"
           >
             {' projects '}
-          </Styled.a>
+          </a>
           and
-          <Styled.a
+          <a
             href="https://www.okstudio.tech/lab"
             target="_blank"
             rel="nofollow noopener noreferrer"
+            className="no-underline text-primary"
           >
             {' The LAB '}
-          </Styled.a>
+          </a>
           sections of my (currently on hiatus) freelancing job website, Ok! Studio
-        </Text>
-        <Grid gap={[4, 5]} columns={[1, 2]} sx={{ py: 3 }}>
+        </p>
+        <div className="grid gap-6 grid-cols-1 py-4 lg:gap-8 lg:grid-cols-2">
           {repos.map(({ node: repo }) => (
             <GithubCard key={repo.id} repo={repo} />
           ))}
-        </Grid>
+        </div>
         <CVButtons />
-      </Box>
+      </div>
     </Layout>
   );
 };

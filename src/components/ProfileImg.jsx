@@ -1,19 +1,11 @@
-/** @jsx jsx */
+import React from 'react';
 
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { jsx } from 'theme-ui';
+import styles from './ProfileImg.module.css';
 
 const ProfileImg = () => (
-  <div
-    style={{ position: 'relative' }}
-    css={{
-      position: 'relative',
-      '.gatsby-image-wrapper': {
-        clipPath: 'url(#hexagon)',
-      },
-    }}
-  >
+  <div className={`relative ${styles}`}>
     <StaticImage
       src="../../content/assets/me.jpg"
       placeholder="TRACED_SVG"
@@ -25,15 +17,8 @@ const ProfileImg = () => (
     <svg
       viewBox="0 0 483.013 483.013"
       preserveAspectRatio="xMidYMid meet"
-      sx={{
-        position: 'absolute',
-        top: 0,
-        fill: 'transparent',
-        strokeWidth: '4px',
-        stroke: 'accent',
-        transform: 'scale(1.005)',
-        overflow: 'initial',
-      }}
+      className="absolute top-0  stroke-2 scale-105"
+      style={{ fill: 'transparent', overflow: 'initial' }}
     >
       <path
         d="M477.043,219.205L378.575,48.677c-7.974-13.802-22.683-22.292-38.607-22.292H143.041c-15.923,0-30.628,8.49-38.608,22.292

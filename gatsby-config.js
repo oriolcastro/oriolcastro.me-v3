@@ -13,17 +13,18 @@ module.exports = {
     QUERY_ON_DEMAND: true,
     LAZY_IMAGES: true,
     FAST_REFRESH: true,
+    PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-catch-links',
     'gatsby-remark-images',
-    'gatsby-plugin-theme-ui',
     'gatsby-plugin-mdx-embed',
     `gatsby-plugin-preload-fonts`,
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {

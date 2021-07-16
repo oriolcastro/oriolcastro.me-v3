@@ -10,7 +10,6 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { MDXProvider } from '@mdx-js/react';
 import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
-import { Badge, Box, Heading, Text } from 'theme-ui';
 
 import CodeBlock from '@components/CodeBlock';
 import Layout from '@components/Layout';
@@ -34,24 +33,33 @@ const BlogTemplate = ({ data, pageContext }) => {
       {frontmatter.coverImg && (
         <GatsbyImage image={frontmatter.coverImg.childImageSharp.gatsbyImageData} />
       )}
-      <Box sx={{ py: 4 }}>
-        <Heading as="h1">{frontmatter.title}</Heading>
-        <Text variant="blogDescription">{frontmatter.description}</Text>
-        <MDXProvider components={shortcodes}>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
-      </Box>
+      <div className="py-6">
+        <h1 className="font-bold text-4xl">{frontmatter.title}</h1>
+        <p
+          className="text-lg my-6 px-2 border-l border-accent text-justify italic"
+          variant="blogDescription"
+        >
+          {frontmatter.description}
+        </p>
+        <div className="prose lg:prose-lg max-w-none">
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer>{body}</MDXRenderer>
+          </MDXProvider>
+        </div>
+      </div>
       {frontmatter.tags?.length && (
-        <Box mb={5}>
-          <Heading as="h4" mb={3}>
-            Tags
-          </Heading>
+        <div className="mb-8">
+          <h4 className="mb-4 font-bold text-lg">Tags</h4>
           {frontmatter.tags.map((tag) => (
-            <Badge variant="light" as={Link} to={`/tags/${kebabCase(tag)}/`} key={tag}>
+            <Link
+              className="text-lightText bg-muted font-normal rounded p-1 m-1"
+              to={`/tags/${kebabCase(tag)}/`}
+              key={tag}
+            >
               {tag}
-            </Badge>
+            </Link>
           ))}
-        </Box>
+        </div>
       )}
       <Profile />
       <SocialShare url={url} title={frontmatter.title} tags={frontmatter.tags} />

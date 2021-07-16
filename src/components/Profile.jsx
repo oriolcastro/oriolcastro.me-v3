@@ -1,9 +1,7 @@
-/** @jsx jsx */
+import React from 'react';
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 import { graphql, useStaticQuery } from 'gatsby';
-
-import { Box, Flex, Grid, Heading, IconButton, jsx, Text } from 'theme-ui';
 
 import ProfileImg from './ProfileImg';
 
@@ -48,28 +46,32 @@ const Profile = () => {
   `);
 
   return (
-    <Grid gap={[2, 4]} columns={['1fr 4fr', '1fr 6fr']} sx={{ mb: 4 }}>
-      <Box sx={{ py: 3 }}>
+    <div className="grid gap-2 grid-cols-OneFour mb-6 lg:gap-6 lg:grid-cols-OneSix">
+      <div className="py-4">
         <ProfileImg profileImage={profileImage} />
-      </Box>
-      <Flex sx={{ py: 3, px: [0, 4], flexDirection: 'column' }}>
-        <Heading as="h4" sx={{ display: ['none', 'block'] }}>
-          Oriol Castro
-        </Heading>
-        <Box sx={{ mb: 2 }}>
-          <Text sx={{ fontSize: [0, 1] }}>
+      </div>
+      <div className="flex py-4 px-0 flex-col lg:px-6">
+        <h4 className="hidden font-bold text-lg lg:block">Oriol Castro</h4>
+        <div className="mb-2">
+          <p className="text-sm lg:text-base">
             A self-taught front-end developer and a technology enthusiast from Barcelona.
-          </Text>
-        </Box>
-        <Box sx={{ justifyContent: ['', 'start'], display: ['none', 'flex'] }}>
+          </p>
+        </div>
+        <div className="hidden lg:flex lg:justify-start ">
           {LINKS.map((link) => (
-            <a key={link.name} href={link.href} target="_blank" rel="nofollow noopener noreferrer">
-              <IconButton>{link.icon}</IconButton>
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className="mr-2 inline-flex items-center justify-center p-1 w-8 h-8 bg-transparent rounded-full border border-solid text-primary text-base cursor-pointer"
+            >
+              {link.icon}
             </a>
           ))}
-        </Box>
-      </Flex>
-    </Grid>
+        </div>
+      </div>
+    </div>
   );
 };
 

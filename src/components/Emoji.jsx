@@ -3,12 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Emoji = ({ label, symbol }) => (
-  <span
-    style={{ marginRight: '4px' }}
-    role="img"
-    aria-label={label || ''}
-    aria-hidden={label ? 'false' : 'true'}
-  >
+  <span className="mr-1" role="img" aria-label={label || ''} aria-hidden={label ? 'false' : 'true'}>
     {symbol}
   </span>
 );

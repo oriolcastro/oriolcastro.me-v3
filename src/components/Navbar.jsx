@@ -1,34 +1,37 @@
-/** @jsx jsx */
-import { Link } from 'gatsby';
+import React from 'react';
 
-import { Box, Container, Flex, jsx, NavLink } from 'theme-ui';
+import { Link } from 'gatsby';
 
 import ThemeSwitch from './ThemeSwitch';
 
 const Navbar = () => (
-  <Container sx={{ mb: 4 }}>
-    <Flex as="nav" sx={{ padding: 3, alignItems: 'center' }}>
-      <Box sx={{ flex: 1 }}>
-        <NavLink as={Link} variant="logo" to="/">
+  <div className="container mb-5">
+    <nav className="flex p-4 items-center">
+      <div className="flex-1">
+        <Link
+          className="text-xl font-light tracking-wide font-heading font lg:text-3xl"
+          variant="logo"
+          to="/"
+        >
           Oriol
-        </NavLink>
-      </Box>
-      <Flex>
-        <NavLink as={Link} to="/portfolio">
+        </Link>
+      </div>
+      <div className="flex">
+        <Link className="mx-2 block text-sm hover:text-secondary lg:text-lg" to="/portfolio">
           Projects
-        </NavLink>
-        <NavLink as={Link} to="/about">
+        </Link>
+        <Link className="mx-2 block text-sm hover:text-secondary lg:text-lg" to="/about">
           About
-        </NavLink>
-        <NavLink as={Link} to="/blog">
+        </Link>
+        <Link className="mx-2 block text-sm hover:text-secondary lg:text-lg" to="/blog">
           Blog
-        </NavLink>
-      </Flex>
-      <Box sx={{ mx: 2 }}>
+        </Link>
+      </div>
+      <div className="mx-2">
         <ThemeSwitch />
-      </Box>
-    </Flex>
-  </Container>
+      </div>
+    </nav>
+  </div>
 );
 
 export default Navbar;

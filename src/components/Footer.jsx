@@ -1,51 +1,57 @@
-/** @jsx jsx */
+import React from 'react';
 import { FaCode, FaHeart } from 'react-icons/fa';
 
-import { Box, Container, jsx, Styled } from 'theme-ui';
-
 const Footer = () => (
-  <Container
-    sx={{
-      my: [3, 5],
-      px: 3,
-    }}
-  >
-    <Box
-      sx={{
-        borderTop: 'solid 1px',
-        borderColor: 'accent',
-        fontSize: 1,
-        py: 2,
-        width: 'auto',
-      }}
-    >
-      {'Made with '}
-      <span css={{ verticalAlign: 'middle' }}>
-        <FaHeart sx={{ color: 'red' }} />
-      </span>
-      {' in Vilanova i la Geltrú.'}
-      <br />
-      <span css={{ verticalAlign: 'middle' }}>
-        <FaCode sx={{ color: 'accent' }} />
-      </span>
-      {' using '}
-      <Styled.a href="https://www.gatsbyjs.org/" target="_blank" rel="nofollow noopener noreferrer">
-        Gatsby
-      </Styled.a>
-      {' and '}
-      <Styled.a href="https://reactjs.org/" target="_blank" rel="nofollow noopener noreferrer">
-        React
-      </Styled.a>
-      {', styled with '}
-      <Styled.a href="https://theme-ui.com/" target="_blank" rel="nofollow noopener noreferrer">
-        Theme UI
-      </Styled.a>
-      {' and delivered by '}
-      <Styled.a href="https://www.netlify.com/" target="_blank" rel="nofollow noopener noreferrer">
-        Netlify.
-      </Styled.a>
-    </Box>
-  </Container>
+  <div className="container my-4 lg:my-8">
+    <div className="border-t-2 border-solid border-accent text-base py-2 w-auto">
+      <p>
+        {'Made with '}
+        <span>
+          <FaHeart className="text-red inline" />
+        </span>
+        {' in Vilanova i la Geltrú. '}
+        <span>
+          <FaCode className="text-accent inline" />
+        </span>
+        {' using '}
+        <a
+          className="no-underline text-primary"
+          href="https://www.gatsbyjs.org/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          Gatsby
+        </a>
+        {' and '}
+        <a
+          className="no-underline text-primary"
+          href="https://reactjs.org/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          React
+        </a>
+        {', styled with '}
+        <a
+          className="no-underline text-primary"
+          href="https://theme-ui.com/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          Theme UI
+        </a>
+        {' and delivered by '}
+        <a
+          className="no-underline text-primary"
+          href="https://www.netlify.com/"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          Netlify.
+        </a>
+      </p>
+    </div>
+  </div>
 );
 
 export default Footer;

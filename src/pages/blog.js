@@ -1,7 +1,6 @@
-/** @jsx jsx */
-import { graphql } from 'gatsby';
+import React from 'react';
 
-import { Grid, Heading, jsx } from 'theme-ui';
+import { graphql } from 'gatsby';
 
 import Layout from '@components/Layout';
 import PostCard from '@components/PostCard';
@@ -13,14 +12,12 @@ const BlogPage = ({ data, path }) => {
   return (
     <Layout>
       <SEO title="Latest articles" description="Latest articles in my blog" pathname={path} />
-      <Heading as="h1" sx={{ mb: 5 }}>
-        Blog
-      </Heading>
-      <Grid gap={[4, 5]} columns={1} sx={{ py: 3 }}>
+      <h1 className="mb-8 font-bold text-4xl">Blog</h1>
+      <div className="grid gap-6 grid-cols-1 py-4 lg:gap-8 lg:grid-cols-2">
         {posts.map(({ node: post }) => (
           <PostCard key={post.id} post={post} />
         ))}
-      </Grid>
+      </div>
     </Layout>
   );
 };

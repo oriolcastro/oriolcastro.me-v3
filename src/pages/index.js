@@ -1,8 +1,8 @@
-/** @jsx jsx */
+import React from 'react';
+
 import { graphql } from 'gatsby';
 
 import PropTypes from 'prop-types';
-import { Box, Grid, Heading, jsx } from 'theme-ui';
 
 import Hero from '@components/Hero';
 import Layout from '@components/Layout';
@@ -21,16 +21,14 @@ const IndexPage = ({ data }) => {
       <Status />
       <Timeline />
       {posts.length ? (
-        <Box sx={{ py: 4 }}>
-          <Heading as="h2" sx={{ marginBottom: 4 }}>
-            Featured articles
-          </Heading>
-          <Grid gap={[4, 5]} columns={[1, 2]} sx={{ py: 3 }}>
+        <div className="py-6">
+          <h2 className="mb-8">Featured articles</h2>
+          <div className="grid gap-6 grid-cols-1 py-4 lg:gap-8 lg:grid-cols-2">
             {posts.map(({ node: post }) => (
               <PostCard key={post.id} post={post} />
             ))}
-          </Grid>
-        </Box>
+          </div>
+        </div>
       ) : null}
     </Layout>
   );
